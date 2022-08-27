@@ -1,5 +1,5 @@
 import { useEffect } from "react";
-import { useLocation } from "react-router-dom";
+import { useLocation, useNavigate } from "react-router-dom";
 import QueryString from "query-string";
 import axios from "axios";
 
@@ -7,6 +7,7 @@ const AuthLoadingPage = () => {
   const location = useLocation();
   const { search } = useLocation();
   const query = QueryString.parse(search);
+  const navigate = useNavigate();
 
   console.log(query);
 
@@ -17,13 +18,25 @@ const AuthLoadingPage = () => {
 
   const request = async (code) => {
     try {
-      const data = await axios.post("http://10.80.161.190:8080/auth/code", {
+      const { data } = await axios.post("http://10.80.161.222:8080/auth/code", {
         code,
       });
-      console.log(data);
+      localStorage.setItem("access_token", data.data.accessToken);
+      localStorage.setItem("refresh_token", data.data.refreshToken);
+      navigate("/");
     } catch (error) {
       console.log(error);
     }
+  };
+
+  const checkOut = async () => {
+    const response = await axios.post("http://10.80.161.222:8080/auth/", {
+      Headers: {
+        access_token: localStorage.getItem("access_token"),
+      },
+    });
+
+    console.log(response);
   };
 
   useEffect(() => {
@@ -31,6 +44,7 @@ const AuthLoadingPage = () => {
       request(query.code);
     }
   }, [query]);
+
   return <div>authLoadingPage</div>;
 };
 
