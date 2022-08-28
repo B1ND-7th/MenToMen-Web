@@ -18,7 +18,7 @@ const AuthLoadingPage = () => {
 
   const request = async (code) => {
     try {
-      const { data } = await axios.post("http://10.80.161.222:8080/auth/code", {
+      const { data } = await axios.post("http://10.80.162.200:8080/auth/code", {
         code,
       });
       localStorage.setItem("access_token", data.data.accessToken);
@@ -30,7 +30,7 @@ const AuthLoadingPage = () => {
   };
 
   const checkOut = async () => {
-    const response = await axios.post("http://10.80.161.222:8080/auth/", {
+    const response = await axios.post("http://10.80.162.200:8080/auth/", {
       Headers: {
         access_token: localStorage.getItem("access_token"),
       },

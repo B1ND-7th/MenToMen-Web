@@ -4,7 +4,7 @@ import axios from "axios";
 function Auth() {
   const [url, setUrl] = useState("");
   const request = async () => {
-    const { data } = await axios.get(`http://10.80.162.60:8080/auth/url`);
+    const { data } = await axios.get(`http://10.80.162.200:8080/auth/url`);
     setUrl(data.url);
     console.log(data);
   };
