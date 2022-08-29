@@ -2,32 +2,29 @@
     margin: 0;
 }
 
-.SectionText {
+.sectionText {
     display: flex;
     flex-direction: column;
-    margin-left: 220px;
-    margin-top: 150px;
+    margin: 150px 0 0 220px;
     color: #29275C;
 }
 
-.SectionText h1 {
+.sectionText h1 {
     font-size: 40px;
     margin-bottom: 90px;
 }
 
-.SectionText h3 {
+.sectionText h3 {
     font-size: 20px;
 }
 
 .iosimg {
     width: 482px;
     display: flex;
-    margin-left: 1000px;
-    margin-top: -274px;
+    margin: -274px 0 0 1000px
 }
 
 
 .btn {
-    margin-top: -150px;
-    margin-left: 220px;
+    margin: -150px 0 0 220px;
 }

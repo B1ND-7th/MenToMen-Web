@@ -1,14 +1,11 @@
 
 import "./App.css";
-// import Startnav from "./components/Nav/startnav";
-// import Button from "./components/Button/Button";
-import Startpage from "./components/Startpage/Startpage";
+import StartPage from "./components/StartPage/StartPage";
 
 function App() {
   return <div className="App">
-    {/* <Startnav /> */}
-    {/* <Button /> */}
-    <Startpage />
+
+    <StartPage />
 
 
   </div>;

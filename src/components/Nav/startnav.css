@@ -14,13 +14,11 @@
 .logo {
     width: 121px;
     height: 40px;
-    margin-top: 8px;
-    margin-left: -150px;
+    margin: 8px 0 0 -150px;
 }
 
 .navList h1 {
-    margin-top: 18px;
-    margin-left: 550px;
+    margin: 18px 0 0 550px;
     color: #29275C;
     font-size: 16px;
 }

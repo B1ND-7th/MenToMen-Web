@@ -1,5 +1,5 @@
 import React from 'react'
-import "./startnav.css";
+import "./StartNav.css";
 import logo from "../../img/Logo.png";
 
 export default function startNav() {

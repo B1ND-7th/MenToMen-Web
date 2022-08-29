@@ -1,21 +1,21 @@
 import React from 'react'
-import Startnav from '../Nav/startnav'
-import "./Startpage.css";
+import StartNav from '../Nav/StartNav'
+import "./StartPage.css";
 import IOSimg from "../../img/IOSimg.png";
 import Button from "../Button/Button";
 
-export default function Startpage() {
+export default function startPage() {
     return (
         <>
-            <Startnav />
+            <StartNav />
             <section className='top'>
 
-                <div className='SectionText'>
+                <div className='sectionText'>
                     <h1>멘토 멘티 찾기 서비스<br />멘투멘을 만나보세요</h1>
                     <h3>멘투멘은 멘토와 멘티를 서로 이어주는 서비스 입니다</h3>
                 </div>
 
-                <div className='Iosimg'>
+                <div className='iosImgContainer'>
                     <img className='iosimg' alt='' src={IOSimg} />
                 </div>
 
