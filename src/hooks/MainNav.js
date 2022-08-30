@@ -1,18 +1,16 @@
-import axios from "axios";
 import React, { useCallback, useEffect } from "react";
 import { useNavigate } from "react-router-dom";
+import { customAxios } from "../lib/axios/customAxios";
 
 function Nav() {
   let navigate = useNavigate();
 
   const request = async () => {
     try {
-      await axios.get("http://10.80.162.200:8080/user/my", {
-        headers: {
-          Authorization: `Bearer ${localStorage.getItem("access_token")}`,
-        },
-      });
+      await customAxios.get("/user/my");
     } catch (error) {
+      // localStorage.removeItem("access_token");
+      // localStorage.removeItem("refresh_token");
       navigate("/auth");
     }
   };
