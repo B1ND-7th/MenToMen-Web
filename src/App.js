@@ -1,9 +1,10 @@
 import "./App.css";
-import StartPage from "./components/StartPage/StartPage";
+// import StartPage from "./components/StartPage/StartPage";
+import StartPage from "./components/StartPage/StartPage"
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 import AuthPage from "./page/AuthPage";
 import AuthLoadingPage from "./page/AuthLoadingPage";
-import StartNav from "./components/Nav/StartNav";
+// import StartNav from "./components/Nav/StartNav";
 
 function App() {
   return (
