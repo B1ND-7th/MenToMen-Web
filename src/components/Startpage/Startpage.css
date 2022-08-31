@@ -1,30 +1,30 @@
 * {
-    margin: 0;
+  margin: 0;
 }
 
 .sectionText {
-    display: flex;
-    flex-direction: column;
-    margin: 150px 0 0 220px;
-    color: #29275C;
+  display: flex;
+  flex-direction: column;
+  margin: 150px 0 0 220px;
+  color: #29275c;
+  font-family: "Pretendard";
 }
 
 .sectionText h1 {
-    font-size: 40px;
-    margin-bottom: 90px;
+  font-size: 40px;
+  margin-bottom: 90px;
 }
 
 .sectionText h3 {
-    font-size: 20px;
+  font-size: 20px;
 }
 
 .iosimg {
-    width: 482px;
-    display: flex;
-    margin: -274px 0 0 1000px
+  width: 482px;
+  display: flex;
+  margin: -274px 0 0 1000px;
 }
 
-
 .btn {
-    margin: -150px 0 0 220px;
+  margin: -150px 0 0 220px;
 }

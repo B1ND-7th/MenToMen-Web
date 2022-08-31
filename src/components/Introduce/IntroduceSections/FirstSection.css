@@ -1,0 +1,15 @@
+.firstSection {
+  width: 100%;
+  height: 100vh;
+  background-image: url(../../../img/BackImg.png);
+  display: flex;
+  justify-content: center;
+}
+
+.firstSectionTitle {
+  font-family: "Pretendard";
+  font-style: normal;
+  font-weight: 700;
+  font-size: 62px;
+  margin-top: 300px;
+}

@@ -1,14 +1,19 @@
 import React from "react";
 import "./Introduce.css";
-import IOStest from "../../img/IOStest.png";
-import BackImg from "../../img/BackImg.png";
-import { useNavigate } from "react-router-dom";
+// import IOStest from "../../img/IOStest.png";
+// import BackImg from "../../img/BackImg.png";
+// import { useNavigate } from "react-router-dom";
+import FirstSection from "./IntroduceSections/FirstSection";
+import SecondSection from "./IntroduceSections/SecondSection";
+import ThirdSection from "./IntroduceSections/ThirdSections";
 function Introduce() {
-  let navigate = useNavigate();
   return (
     <>
-      <div className="Introduce">
-        <img className="BackImg" alt=" " src={BackImg} />
+      <div className="introduce">
+        <FirstSection />
+        <SecondSection />
+        <ThirdSection />
+        {/* <img className="BackImg" alt=" " src={BackImg} />
         <h1 className="Title">멘토와 멘티를 이어주다.</h1>
         <p className="Text">
           내가 프로젝트를 하면서 막혔던 것을 멘토에게 질문해보세요.
@@ -28,7 +33,7 @@ function Introduce() {
           }}
         >
           <h1>멘투멘 시작하기</h1>
-        </button>
+        </button> */}
       </div>
     </>
   );

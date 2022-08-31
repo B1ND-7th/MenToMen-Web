@@ -1,3 +1,11 @@
+.introduce {
+  width: 100%;
+  height: 3236px;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+}
+
 .BackImg {
   width: 1878px;
   height: 1080px;
@@ -43,7 +51,7 @@
 
 .Text1 {
   position: absolute;
-  width: 148px;
+  width: 168px;
   height: 90px;
   left: 309px;
   top: 2472px;
@@ -51,7 +59,7 @@
   font-family: "Pretendard";
   font-style: normal;
   font-weight: 700;
-  font-size: 40px;
+  font-size: 41px;
   line-height: 90px;
   /* identical to box height, or 225% */
 
@@ -68,7 +76,7 @@
   font-family: "Pretendard";
   font-style: normal;
   font-weight: 600;
-  font-size: 50px;
+  font-size: 35px;
   line-height: 90px;
   /* or 180% */
 
