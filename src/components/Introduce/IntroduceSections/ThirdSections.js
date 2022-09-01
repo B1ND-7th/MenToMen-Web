@@ -12,7 +12,13 @@ const ThirdSection = () => {
         </div>
         <img className="thirdSectionImg" src={IOStest} />
       </div>
-      <button className="thirdSectionBtn">
+      <button
+        onClick={() => {
+          window.location =
+            "http://dauth.b1nd.com/login?client_id=39bc523458c14eb987b7b16175426a31a9f105b7f5814f1f9eca7d454bd23c73&redirect_uri=http://localhost:3000/callback";
+        }}
+        className="thirdSectionBtn"
+      >
         <h1>멘투멘 시작하기</h1>
       </button>
     </div>

@@ -5,26 +5,32 @@
 .sectionText {
   display: flex;
   flex-direction: column;
-  margin: 150px 0 0 220px;
+  margin: 150px 0 0 260px;
+  line-height: 90px;
+
   color: #29275c;
   font-family: "Pretendard";
 }
 
+.logo {
+  cursor: pointer;
+}
+
 .sectionText h1 {
-  font-size: 40px;
+  font-size: 60px;
   margin-bottom: 90px;
 }
 
 .sectionText h3 {
-  font-size: 20px;
+  font-size: 32px;
 }
 
 .iosimg {
   width: 482px;
   display: flex;
-  margin: -274px 0 0 1000px;
+  margin: -390px 0 0 1100px;
 }
 
 .btn {
-  margin: -150px 0 0 220px;
+  margin: -150px 0 0 260px;
 }
