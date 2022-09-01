@@ -1,6 +1,9 @@
 import IOStest from "../../../img/IOStest.png";
 import "./ThirdSections.css";
 const ThirdSection = () => {
+  let authUrl =
+    "http://dauth.b1nd.com/login?client_id=39bc523458c14eb987b7b16175426a31a9f105b7f5814f1f9eca7d454bd23c73&redirect_uri=http://localhost:3000/callback";
+
   return (
     <div className="thirdSection">
       <div className="thirdSectionWrap">
@@ -14,8 +17,7 @@ const ThirdSection = () => {
       </div>
       <button
         onClick={() => {
-          window.location =
-            "http://dauth.b1nd.com/login?client_id=39bc523458c14eb987b7b16175426a31a9f105b7f5814f1f9eca7d454bd23c73&redirect_uri=http://localhost:3000/callback";
+          window.location = authUrl;
         }}
         className="thirdSectionBtn"
       >

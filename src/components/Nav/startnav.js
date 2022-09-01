@@ -4,7 +4,7 @@ import logo from "../../img/Logo.png";
 import { useNavigate } from "react-router-dom";
 
 function StartNav() {
-  let navigate = useNavigate();
+  const navigate = useNavigate();
   return (
     <nav className="test">
       <div className="nav">

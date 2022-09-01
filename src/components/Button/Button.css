@@ -1,7 +1,7 @@
 .startBtn {
   background-color: #2745f2;
-  border: 0;
-  outline: 0;
+  border: none;
+  outline: none;
   width: 220px;
   height: 70px;
   color: white;
