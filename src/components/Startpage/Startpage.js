@@ -1,10 +1,24 @@
-import React from "react";
+import React, { useEffect } from "react";
 import StartNav from "../Nav/StartNav";
 import "./StartPage.css";
 import IOSimg from "../../img/IOSimg.png";
 import Button from "../Button/Button";
 import IOStest from "../../img/IOStest.png";
-export default function startPage() {
+import { useNavigate } from "react-router-dom";
+import { customAxios } from "../../lib/axios/customAxios";
+
+function StartPage() {
+  let navigate = useNavigate();
+  const request = async () => {
+    try {
+      await customAxios.get("/user/my");
+    } catch (error) {
+      navigate("/");
+    }
+  };
+  useEffect(() => {
+    request();
+  }, []);
   return (
     <>
       <StartNav />
@@ -30,3 +44,4 @@ export default function startPage() {
     </>
   );
 }
+export default StartPage;
