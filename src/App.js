@@ -1,4 +1,5 @@
 import "./App.css";
+// import StartPage from "./components/StartPage/StartPage";
 import StartPage from "./components/StartPage/StartPage";
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 import AuthPage from "./page/AuthPage";
@@ -9,6 +10,8 @@ import Input from "./components/Input/Input";
 import Inputpage from "./page/Inputpage/Inputpage";
 import "./color.css";
 import LastButton from "./components/Button/LastButton/LastButton";
+import Introduce from "./components/Introduce/Introduce";
+// import StartNav from "./components/Nav/StartNav";
 
 function App() {
   return (
@@ -16,6 +19,7 @@ function App() {
       <BrowserRouter>
         <Routes>
           <Route path="/" element={<StartPage />} />
+          <Route path="/introduce" element={<Introduce />} />
           <Route path="/auth" element={<AuthPage />} />
           <Route path="/callback" element={<AuthLoadingPage />} />
         </Routes>
