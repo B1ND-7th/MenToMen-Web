@@ -10,9 +10,10 @@ const PLATFORM = [
 ]
 
 
-const Select = () => {
-    const [select, setSelect] = useState('Design')
-
+const Select = ({
+    select,
+    setSelect
+}) => {
     return (
         <div>
             <div className='SelectBox'>

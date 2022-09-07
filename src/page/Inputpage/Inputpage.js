@@ -1,16 +1,23 @@
-import React from 'react'
+import React, { useEffect, useState } from 'react'
 import File from "../../components/File/File";
 import Nav from "../../components/Nav/StartNav";
 import Input from '../../components/Input/Input';
-import "../Inputpage/Inputpage.css";
+import "./Inputpage.css";
 import Select from "../../components/Select/Select";
 import LastButton from '../../components/Button/LastButton/LastButton';
 
 
 export default function Inputpage() {
+    const [select, setSelect] = useState("Design");
+
+
+    useEffect(() => {
+        console.log(select);
+
+    }, [select])
+
     return (
         <div>
-
             <div className='Navbar'>
                 <Nav />
             </div>
@@ -31,7 +38,7 @@ export default function Inputpage() {
             </div>
 
             <div className='Select'>
-                <Select />
+                <Select select={select} setSelect={setSelect} />
             </div>
 
             <div className='LastButton'>

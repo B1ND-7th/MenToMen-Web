@@ -7,6 +7,9 @@ function Input() {
         setTextValue(e.target.value);
     };
 
+
+
+
     return (
         <div className='input'>
             <div>

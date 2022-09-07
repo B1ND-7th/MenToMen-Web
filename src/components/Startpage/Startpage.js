@@ -1,8 +1,7 @@
 import React, { useEffect } from "react";
 import StartNav from "../Nav/StartNav";
 import "./StartPage.css";
-import IOSimg from "../../img/IOSimg.png";
-import Button from "../Button/Button";
+import Button from "../Button/Button/Button";
 import IOStest from "../../img/IOStest.png";
 import { useNavigate } from "react-router-dom";
 import { customAxios } from "../../lib/axios/customAxios";

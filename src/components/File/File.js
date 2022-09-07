@@ -2,14 +2,13 @@ import React from "react";
 import "./File.css";
 import { useState, useRef } from "react";
 
-const Prac = (props) => {
+const Prac = () => {
     const [imageUrl, setImageUrl] = useState(null);
     const imgRef = useRef();
 
     const onChangeImage = () => {
         const reader = new FileReader();
         const file = imgRef.current.files[0];
-        console.log(file);
 
         reader.readAsDataURL(file);
         reader.onloadend = () => {
