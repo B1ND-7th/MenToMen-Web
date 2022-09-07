@@ -2,7 +2,8 @@ import { useEffect } from "react";
 import { useLocation, useNavigate } from "react-router-dom";
 import QueryString from "query-string";
 import axios from "axios";
-import { ACCESS_KEY } from "../constants/auth/auth.constant";
+import { ACCESS_KEY, REFRESH_KEY } from "../constants/auth/auth.constant";
+import { customAxios } from "../lib/axios/customAxios";
 
 const AuthLoadingPage = () => {
   const { search } = useLocation();
@@ -21,16 +22,15 @@ const AuthLoadingPage = () => {
       const { data } = await axios.post("http://10.80.162.20:8080/auth/code", {
         code,
       });
+
       localStorage.setItem(ACCESS_KEY, data.data.accessToken);
-      localStorage.setItem("refresh_token", data.data.refreshToken);
+      localStorage.setItem(REFRESH_KEY, data.data.refreshToken);
       navigate("/");
-    } catch (error) {
-      console.log(error);
-    }
+    } catch (error) {}
   };
 
   const checkOut = async () => {
-    const response = await axios.post("http://10.80.162.20:8080/auth/", {
+    const response = await customAxios.post("/auth/", {
       Headers: {
         access_token: localStorage.getItem(ACCESS_KEY),
       },
