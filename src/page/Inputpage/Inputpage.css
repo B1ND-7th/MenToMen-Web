@@ -1,0 +1,19 @@
+.text h3 {
+    margin-left: 444px;
+}
+
+.Input {
+    margin-top: 10px;
+}
+
+.Select {
+    display: flex;
+    justify-content: center;
+    margin-left: -18px;
+}
+
+.LastButton {
+    display: flex;
+    margin-left: 1300px;
+    margin-top: 50px;
+}

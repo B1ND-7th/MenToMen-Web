@@ -1,0 +1,9 @@
+.submitBt {
+    width: 120px;
+    height: 40px;
+    border-radius: 10px;
+    border: 0;
+    outline: 0;
+    background-color: #2745F2;
+    color: white;
+}
