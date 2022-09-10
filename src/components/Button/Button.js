@@ -1,9 +1,9 @@
 import React from "react";
 import "./Button.css";
+import config from "../config.json";
 
 function Button({ label, disabled }) {
-  let authUrl =
-    "http://dauth.b1nd.com/login?client_id=39bc523458c14eb987b7b16175426a31a9f105b7f5814f1f9eca7d454bd23c73&redirect_uri=http://localhost:3000/callback";
+  let authUrl = `http://dauth.b1nd.com/login?client_id=${config.CLIENTID}&redirect_uri=http://localhost:3000/callback`;
 
   return (
     <button
