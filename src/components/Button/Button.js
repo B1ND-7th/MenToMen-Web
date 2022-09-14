@@ -1,6 +1,6 @@
 import React from "react";
 import "./Button.css";
-import config from "../config.json";
+import config from "../../config.json";
 
 function Button({ label, disabled }) {
   let authUrl = `http://dauth.b1nd.com/login?client_id=${config.CLIENTID}&redirect_uri=http://localhost:3000/callback`;
