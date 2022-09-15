@@ -14,14 +14,9 @@ class Auth {
       console.log(error);
     }
   }
-  // async register() {}
+
   async checkLogin() {
-    const response = await customAxios.post("/auth/login", null, {
-      Headers: {
-        access_token: localStorage.getItem(ACCESS_KEY),
-      },
-    });
-    console.log(response);
+    const response = await customAxios.post("/auth/login", null);
   }
 }
 
