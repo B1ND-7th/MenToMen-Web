@@ -1,6 +1,6 @@
 import React from "react";
 import "./Listitem.css";
-
+import talk from "../../../img/talk.png";
 const ListItem = ({ data }) => {
   const date = new Date(data.localDateTime);
   const week = ["일", "월", "화", "수", "목", "금", "토"];
@@ -20,7 +20,10 @@ const ListItem = ({ data }) => {
                 alt={"listItem profile"}
               />
             ) : (
-              <img src="http://dodam.b1nd.com/static/media/profile.9a3a77b0.svg" />
+              <img
+                src="http://dodam.b1nd.com/static/media/profile.9a3a77b0.svg"
+                alt="img"
+              />
             )}
           </div>
           <div className="nameTag">
@@ -38,8 +41,8 @@ const ListItem = ({ data }) => {
               : `오전${theHours}`}
           </div>
         </div>
-        <div className="contentSection">{data.content}</div>
-        <div className="able">채팅이모티콘</div>
+        <pre className="contentSection">{data.content}</pre>
+        <img className="able" src={talk} alt={""} />
       </div>
 
       <div className="imgUrl">
