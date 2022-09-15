@@ -5,6 +5,7 @@ import { useNavigate } from "react-router-dom";
 
 function StartNav() {
   const navigate = useNavigate();
+
   return (
     <nav className="test">
       <div className="nav">
