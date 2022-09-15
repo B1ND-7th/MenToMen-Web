@@ -13,12 +13,14 @@ const ListItem = ({ data }) => {
       <div className="leftSection">
         <div className="profile">
           <div className="profileUrl">
-            {data.profileUrl && (
+            {data.profileUrl ? (
               <img
                 src={data.profileUrl}
                 className="profileUrl"
                 alt={"listItem profile"}
               />
+            ) : (
+              <img src="http://dodam.b1nd.com/static/media/profile.9a3a77b0.svg" />
             )}
           </div>
           <div className="nameTag">
