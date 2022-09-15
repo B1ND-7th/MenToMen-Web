@@ -41,7 +41,7 @@ const ListItem = ({ data }) => {
               : `오전${theHours}`}
           </div>
         </div>
-        <pre className="contentSection">{data.content}</pre>
+        <p className="contentSection">{data.content}</p>
         <img className="able" src={talk} alt={""} />
       </div>
 
