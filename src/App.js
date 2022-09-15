@@ -10,7 +10,7 @@ import List from "./components/ListPage/List";
 
 function App() {
   return (
-    <BrowserRouter>
+    <BrowserRouter> 
       <Routes>
         <Route path="/" element={<StartPage />} />
         <Route path="/introduce" element={<Introduce />} />

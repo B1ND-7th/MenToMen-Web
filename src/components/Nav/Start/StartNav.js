@@ -1,6 +1,6 @@
 import React from "react";
-import "./StartNav.css";
-import logo from "../../img/Logo.png";
+import "../Start/StartNav.css";
+import Logo from "../../../img/Logo.png";
 import { useNavigate } from "react-router-dom";
 
 function StartNav() {
@@ -15,7 +15,7 @@ function StartNav() {
             }}
             className="logo"
             alt=""
-            src={logo}
+            src={Logo}
           />
           <h1
             onClick={() => {

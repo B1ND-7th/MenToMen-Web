@@ -19,13 +19,13 @@ const AuthLoadingPage = () => {
 
   const request = async (code) => {
     try {
-      const { data } = await axios.post("http://10.80.162.20:8080/auth/code", {
+      const { data } = await axios.post("http://10.80.162.75:8080/auth/code", {
         code,
       });
 
       localStorage.setItem(ACCESS_KEY, data.data.accessToken);
       localStorage.setItem(REFRESH_KEY, data.data.refreshToken);
-      navigate("/");
+      navigate("/list");
     } catch (error) {}
   };
 

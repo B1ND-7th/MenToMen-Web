@@ -1,5 +1,5 @@
 import axios from "axios";
-import { ACCESS_KEY } from "../../constants/auth/auth.constant";
+import { ACCESS_KEY, REFRESH_KEY } from "../../constants/auth/auth.constant";
 import { customAxios } from "../../lib/axios/customAxios";
 
 class Auth {
@@ -9,7 +9,7 @@ class Auth {
         code,
       });
       localStorage.setItem(ACCESS_KEY, data.data.accessToken);
-      localStorage.setItem("refresh_token", data.data.refreshToken);
+      localStorage.setItem(REFRESH_KEY, data.data.refreshToken);
     } catch (error) {
       console.log(error);
     }
@@ -21,7 +21,6 @@ class Auth {
         access_token: localStorage.getItem(ACCESS_KEY),
       },
     });
-
     console.log(response);
   }
 }
