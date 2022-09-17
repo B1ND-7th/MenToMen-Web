@@ -30,13 +30,11 @@ const AuthLoadingPage = () => {
   };
 
   const checkOut = async () => {
-    const response = await customAxios.post("/auth/", {
-      Headers: {
-        access_token: localStorage.getItem(ACCESS_KEY),
-      },
-    });
-
-    console.log(response);
+    try {
+      const response = await customAxios.post("/auth/");
+    } catch (error) {
+      console.log(error);
+    }
   };
 
   useEffect(() => {

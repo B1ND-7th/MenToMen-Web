@@ -1,14 +1,12 @@
 import "./App.css";
-import StartPage from "./components/StartPage/StartPage";
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 import AuthPage from "./page/AuthPage";
+import StartPage from "./components/StartPage/StartPage";
 import Inputpage from "./page/Inputpage/Inputpage";
 import "./color.css";
 import Introduce from "./components/Introduce/Introduce";
-import List from "./components/ListPage/List";
-// import StartNav from "./components/Nav/StartNav";
 import AuthLoadingPage from "./page/AuthLoadingPage";
-
+import List from "./components/ListPage/List";
 function App() {
   return (
     <BrowserRouter>
