@@ -41,3 +41,4 @@ export default function Inputpage() {
             </div>
         </div>
     )
+}
