@@ -1,12 +1,16 @@
 import React from "react";
 import "./Listitem.css";
 import talk from "../../../img/talk.png";
-const ListItem = ({ data }) => {
+import feed from "../../../img/feed.png";
+import useFeedMenu from "../../../Hooks/useFeedMenu";
+
+const FeedMenuModal = ({ id, data }) => {
   const date = new Date(data.localDateTime);
   const week = ["일", "월", "화", "수", "목", "금", "토"];
   const theHours = date.getHours();
   const theMinutes = date.getMinutes();
-  console.log(theHours);
+
+  const { sentDeleteFeedData } = useFeedMenu();
 
   return (
     <div className="formSection">
@@ -40,6 +44,12 @@ const ListItem = ({ data }) => {
               ? `오후 ${theHours - 12}시 ${theMinutes}분`
               : `오전${theHours}`}
           </div>
+          <img
+            src={feed}
+            className="feedImg"
+            alt=""
+            onClick={() => sentDeleteFeedData()}
+          />
         </div>
         <p className="contentSection">{data.content}</p>
         <img className="able" src={talk} alt={""} />
@@ -54,4 +64,4 @@ const ListItem = ({ data }) => {
   );
 };
 
-export default ListItem;
+export default FeedMenuModal;
