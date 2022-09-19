@@ -1,0 +1,34 @@
+import React, { useEffect, useState } from "react";
+import { customAxios } from "../../lib/axios/customAxios.js";
+import ListItem from "./ListItem/ListItem.js";
+import MainNav from "../Nav/Main/MainNav.js";
+import "./List.css";
+
+function List() {
+  const [list, setList] = useState([]);
+
+  const request = async () => {
+    try {
+      const { data } = await customAxios.get("/post/read-all");
+      console.log(data);
+      setList(data.data);
+    } catch (error) {}
+  };
+
+  useEffect(() => {
+    request();
+  }, []);
+
+  return (
+    <>
+      <MainNav />
+      <div className="listSection">
+        {list.map((item, idx) => (
+          <ListItem data={item} key={item.name + " " + idx} />
+        ))}
+      </div>
+    </>
+  );
+}
+
+export default List;

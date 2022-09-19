@@ -1,22 +1,21 @@
 .DesignBt {
-    width: 83px;
-    height: 35px;
-    border: 1.5px solid #D83F67;
-    background-color: white;
-    border-radius: 30px;
-    color: #D83F67;
-    margin-top: 24px;
-    margin-left: 30px;
-    margin-right: 25px;
-
+  width: 83px;
+  height: 35px;
+  border: 1.5px solid #d83f67;
+  background-color: white;
+  border-radius: 30px;
+  color: #d83f67;
+  margin-top: 24px;
+  margin-left: 30px;
+  margin-right: 25px;
 }
 
 .SelectBox {
-    display: flex;
-    width: 824px;
-    height: 84px;
-    border: 1px solid rgba(0, 0, 0, 0.28);
-    border-radius: 5px;
-    justify-content: center;
-    margin-left: 20px;
+  display: flex;
+  width: 824px;
+  height: 84px;
+  border: 1px solid rgba(0, 0, 0, 0.28);
+  border-radius: 5px;
+  justify-content: center;
+  margin-left: 20px;
 }

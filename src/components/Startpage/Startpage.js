@@ -1,5 +1,5 @@
 import React, { useEffect } from "react";
-import StartNav from "../Nav/StartNav";
+import StartNav from "../Nav/Start/StartNav";
 import "./StartPage.css";
 import Button from "../Button/Button/Button";
 import IOStest from "../../img/IOStest.png";
@@ -18,6 +18,7 @@ function StartPage() {
   useEffect(() => {
     request();
   }, []);
+
   return (
     <>
       <StartNav />

@@ -24,7 +24,16 @@ function Input() {
                 </textarea>
             </div>
         </div>
-    )
+
+        <textarea
+          placeholder="여기에 입력하세요(내용을 스크롤 하여 확인하세요!)"
+          value={textValue}
+          onChange={(e) => handleSetValue(e)}
+          className="inputbox"
+        ></textarea>
+      </div>
+    </div>
+  );
 }
 
 export default Input;

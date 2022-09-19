@@ -1,11 +1,10 @@
 import React from 'react'
 import File from "../../components/File/File";
-import Nav from "../../components/Nav/StartNav";
-import Input from '../../components/Input/Input';
+import Nav from "../../components/Nav/Start/StartNav";
+import Input from "../../components/Input/Input";
 import "./Inputpage.css";
 import Select from "../../components/Select/Select";
-import LastButton from '../../components/Button/LastButton/LastButton';
-
+import LastButton from "../../components/Button/LastButton/LastButton";
 
 
 
@@ -42,4 +41,3 @@ export default function Inputpage() {
             </div>
         </div>
     )
-}

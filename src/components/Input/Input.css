@@ -1,11 +1,10 @@
 .input {
     display: flex;
     justify-content: center;
-
 }
 
 .input::-webkit-scrollbar {
-    display: none;
+  display: none;
 }
 
 textarea {
@@ -23,10 +22,10 @@ textarea {
 }
 
 .inputbox {
-    width: 800px;
-    height: 200px;
-    border-radius: 5px;
-    padding: 10px;
-    font-size: 18px;
-    border: 1px solid rgba(0, 0, 0, 0.28);
+  width: 800px;
+  height: 200px;
+  border-radius: 5px;
+  padding: 10px;
+  font-size: 18px;
+  border: 1px solid rgba(0, 0, 0, 0.28);
 }

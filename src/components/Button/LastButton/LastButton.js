@@ -1,4 +1,4 @@
-import React from 'react'
+import React from "react";
 import "./LastButton.css";
 import { useRecoilState, useRecoilValue } from 'recoil';
 import { uploadFileUrl,tagAtom } from '../../../store/upload/uploadAtom';
