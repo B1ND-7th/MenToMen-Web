@@ -1,4 +1,6 @@
-import React, { useState } from 'react'
+import React from 'react'
+import { useRecoilState } from 'recoil'
+import { tagAtom } from '../../store/upload/uploadAtom'
 import "./Select.css"
 
 const PLATFORM = [
@@ -9,11 +11,11 @@ const PLATFORM = [
     { name: "iOS", color: "var(--black)" },
 ]
 
+const Select = () => {
+    const [select, setSelect] = useRecoilState(tagAtom);
 
-const Select = ({
-    select,
-    setSelect
-}) => {
+
+
     return (
         <div>
             <div className='SelectBox'>

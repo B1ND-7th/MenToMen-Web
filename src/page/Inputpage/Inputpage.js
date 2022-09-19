@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from 'react'
+import React from 'react'
 import File from "../../components/File/File";
 import Nav from "../../components/Nav/StartNav";
 import Input from '../../components/Input/Input';
@@ -7,22 +7,18 @@ import Select from "../../components/Select/Select";
 import LastButton from '../../components/Button/LastButton/LastButton';
 
 
+
+
 export default function Inputpage() {
-    const [select, setSelect] = useState("Design");
 
-
-    useEffect(() => {
-        console.log(select);
-
-    }, [select])
 
     return (
-        <div>
+        <div className='test'>
             <div className='Navbar'>
                 <Nav />
             </div>
             <div className='text'>
-                <h3>멘토 요청하기</h3>
+                <h2>멘토 요청하기</h2>
             </div>
 
             <div className='File'>
@@ -38,11 +34,11 @@ export default function Inputpage() {
             </div>
 
             <div className='Select'>
-                <Select select={select} setSelect={setSelect} />
+                <Select />
             </div>
 
             <div className='LastButton'>
-                <LastButton />
+                <LastButton  />
             </div>
         </div>
     )

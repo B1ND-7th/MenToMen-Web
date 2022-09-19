@@ -1,24 +1,34 @@
 import React from "react";
 import "./File.css";
 import { useState, useRef } from "react";
+import axios from "axios";
+import { useRecoilState } from "recoil";
+import { uploadFileUrl } from "../../store/upload/uploadAtom";
 
-const Prac = () => {
-    const [imageUrl, setImageUrl] = useState(null);
+const Prac = ({ upload }) => {
+
+
+    const [fileUrl, setFileUrl] = useRecoilState(uploadFileUrl);
     const imgRef = useRef();
 
-    const onChangeImage = () => {
-        const reader = new FileReader();
-        const file = imgRef.current.files[0];
+    const uploadImg = async (e) => {
+        const file = e.target.files[0];
+        const formData = new FormData();
+        formData.append("file", file);
 
-        reader.readAsDataURL(file);
-        reader.onloadend = () => {
-            setImageUrl(reader.result);
-        };
-    };
+        try {
+            const res = await axios.post("http://10.80.161.249:8080/file/upload", formData);
+            setFileUrl(res.data.data.imgUrl)
+        } catch (err) {
+            console.log(err)
+        }
+    }
+
+
     return (
         <>
-            <img src={imageUrl} className="fileimg"></img>
-            <input ref={imgRef} onChange={onChangeImage} type="file"></input>
+            <img src={fileUrl} className="fileimg"></img>
+            <input ref={imgRef} onChange={uploadImg} type="file"></input>
         </>
     );
 };

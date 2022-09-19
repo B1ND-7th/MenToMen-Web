@@ -1,5 +1,14 @@
+.text h2 {
+    margin-left: 444px;
+    margin-top: -10px;
+}
+
 .text h3 {
     margin-left: 444px;
+}
+
+.File {
+    margin-top: 20px;
 }
 
 .Input {
@@ -16,4 +25,8 @@
     display: flex;
     margin-left: 1300px;
     margin-top: 50px;
+}
+
+.text {
+    margin-top: 40px;
 }

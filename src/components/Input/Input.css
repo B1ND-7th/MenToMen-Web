@@ -1,21 +1,25 @@
 .input {
     display: flex;
     justify-content: center;
+
 }
 
 .input::-webkit-scrollbar {
     display: none;
 }
 
+textarea {
+    resize: none;
+}
 
 .inputtext {
     margin-left: 2px;
-    /* margin-top: 5px; */
     margin-top: -10px;
 }
 
 .inputtextElement {
-    margin-bottom: 10px;
+    margin-top: 10px;
+    margin-bottom: 12px;
 }
 
 .inputbox {
