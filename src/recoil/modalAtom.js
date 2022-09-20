@@ -1,8 +1,8 @@
 import { atom } from "recoil";
 
-export const buttonState = atom({
-  key: "buttonStates",
+export const deleteState = atom({
+  key: "feedImg",
   default: {
-    isMenuClick: false,
+    isMenu: false,
   },
 });

@@ -1,36 +1,36 @@
 import { useState } from "react";
 import { customAxios } from "../lib/axios/customAxios";
+import { buttonState, deleteState } from "../recoil/modalAtom";
+import { useRecoilState } from "recoil";
 
 const useFeedMenu = () => {
-  const [isMenu, setIsMenu] = useState(false);
+  const [value, setValue] = useRecoilState(deleteState);
 
   const toggleFeedMenuClick = () => {
-    setIsMenu((prev) => !prev);
+    setValue((prev) => ({ ...prev, isMenu: !prev.isMenu }));
   };
 
   const sentDeleteFeedData = async (id) => {
-    const res = await sentDeleteFeedData(id);
+    window.alert("삭제하시겠습니까");
 
-    const { status } = res;
-    if (status === 200) {
-      window.alert("삭제되었습니다");
-      toggleFeedMenuClick();
-      window.location.reload();
-      return;
-    }
-    window.alert("삭제 실패");
-    toggleFeedMenuClick();
     try {
       const { data } = await customAxios.delete(`/post/delete/${id}`);
+      if (data.status === 200) {
+        window.alert("삭제되었습니다");
+        toggleFeedMenuClick();
+        window.location.reload();
+        return;
+      }
       return data;
     } catch (error) {
+      window.alert("삭제 실패");
+      toggleFeedMenuClick();
       const { data } = error.response;
       return data;
     }
   };
 
   return {
-    isMenu,
     toggleFeedMenuClick,
     sentDeleteFeedData,
   };
