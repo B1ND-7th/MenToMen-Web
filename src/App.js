@@ -6,9 +6,12 @@ import Inputpage from "./page/Inputpage/Inputpage";
 import "./color.css";
 import Introduce from "./components/Introduce/Introduce";
 import AuthLoadingPage from "./page/AuthLoadingPage";
+import { RecoilRoot } from "recoil";
+
 import List from "./components/ListPage/List";
 function App() {
   return (
+  <RecoilRoot>
     <BrowserRouter>
       <Routes>
         <Route path="/" element={<StartPage />} />
@@ -19,6 +22,7 @@ function App() {
         <Route path="/form" element={<Inputpage />} />
       </Routes>
     </BrowserRouter>
+  </RecoilRoot>
   );
 }
 export default App;
