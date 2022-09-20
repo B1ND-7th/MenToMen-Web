@@ -3,12 +3,13 @@ import "./File.css";
 import { useState, useRef } from "react";
 import axios from "axios";
 import { useRecoilState } from "recoil";
-import { uploadFileUrl } from "../../store/upload/uploadAtom";
+import { uploadFileUrl, uploadFileUrlAtom } from "../../store/upload/uploadAtom";
+import { customAxios } from "../../lib/axios/customAxios";
 
 const Prac = ({ upload }) => {
 
 
-    const [fileUrl, setFileUrl] = useRecoilState(uploadFileUrl);
+    const [fileUrl, setFileUrl] = useRecoilState(uploadFileUrlAtom);
     const imgRef = useRef();
 
     const uploadImg = async (e) => {
@@ -17,7 +18,7 @@ const Prac = ({ upload }) => {
         formData.append("file", file);
 
         try {
-            const res = await axios.post("http://10.80.161.249:8080/file/upload", formData);
+            const res = await customAxios.post("/file/upload", formData);
             setFileUrl(res.data.data.imgUrl)
         } catch (err) {
             console.log(err)

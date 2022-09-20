@@ -1,6 +1,6 @@
 import { atom } from "recoil";
 
-export const uploadFileUrl = atom({
+export const uploadFileUrlAtom = atom({
     key : "uploadFileUrlAtom",
     default : null,
 })
