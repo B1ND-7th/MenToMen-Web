@@ -66,6 +66,7 @@
   width: 285px;
   height: 270px;
 
+  margin-top: 20px;
   margin-left: auto;
 }
 
@@ -90,6 +91,12 @@
 .date::before {
   content: " * ";
   margin-right: 10px;
+}
+
+.feedImg {
+  width: 44px;
+  height: 48px;
+  cursor: pointer;
 }
 
 .profileUrl {

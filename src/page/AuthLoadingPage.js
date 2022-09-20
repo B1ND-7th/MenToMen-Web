@@ -12,14 +12,9 @@ const AuthLoadingPage = () => {
 
   console.log(query);
 
-  // useEffect(() => {
-  //   console.log(location);
-  //   console.log(location.search);
-  // }, [location]);
-
   const request = async (code) => {
     try {
-      const { data } = await axios.post("http://10.80.162.75:8080/auth/code", {
+      const { data } = await axios.post("http://10.80.162.146:8080/auth/code", {
         code,
       });
 

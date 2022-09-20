@@ -7,7 +7,13 @@ import "./color.css";
 import Introduce from "./components/Introduce/Introduce";
 import AuthLoadingPage from "./page/AuthLoadingPage";
 import List from "./components/ListPage/List";
+import { useState } from "react";
+import { useRecoilState } from "recoil";
+import { checkState } from "./recoil/loginCheckAtom";
+
 function App() {
+  const [isloggedIn, setIsLoggedIn] = useRecoilState(checkState);
+
   return (
     <BrowserRouter>
       <Routes>

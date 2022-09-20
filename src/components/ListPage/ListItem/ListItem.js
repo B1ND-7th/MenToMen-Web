@@ -1,15 +1,14 @@
 import React from "react";
-import "./Listitem.css";
+import "./ListItem.css";
 import talk from "../../../img/talk.png";
 import feed from "../../../img/feed.png";
 import useFeedMenu from "../../../Hooks/useFeedMenu";
 
-const FeedMenuModal = ({ id, data }) => {
+const FeedMenuModal = ({ data }) => {
   const date = new Date(data.localDateTime);
   const week = ["일", "월", "화", "수", "목", "금", "토"];
   const theHours = date.getHours();
   const theMinutes = date.getMinutes();
-
   const { sentDeleteFeedData } = useFeedMenu();
 
   return (
@@ -42,13 +41,13 @@ const FeedMenuModal = ({ id, data }) => {
             }월 ${date.getDate()}일 ${week[date.getDay()]}요일 `}
             {theHours > 12
               ? `오후 ${theHours - 12}시 ${theMinutes}분`
-              : `오전${theHours}`}
+              : `오전 ${theHours}시 ${theMinutes}분`}
           </div>
           <img
             src={feed}
             className="feedImg"
             alt=""
-            onClick={() => sentDeleteFeedData()}
+            onClick={() => sentDeleteFeedData(data.postId)}
           />
         </div>
         <p className="contentSection">{data.content}</p>

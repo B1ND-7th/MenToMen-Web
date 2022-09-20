@@ -10,7 +10,8 @@ function StartPage() {
   let navigate = useNavigate();
   const request = async () => {
     try {
-      await customAxios.get("/user/my");
+      const { data } = await customAxios.get("/user/my");
+      console.log(data);
     } catch (error) {
       navigate("/");
     }
