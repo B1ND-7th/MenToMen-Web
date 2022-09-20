@@ -1,26 +1,37 @@
 import React from "react";
 import "./File.css";
 import { useState, useRef } from "react";
+import axios from "axios";
+import { useRecoilState } from "recoil";
+import { uploadFileUrl, uploadFileUrlAtom } from "../../store/upload/uploadAtom";
+import { customAxios } from "../../lib/axios/customAxios";
 
-const Prac = () => {
-  const [imageUrl, setImageUrl] = useState(null);
-  const imgRef = useRef();
+const Prac = ({ upload }) => {
 
-  const onChangeImage = () => {
-    const reader = new FileReader();
-    const file = imgRef.current.files[0];
 
-    reader.readAsDataURL(file);
-    reader.onloadend = () => {
-      setImageUrl(reader.result);
-    };
-  };
-  return (
-    <>
-      <img src={imageUrl} className="fileimg"></img>
-      <input ref={imgRef} onChange={onChangeImage} type="file"></input>
-    </>
-  );
+    const [fileUrl, setFileUrl] = useRecoilState(uploadFileUrlAtom);
+    const imgRef = useRef();
+
+    const uploadImg = async (e) => {
+        const file = e.target.files[0];
+        const formData = new FormData();
+        formData.append("file", file);
+
+        try {
+            const res = await customAxios.post("/file/upload", formData);
+            setFileUrl(res.data.data.imgUrl)
+        } catch (err) {
+            console.log(err)
+        }
+    }
+
+
+    return (
+        <>
+            <img src={fileUrl} className="fileimg"></img>
+            <input ref={imgRef} onChange={uploadImg} type="file"></input>
+        </>
+    );
 };
 
 export default Prac;

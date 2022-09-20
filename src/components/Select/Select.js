@@ -1,15 +1,14 @@
-import React, { useState } from "react";
-import "./Select.css";
+import React from 'react'
+import { useRecoilState } from 'recoil'
+import { tagAtom } from '../../store/upload/uploadAtom'
+import "./Select.css"
+import { PLATFORM } from '../../constants/Platform/PLANTFORM'
 
-const PLATFORM = [
-  { name: "Design", color: "var(--Purple)" },
-  { name: "Web", color: "var(--orange)" },
-  { name: "Android", color: "var(--green)" },
-  { name: "Server", color: "var(--blue)" },
-  { name: "iOS", color: "var(--black)" },
-];
 
-const Select = ({ select, setSelect }) => {
+
+const Select = () => {
+    const [select, setSelect] = useRecoilState(tagAtom);
+
   return (
     <div>
       <div className="SelectBox">

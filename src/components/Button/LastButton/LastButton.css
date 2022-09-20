@@ -1,9 +1,17 @@
 .submitBt {
-  width: 120px;
-  height: 40px;
-  border-radius: 10px;
-  border: 0;
-  outline: 0;
-  background-color: #2745f2;
-  color: white;
+    width: 120px;
+    height: 40px;
+    border-radius: 10px;
+    border: 0;
+    outline: 0;
+    background-color: #2745F2;
+    color: white;
 }
+
+.submitBt:active {
+
+    box-shadow: inset -.3rem -.1rem 1.4rem  #8897F2, inset .3rem .4rem .8rem #BEC5D0; 
+    cursor: pointer;
+
+}
+
