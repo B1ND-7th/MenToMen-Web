@@ -1,7 +1,7 @@
 import React from "react";
 import "./ListItem.css";
 import talk from "../../../img/talk.png";
-import feed from "../../../img/feed.png";
+import trash from "../../../img/trash.png";
 import useFeedMenu from "../../../Hooks/useFeedMenu";
 
 const FeedMenuModal = ({ data }) => {
@@ -44,8 +44,8 @@ const FeedMenuModal = ({ data }) => {
               : `오전 ${theHours}시 ${theMinutes}분`}
           </div>
           <img
-            src={feed}
-            className="feedImg"
+            src={trash}
+            className="trashImg"
             alt=""
             onClick={() => sentDeleteFeedData(data.postId)}
           />

@@ -6,7 +6,7 @@
   display: flex;
 
   margin-top: 90px;
-  border: 2px solid #b4b4b4;
+  border: 1px solid rgba(0, 0, 0, 0.175);
   box-sizing: border-box;
 }
 
@@ -54,6 +54,7 @@
 
 .contentSection {
   margin: auto 0px;
+  margin-top: 100px;
 }
 
 .able {
@@ -63,11 +64,13 @@
 }
 
 .imgUrl {
-  width: 285px;
-  height: 270px;
+  display: block;
+  max-height: 325px;
+  aspect-ratio: auto;
 
   margin-top: 20px;
   margin-left: auto;
+  border-radius: 5px;
 }
 
 .contentBox {
@@ -93,7 +96,7 @@
   margin-right: 10px;
 }
 
-.feedImg {
+.trashImg {
   width: 44px;
   height: 48px;
   cursor: pointer;
