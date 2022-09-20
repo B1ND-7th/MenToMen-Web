@@ -8,7 +8,7 @@
     color: white;
 }
 
-button:active {
+.submitBt:active {
 
     box-shadow: inset -.3rem -.1rem 1.4rem  #8897F2, inset .3rem .4rem .8rem #BEC5D0; 
     cursor: pointer;

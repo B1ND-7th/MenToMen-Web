@@ -1,6 +1,6 @@
 import React, { useEffect } from "react";
 import StartNav from "../Nav/Start/StartNav";
-import "./StartPage.css";
+import "./Startpage.css";
 import Button from "../Button/Button/Button";
 import IOStest from "../../img/IOStest.png";
 import { useNavigate } from "react-router-dom";
@@ -35,7 +35,6 @@ function StartPage() {
         <div className="iosImgContainer">
           <img className="iosimg" alt="" src={IOStest} />
         </div>
-
         <div>{/* 00명의 멘티가 도움을 기다립니다 들어갈 자리  */}</div>
       </section>
       <div className="btn">

@@ -25,7 +25,7 @@ export default function Inputpage() {
             </div>
 
             <div className='Input'>
-                <Input />
+            <Input />
             </div>
 
             <div className='text'>

@@ -1,14 +1,15 @@
 import React from "react";
 import "./LastButton.css";
 import { useRecoilState, useRecoilValue } from 'recoil';
-import { uploadFileUrl,tagAtom } from '../../../store/upload/uploadAtom';
+import { uploadFileUrl,tagAtom, uploadFileUrlAtom } from '../../../store/upload/uploadAtom';
 import axios from 'axios';
 import { contentAtom } from '../../../store/upload/uploadcontentAtom';
+import { customAxios } from "../../../lib/axios/customAxios";
 
 
 export default function LastButton() {
 
-    const [fileUrl, setFileUrl] = useRecoilState(uploadFileUrl);
+    const [fileUrl, setFileUrl] = useRecoilState(uploadFileUrlAtom);
     const [content, setContent] = useRecoilState(contentAtom);
     const [tag, setTag] = useRecoilState(tagAtom);
     //똑같은 함수명으로 하면 안됨!! 
@@ -21,7 +22,7 @@ export default function LastButton() {
                 tag:tag,
             }
 
-            const res = await axios.post("http://10.80.161.249:8080/post/submit",data);
+            const res = await customAxios.post("/post/submit",data);
         }catch(e) {
             console.error(e);
         }    
