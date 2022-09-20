@@ -16,7 +16,12 @@ function MainNav() {
             alt=""
             src={Logo}
           />
-          <h1 className="mento" onClick={() => {}}>
+          <h1
+            className="mento"
+            onClick={() => {
+              navigate("/form");
+            }}
+          >
             멘토요청하기
           </h1>
           <h1>마이페이지</h1>

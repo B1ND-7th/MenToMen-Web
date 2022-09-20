@@ -11,8 +11,6 @@ const useFeedMenu = () => {
   };
 
   const sentDeleteFeedData = async (id) => {
-    window.alert("삭제하시겠습니까");
-
     try {
       const { data } = await customAxios.delete(`/post/delete/${id}`);
       if (data.status === 200) {
