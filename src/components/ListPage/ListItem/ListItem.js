@@ -5,7 +5,7 @@ import trash from "../../../img/trash.png";
 import useFeedMenu from "../../../Hooks/useFeedMenu";
 
 const FeedMenuModal = ({ data }) => {
-  const date = new Date(data.localDateTime);
+  const date = new Date(data.createDateTime);
   const week = ["일", "월", "화", "수", "목", "금", "토"];
   const theHours = date.getHours();
   const theMinutes = date.getMinutes();
