@@ -8,12 +8,8 @@ import Introduce from "./components/Introduce/Introduce";
 import AuthLoadingPage from "./page/AuthLoadingPage";
 import { RecoilRoot } from "recoil";
 import List from "./components/ListPage/List";
-import { useRecoilState } from "recoil";
-import { checkState } from "./recoil/loginCheckAtom";
 
 function App() {
-  const [isloggedIn, setIsLoggedIn] = useRecoilState(checkState);
-
   return (
     <RecoilRoot>
       <BrowserRouter>
