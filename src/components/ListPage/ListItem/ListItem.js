@@ -1,15 +1,39 @@
-import React from "react";
+import React, { useEffect } from "react";
 import "./ListItem.css";
 import talk from "../../../img/talk.png";
 import trash from "../../../img/trash.png";
 import useFeedMenu from "../../../Hooks/useFeedMenu";
-
+import { userStateAtom } from "../../../recoil/userAtom";
+import { useRecoilState, useRecoilValue } from "recoil";
+import { customAxios } from "../../../lib/axios/customAxios";
+import { useNavigate } from "react-router-dom";
 const FeedMenuModal = ({ data }) => {
+  const navigate = useNavigate();
+
+  const [userInfo, setUserInfo] = useRecoilState(userStateAtom);
+
+  const request = async () => {
+    try {
+      const { data } = await customAxios.get("/user/my");
+      console.log(data);
+      setUserInfo(data.data);
+    } catch (error) {
+      navigate("/");
+    }
+  };
+
+  useEffect(() => {
+    request();
+  }, []);
+  const userData = useRecoilValue(userStateAtom);
+
   const date = new Date(data.createDateTime);
   const week = ["일", "월", "화", "수", "목", "금", "토"];
   const theHours = date.getHours();
   const theMinutes = date.getMinutes();
   const { sentDeleteFeedData } = useFeedMenu();
+
+  console.log(userData, data.author);
 
   return (
     <div className="formSection">
@@ -43,12 +67,14 @@ const FeedMenuModal = ({ data }) => {
               ? `오후 ${theHours - 12}시 ${theMinutes}분`
               : `오전 ${theHours}시 ${theMinutes}분`}
           </div>
-          <img
-            src={trash}
-            className="trashImg"
-            alt=""
-            onClick={() => sentDeleteFeedData(data.postId)}
-          />
+          {userData.userId === data.author ? (
+            <img
+              src={trash}
+              className="trashImg"
+              alt=""
+              onClick={() => sentDeleteFeedData(data.postId)}
+            />
+          ) : null}
         </div>
         <p className="contentSection">{data.content}</p>
         <img className="able" src={talk} alt={""} />

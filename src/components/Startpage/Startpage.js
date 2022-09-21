@@ -5,21 +5,10 @@ import Button from "../Button/Button/Button";
 import IOStest from "../../img/IOStest.png";
 import { useNavigate } from "react-router-dom";
 import { customAxios } from "../../lib/axios/customAxios";
+import { userStateAtom } from "../../recoil/userAtom";
+import { useRecoilState } from "recoil";
 
 function StartPage() {
-  let navigate = useNavigate();
-  const request = async () => {
-    try {
-      const { data } = await customAxios.get("/user/my");
-      console.log(data);
-    } catch (error) {
-      navigate("/");
-    }
-  };
-  useEffect(() => {
-    request();
-  }, []);
-
   return (
     <>
       <StartNav />
