@@ -10,10 +10,12 @@ import AuthLoadingPage from "./page/AuthLoadingPage";
 import { RecoilRoot } from "recoil";
 
 import List from "./components/ListPage/List";
+import StartNav from "./components/Nav/Start/StartNav";
 function App() {
   return (
   <RecoilRoot>
     <BrowserRouter>
+      <StartNav/>
       <Routes>
         <Route path="/" element={<StartPage />} />
         <Route path="/introduce" element={<Introduce />} />

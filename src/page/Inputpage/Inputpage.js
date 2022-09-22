@@ -13,9 +13,6 @@ export default function Inputpage() {
 
     return (
         <div className='test'>
-            <div className='Navbar'>
-                <Nav />
-            </div>
             <div className='text'>
                 <h2>멘토 요청하기</h2>
             </div>

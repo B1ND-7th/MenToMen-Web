@@ -6,7 +6,7 @@ import {
 } from "../../constants/auth/auth.constant";
 
 export const customAxios = axios.create({
-  baseURL: "http://10.80.162.146:8080",
+  baseURL: "http://10.80.163.171:8080",
   headers: {
     [REQUEST_KEY]: `Bearer ${localStorage.getItem(ACCESS_KEY)}`,
   },
@@ -24,7 +24,7 @@ const errorInterceptor = async (config) => {
 
     try {
       const { data } = await axios.get(
-        "http://10.80.162.146:8080/auth/refreshToken",
+        "http://10.80.163.171:8080/auth/refreshToken",
         {
           headers: {
             [REQUEST_KEY]: `Bearer ${refresh_token}`,

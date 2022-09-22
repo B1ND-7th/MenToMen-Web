@@ -5,6 +5,7 @@ import { uploadFileUrl,tagAtom, uploadFileUrlAtom } from '../../../store/upload/
 import axios from 'axios';
 import { contentAtom } from '../../../store/upload/uploadcontentAtom';
 import { customAxios } from "../../../lib/axios/customAxios";
+import { useNavigate } from "react-router-dom";
 
 
 export default function LastButton() {
@@ -12,6 +13,7 @@ export default function LastButton() {
     const [fileUrl, setFileUrl] = useRecoilState(uploadFileUrlAtom);
     const [content, setContent] = useRecoilState(contentAtom);
     const [tag, setTag] = useRecoilState(tagAtom);
+    const navigate = useNavigate();
     //똑같은 함수명으로 하면 안됨!! 
 
     const upload = async ({res}) => {
@@ -19,10 +21,14 @@ export default function LastButton() {
             const data = {
                 imgUrl:fileUrl,
                 content:content,
-                tag:tag,
+                tag:tag.toUpperCase(),
             }
 
             const res = await customAxios.post("/post/submit",data);
+            navigate("/list");
+            setContent(" ");
+            setTag("Design");
+
         }catch(e) {
             console.error(e);
         }    
