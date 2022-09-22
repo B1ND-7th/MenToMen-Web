@@ -7,11 +7,10 @@ import { userStateAtom } from "../../../recoil/userAtom";
 import { useRecoilState, useRecoilValue } from "recoil";
 import { customAxios } from "../../../lib/axios/customAxios";
 import { useNavigate } from "react-router-dom";
+
 const FeedMenuModal = ({ data }) => {
   const navigate = useNavigate();
-
   const [userInfo, setUserInfo] = useRecoilState(userStateAtom);
-
   const request = async () => {
     try {
       const { data } = await customAxios.get("/user/my");
@@ -21,7 +20,6 @@ const FeedMenuModal = ({ data }) => {
       navigate("/");
     }
   };
-
   useEffect(() => {
     request();
   }, []);
@@ -33,7 +31,22 @@ const FeedMenuModal = ({ data }) => {
   const theMinutes = date.getMinutes();
   const { sentDeleteFeedData } = useFeedMenu();
 
-  console.log(userData, data.author);
+  const changeTagColor = () => {
+    switch (data.tag) {
+      case "WEB":
+        return "#D38D42";
+      case "DESIGN":
+        return "#D83F67";
+      case "SERVER":
+        return "#3E89DB";
+      case "ANDROID":
+        return "#2FC16A";
+      case "IOS":
+        return "#4C4C4C";
+      default:
+        break;
+    } 
+  };
 
   return (
     <div className="formSection">
@@ -55,7 +68,7 @@ const FeedMenuModal = ({ data }) => {
           </div>
           <div className="nameTag">
             <div className="userName">{data.userName}</div>
-            <div className="tagbox">
+            <div className="tagbox" style={{ changeTagColor }}>
               <div className="tag">{data.tag}</div>
             </div>
           </div>
