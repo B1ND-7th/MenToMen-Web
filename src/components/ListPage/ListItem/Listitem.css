@@ -35,7 +35,6 @@
   height: 18px;
   padding: 0px 10px;
 
-  border: 1px solid #ed77a9;
   border-radius: 10px;
 
   display: flex;
@@ -49,12 +48,12 @@
   font-size: 12px;
   line-height: 14px;
   height: 12.6px;
-  color: #ed77a9;
 }
 
 .contentSection {
   margin: auto 0px;
-  margin-top: 100px;
+  margin-top: 70px;
+  overflow-wrap: break-word;
 }
 
 .able {

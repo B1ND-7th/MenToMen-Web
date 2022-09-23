@@ -1,11 +1,9 @@
-import { useState } from "react";
 import { customAxios } from "../lib/axios/customAxios";
-import { buttonState, deleteState } from "../recoil/modalAtom";
+import { deleteState } from "../recoil/modalAtom";
 import { useRecoilState } from "recoil";
-
+import { useNavigate } from "react-router-dom";
 const useFeedMenu = () => {
   const [value, setValue] = useRecoilState(deleteState);
-
   const toggleFeedMenuClick = () => {
     setValue((prev) => ({ ...prev, isMenu: !prev.isMenu }));
   };

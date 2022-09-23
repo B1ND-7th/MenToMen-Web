@@ -1,12 +1,8 @@
-import React, { useEffect } from "react";
+import React from "react";
 import StartNav from "../Nav/Start/StartNav";
 import "./StartPage.css";
 import Button from "../Button/Button/Button";
 import IOStest from "../../img/IOStest.png";
-import { useNavigate } from "react-router-dom";
-import { customAxios } from "../../lib/axios/customAxios";
-import { userStateAtom } from "../../recoil/userAtom";
-import { useRecoilState } from "recoil";
 
 function StartPage() {
   return (
