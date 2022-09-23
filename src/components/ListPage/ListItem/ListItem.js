@@ -11,15 +11,17 @@ import { useNavigate } from "react-router-dom";
 const FeedMenuModal = ({ data }) => {
   const navigate = useNavigate();
   const [userInfo, setUserInfo] = useRecoilState(userStateAtom);
+
   const request = async () => {
     try {
       const { data } = await customAxios.get("/user/my");
-      console.log(data);
+
       setUserInfo(data.data);
     } catch (error) {
       navigate("/");
     }
   };
+
   useEffect(() => {
     request();
   }, []);
@@ -40,12 +42,12 @@ const FeedMenuModal = ({ data }) => {
       case "SERVER":
         return "#3E89DB";
       case "ANDROID":
-        return "#2FC16A";
+        return "#35C174";
       case "IOS":
         return "#4C4C4C";
       default:
         break;
-    } 
+    }
   };
 
   return (
@@ -68,7 +70,13 @@ const FeedMenuModal = ({ data }) => {
           </div>
           <div className="nameTag">
             <div className="userName">{data.userName}</div>
-            <div className="tagbox" style={{ changeTagColor }}>
+            <div
+              className="tagbox"
+              style={{
+                border: `1px solid ${changeTagColor()}`,
+                color: `${changeTagColor()}`,
+              }}
+            >
               <div className="tag">{data.tag}</div>
             </div>
           </div>
@@ -92,7 +100,6 @@ const FeedMenuModal = ({ data }) => {
         <p className="contentSection">{data.content}</p>
         <img className="able" src={talk} alt={""} />
       </div>
-
       <div className="imgUrl">
         {data.imgUrl && (
           <img src={data.imgUrl} className="imgUrl" alt={"listItem img"} />
