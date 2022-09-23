@@ -19,6 +19,11 @@ export default function LastButton() {
   //똑같은 함수명으로 하면 안됨!!
 
   const upload = async ({ res }) => {
+    if (!/[^\s]/.test(content) || content === null) {
+      window.alert("본문을 입력해주세요");
+      return;
+    }
+
     try {
       const data = {
         imgUrl: fileUrl,
