@@ -16,14 +16,13 @@ export default function LastButton() {
   const [fileUrl, setFileUrl] = useRecoilState(uploadFileUrlAtom);
   const [content, setContent] = useRecoilState(contentAtom);
   const [tag, setTag] = useRecoilState(tagAtom);
-  //똑같은 함수명으로 하면 안됨!!
-
-  const upload = async ({ res }) => {
-    if (!/[^\s]/.test(content) || content === null) {
-      window.alert("본문을 입력해주세요");
-      return;
-    }
-
+  
+    const upload = async ({res}) => {
+       if (!/[^\s]/.test(content) || content === null) {
+        window.alert("본문을 입력해주세요");
+        return;
+       }
+      
     try {
       const data = {
         imgUrl: fileUrl,

@@ -7,7 +7,6 @@ import IOStest from "../../img/IOStest.png";
 function StartPage() {
   return (
     <>
-      <StartNav />
       <section className="top">
         <div className="sectionText">
           <h1>
