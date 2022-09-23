@@ -1,6 +1,6 @@
 .text h2 {
-    margin-left: 444px;
-    margin-top: -10px;
+  margin-left: 444px;
+  margin-top: -10px;
 }
 
 .text h3 {
@@ -8,7 +8,7 @@
 }
 
 .File {
-    margin-top: 20px;
+  margin-top: 20px;
 }
 
 .Input {
@@ -22,12 +22,11 @@
 }
 
 .LastButton {
-    display: flex;
-    margin-left: 1300px;
-    margin-top: 50px;
+  display: flex;
+  margin-left: 1300px;
+  margin-top: 50px;
 }
 
 .text {
-    margin-top: 40px;
+  margin-top: 40px;
 }
-
