@@ -1,7 +1,8 @@
 import "./App.css";
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 import AuthPage from "./page/AuthPage";
-import StartPage from "./components/StartPage/StartPage";
+// import StartPage from "./components/StartPage/StartPage";
+import StartPage from "./components/Startpage/Startpage";
 import Inputpage from "./page/Inputpage/Inputpage";
 import "./color.css";
 import Introduce from "./components/Introduce/Introduce";

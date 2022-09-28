@@ -17,13 +17,13 @@ export default function LastButton() {
   const [content, setContent] = useRecoilState(contentAtom);
   const [tag, setTag] = useRecoilState(tagAtom);
   
-    const upload = async ({res}) => {
-       if (!/[^\s]/.test(content) || content === null) {
-        window.alert("본문을 입력해주세요");
-        return;
-       }
-      
+    const upload = async ({res}) => {      
     try {
+      if (content?.length <= 0 || content === null){
+        alert("텍스트를 입력해주세요");
+        return;
+      }
+
       const data = {
         imgUrl: fileUrl,
         content: content,
@@ -32,6 +32,8 @@ export default function LastButton() {
 
       const res = await customAxios.post("/post/submit", data);
       navigate("/list");
+      setContent("");
+      setTag("Design");
     } catch (e) {
       console.error(e);
     }
