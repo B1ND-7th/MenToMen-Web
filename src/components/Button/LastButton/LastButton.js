@@ -34,6 +34,7 @@ export default function LastButton() {
       navigate("/list");
       setContent("");
       setTag("Design");
+    
     } catch (e) {
       console.error(e);
     }
