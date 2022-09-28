@@ -6,7 +6,7 @@ const ListItem = ({ data }) => {
   const week = ["일", "월", "화", "수", "목", "금", "토"];
   const theHours = date.getHours();
   const theMinutes = date.getMinutes();
-  console.log(theHours);
+  // console.log(theHours);
 
   return (
     <div className="formSection">

@@ -1,5 +1,4 @@
 import React, { useEffect } from "react";
-import StartNav from "../Nav/Start/StartNav";
 import "./Startpage.css";
 import Button from "../Button/Button/Button";
 import IOStest from "../../img/IOStest.png";

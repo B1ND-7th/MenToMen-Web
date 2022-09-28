@@ -2,7 +2,6 @@ import React, { useEffect, useState } from "react";
 import { customAxios } from "../../lib/axios/customAxios.js";
 import ListItem from "./ListItem/ListItem.js";
 import "./List.css";
-import StartNav from "../Nav/Start/StartNav.js";
 
 function List() {
   const [list, setList] = useState([]);
@@ -21,7 +20,6 @@ function List() {
 
   return (
     <>
-      {/* <StartNav/> */}
       <div className="listSection">
         {list.map((item, idx) => (
           <ListItem data={item} key={item.name + " " + idx} />
