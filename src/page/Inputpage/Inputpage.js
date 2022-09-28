@@ -5,11 +5,7 @@ import "./Inputpage.css";
 import Select from "../../components/Select/Select";
 import LastButton from "../../components/Button/LastButton/LastButton";
 
-
-
 export default function Inputpage() {
-
-
     return (
         <div className='test'>
             <div className='text'>

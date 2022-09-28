@@ -1,8 +1,7 @@
 import "./App.css";
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 import AuthPage from "./page/AuthPage";
-// import StartPage from "./components/StartPage/StartPage";
-import StartPage from "./components/Startpage/Startpage"
+import StartPage from "./components/StartPage/StartPage";
 import Inputpage from "./page/Inputpage/Inputpage";
 import "./color.css";
 import Introduce from "./components/Introduce/Introduce";
@@ -11,6 +10,7 @@ import { RecoilRoot } from "recoil";
 
 import List from "./components/ListPage/List";
 import StartNav from "./components/Nav/Start/StartNav";
+
 function App() {
   return (
   <RecoilRoot>

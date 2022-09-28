@@ -4,9 +4,9 @@ import {
   REFRESH_KEY,
   REQUEST_KEY,
 } from "../../constants/auth/auth.constant";
+import CONFIG from "../../config.json";
 
 export const customAxios = axios.create({
-  baseURL: "http://10.80.162.149:8080",
   headers: {
     [REQUEST_KEY]: `Bearer ${localStorage.getItem(ACCESS_KEY)}`,
   },
@@ -23,14 +23,7 @@ const errorInterceptor = async (config) => {
     const originalRequest = config.config;
 
     try {
-      const { data } = await axios.get(
-        "http://10.80.162.149:8080/auth/refreshToken",
-        {
-          headers: {
-            [REQUEST_KEY]: `Bearer ${refresh_token}`,
-          },
-        }
-      );
+
       localStorage.setItem(ACCESS_KEY, data.data.accessToken);
 
       customAxios.defaults.headers[

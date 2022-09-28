@@ -6,7 +6,7 @@
   display: flex;
 
   margin-top: 90px;
-  border: 2px solid #b4b4b4;
+  border: 1px solid rgba(0, 0, 0, 0.175);
   box-sizing: border-box;
 }
 
@@ -35,7 +35,6 @@
   height: 18px;
   padding: 0px 10px;
 
-  border: 1px solid #ed77a9;
   border-radius: 10px;
 
   display: flex;
@@ -49,11 +48,12 @@
   font-size: 12px;
   line-height: 14px;
   height: 12.6px;
-  color: #ed77a9;
 }
 
 .contentSection {
   margin: auto 0px;
+  margin-top: 70px;
+  overflow-wrap: break-word;
 }
 
 .able {
@@ -63,10 +63,13 @@
 }
 
 .imgUrl {
-  width: 285px;
-  height: 270px;
+  display: block;
+  max-height: 325px;
+  aspect-ratio: auto;
 
+  margin-top: 20px;
   margin-left: auto;
+  border-radius: 5px;
 }
 
 .contentBox {
@@ -90,6 +93,12 @@
 .date::before {
   content: " * ";
   margin-right: 10px;
+}
+
+.trashImg {
+  width: 44px;
+  height: 48px;
+  cursor: pointer;
 }
 
 .profileUrl {

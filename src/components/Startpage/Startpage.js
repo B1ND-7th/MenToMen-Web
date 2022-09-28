@@ -1,23 +1,8 @@
-import React, { useEffect } from "react";
-import "./Startpage.css";
+
 import Button from "../Button/Button/Button";
 import IOStest from "../../img/IOStest.png";
-import { useNavigate } from "react-router-dom";
-import { customAxios } from "../../lib/axios/customAxios";
 
 function StartPage() {
-  let navigate = useNavigate();
-  const request = async () => {
-    try {
-      await customAxios.get("/user/my");
-    } catch (error) {
-      navigate("/");
-    }
-  };
-  useEffect(() => {
-    request();
-  }, []);
-
   return (
     <>
       <section className="top">

@@ -1,11 +1,7 @@
 import React from "react";
 import "./LastButton.css";
-import { useRecoilState } from 'recoil';
-import { tagAtom, uploadFileUrlAtom } from '../../../store/upload/uploadAtom';
-import { contentAtom } from '../../../store/upload/uploadcontentAtom';
 import { customAxios } from "../../../lib/axios/customAxios";
 import { useNavigate } from "react-router-dom";
-
 
 export default function LastButton() {
 
@@ -38,10 +34,13 @@ export default function LastButton() {
             console.error(e);
         }    
     }
+  };
 
-    return (
-        <div className='submit'>
-            <button className='submitBt' onClick={upload}>제출하기</button>
-        </div>
-    )
+  return (
+    <div className="submit">
+      <button className="submitBt" onClick={upload}>
+        제출하기
+      </button>
+    </div>
+  );
 }
