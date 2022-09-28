@@ -3,7 +3,7 @@ import { useLocation, useNavigate } from "react-router-dom";
 import QueryString from "query-string";
 import axios from "axios";
 import { ACCESS_KEY, REFRESH_KEY } from "../constants/auth/auth.constant";
-
+import CONFIG from "../config.json";
 const AuthLoadingPage = () => {
   const { search } = useLocation();
   const query = QueryString.parse(search);
@@ -11,7 +11,7 @@ const AuthLoadingPage = () => {
 
   const request = async (code) => {
     try {
-      const { data } = await axios.post("http://10.80.163.171:8080/auth/code", {
+      const { data } = await axios.post(`${CONFIG.server}/auth/code`, {
         code,
       });
       localStorage.setItem(ACCESS_KEY, data.data.accessToken);
