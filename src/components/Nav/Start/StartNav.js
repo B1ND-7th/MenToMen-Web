@@ -2,8 +2,8 @@ import React, { useEffect, useState } from "react";
 import "../Start/StartNav.css";
 import Logo from "../../../img/Logo.png";
 import { useLocation, useNavigate } from "react-router-dom";
-import { ACCESS_KEY } from "../../../constants/auth/auth.constant";
 // import accessToken from "../Start/Navbar";
+import { ACCESS_KEY, REFRESH_KEY } from "../../../constants/auth/auth.constant";
 
 function StartNav() {
   const navigate = useNavigate();
@@ -43,7 +43,16 @@ function StartNav() {
                 멘토요청하기
               </h2>
               <h2 className="MyPage">마이페이지</h2>
-              <h2>Log Out</h2>
+              <h2
+                className="LogOut"
+                onClick={() => {
+                  localStorage.removeItem(ACCESS_KEY);
+                  localStorage.removeItem(REFRESH_KEY);
+                  navigate("/");
+                }}
+              >
+                로그아웃
+              </h2>
             </div>
           ) : (
             <div>

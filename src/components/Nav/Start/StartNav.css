@@ -13,32 +13,34 @@
 }
 
 .logo {
-
   width: 121px;
   height: 40px;
   margin: 8px 0 0 -120px;
 }
 
 .navList h1 {
-   margin: 18px 0 0 550px;
+  margin: 18px 0 0 550px;
   color: #29275c;
   font-size: 16px;
   cursor: pointer;
 }
 
-.navList .Bt{
+.navList .Bt {
   margin-top: 16px;
   display: flex;
-  color:#29275c;
+  color: #29275c;
   font-size: 12px;
 }
 
-.RequestBt{
+.RequestBt {
   margin-left: -10px;
   cursor: pointer;
 }
 
-.MyPage{
+.MyPage {
   margin-left: 150px;
 }
 
+.LogOut {
+  margin-left: 130px;
+}
