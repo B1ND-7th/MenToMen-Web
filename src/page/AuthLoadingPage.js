@@ -26,7 +26,7 @@ const AuthLoadingPage = () => {
       request(query.code);
     }
   }, [query]);
-  return <h1 className="errorPage">404 Page</h1>;
+  return;
 };
 
 export default AuthLoadingPage;
