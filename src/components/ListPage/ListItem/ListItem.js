@@ -1,5 +1,5 @@
 import React, { useEffect } from "react";
-import "./Listitem.css";
+import "./ListItem.css";
 import talk from "../../../img/talk.png";
 import trash from "../../../img/trash.png";
 import useFeedMenu from "../../../Hooks/useFeedMenu";

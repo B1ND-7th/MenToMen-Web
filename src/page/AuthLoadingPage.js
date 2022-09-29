@@ -4,6 +4,7 @@ import QueryString from "query-string";
 import axios from "axios";
 import { ACCESS_KEY, REFRESH_KEY } from "../constants/auth/auth.constant";
 import CONFIG from "../config.json";
+
 const AuthLoadingPage = () => {
   const { search } = useLocation();
   const query = QueryString.parse(search);
@@ -25,7 +26,6 @@ const AuthLoadingPage = () => {
       request(query.code);
     }
   }, [query]);
-
   return <h1 className="errorPage">404 Page</h1>;
 };
 
