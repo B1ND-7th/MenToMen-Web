@@ -15,7 +15,6 @@ const FeedMenuModal = ({ data }) => {
   const request = async () => {
     try {
       const { data } = await customAxios.get("/user/my");
-
       setUserInfo(data.data);
     } catch (error) {
       navigate("/");

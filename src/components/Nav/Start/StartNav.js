@@ -8,16 +8,10 @@ import { ACCESS_KEY, REFRESH_KEY } from "../../../constants/auth/auth.constant";
 function StartNav() {
   const navigate = useNavigate();
   // const [token, setToken] = useState("");
-  const location = useLocation();
   const [isLogin, setIsLogin] = useState(false);
-
   useEffect(() => {
-    if (localStorage.getItem(ACCESS_KEY)) {
-      setIsLogin(true);
-      return;
-    }
-    setIsLogin(false);
-  }, [location]);
+    localStorage.getItem(ACCESS_KEY) ? setIsLogin(true) : setIsLogin(false);
+  }, []);
 
   return (
     <nav className="test">
@@ -49,6 +43,7 @@ function StartNav() {
                   localStorage.removeItem(ACCESS_KEY);
                   localStorage.removeItem(REFRESH_KEY);
                   navigate("/");
+                  window.location.reload();
                 }}
               >
                 로그아웃

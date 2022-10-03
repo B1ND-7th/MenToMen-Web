@@ -38,7 +38,6 @@ const errorInterceptor = async (config) => {
       originalRequest.headers[REQUEST_KEY] = `Bearer ${data.data.accessToken}`;
       return axios(originalRequest);
     } catch (error) {
-      window.alert("리프레쉬 만료");
       localStorage.removeItem(ACCESS_KEY);
       localStorage.removeItem(REFRESH_KEY);
     }
