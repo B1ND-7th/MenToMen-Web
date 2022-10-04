@@ -39,6 +39,7 @@
 
 .MyPage {
   margin-left: 150px;
+  cursor: pointer;
 }
 
 .LogOut {

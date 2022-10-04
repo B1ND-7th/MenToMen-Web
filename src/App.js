@@ -11,6 +11,7 @@ import { RecoilRoot } from "recoil";
 
 import List from "./components/ListPage/List";
 import StartNav from "./components/Nav/Start/StartNav";
+import MyList from "./components/MyList/MyList";
 
 function App() {
   return (
@@ -24,6 +25,7 @@ function App() {
           <Route path="/callback" element={<AuthLoadingPage />} />
           <Route path="/list" element={<List />} />
           <Route path="/form" element={<Inputpage />} />
+          <Route path="mypage" element={<MyList />} />
         </Routes>
       </BrowserRouter>
     </RecoilRoot>

@@ -36,7 +36,9 @@ function StartNav() {
               >
                 멘토요청하기
               </h2>
-              <h2 className="MyPage">마이페이지</h2>
+              <h2 className="MyPage" onClick={() => navigate("/mypage")}>
+                마이페이지
+              </h2>
               <h2
                 className="LogOut"
                 onClick={() => {

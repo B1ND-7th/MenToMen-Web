@@ -1,7 +1,7 @@
 import React, { useEffect } from "react";
 import "./ListItem.css";
 import talk from "../../../img/talk.png";
-import trash from "../../../img/trash.png";
+import trash from "../../../img/trash.svg";
 import useFeedMenu from "../../../Hooks/useFeedMenu";
 import { userStateAtom } from "../../../recoil/userAtom";
 import { useRecoilState, useRecoilValue } from "recoil";

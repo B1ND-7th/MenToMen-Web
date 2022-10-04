@@ -1,13 +1,11 @@
-import React from 'react'
-import { useRecoilState } from 'recoil'
-import { tagAtom } from '../../store/upload/uploadAtom'
-import "./Select.css"
-import { PLATFORM } from '../../constants/Platform/PLANTFORM'
-
-
+import React from "react";
+import { useRecoilState } from "recoil";
+import { tagAtom } from "../../recoil/uploadAtom";
+import "./Select.css";
+import { PLATFORM } from "../../constants/Platform/PLANTFORM";
 
 const Select = () => {
-    const [select, setSelect] = useRecoilState(tagAtom);
+  const [select, setSelect] = useRecoilState(tagAtom);
 
   return (
     <div>
