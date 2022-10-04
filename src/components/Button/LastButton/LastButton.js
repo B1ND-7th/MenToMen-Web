@@ -5,9 +5,9 @@ import {
   uploadFileUrl,
   tagAtom,
   uploadFileUrlAtom,
-} from "../../../store/upload/uploadAtom";
+} from "../../../recoil/uploadAtom";
 import axios from "axios";
-import { contentAtom } from "../../../store/upload/uploadcontentAtom";
+import { contentAtom } from "../../../recoil/uploadcontentAtom";
 import { customAxios } from "../../../lib/axios/customAxios";
 import { useNavigate } from "react-router-dom";
 
@@ -16,10 +16,10 @@ export default function LastButton() {
   const [fileUrl, setFileUrl] = useRecoilState(uploadFileUrlAtom);
   const [content, setContent] = useRecoilState(contentAtom);
   const [tag, setTag] = useRecoilState(tagAtom);
-  
-    const upload = async ({res}) => {      
+
+  const upload = async ({ res }) => {
     try {
-      if (content?.length <= 0 || content === null){
+      if (content?.length <= 0 || content === null) {
         alert("텍스트를 입력해주세요");
         return;
       }
@@ -34,7 +34,6 @@ export default function LastButton() {
       navigate("/list");
       setContent("");
       setTag("Design");
-    
     } catch (e) {
       console.error(e);
     }
