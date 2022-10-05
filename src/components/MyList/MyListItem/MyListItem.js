@@ -12,6 +12,18 @@ const MyListItem = ({ data }) => {
   const [userInfo, setUserInfo] = useRecoilState(userStateAtom);
   const navigate = useNavigate();
 
+  const request = async () => {
+    try {
+      const { data } = await customAxios.get("/user/my");
+      setUserInfo(data.data);
+    } catch (error) {
+      navigate("/");
+    }
+  };
+  useEffect(() => {
+    request();
+  }, []);
+
   const date = new Date(data.createDateTime);
   const week = ["일", "월", "화", "수", "목", "금", "토"];
   const theHours = date.getHours();
