@@ -2,56 +2,66 @@ import React, { useEffect, useState } from "react";
 import { customAxios } from "../../lib/axios/customAxios";
 import MyListItem from "./MyListItem/MyListItem";
 import post from "../../img/post.png";
+import aprofile from "../../img/aprofile.png";
 import "../../components/MyList/MyList.css";
-import { useRecoilState, useRecoilValue } from "recoil";
+import { useRecoilState } from "recoil";
 import { userStateAtom } from "../../recoil/userAtom";
+import { useNavigate } from "react-router-dom";
 
 const Mylist = () => {
   const [mypost, setMyPost] = useState([]);
   const [modal, setModal] = useState(false);
   const [userInfo, setUserInfo] = useRecoilState(userStateAtom);
-  const userData = useRecoilValue(userStateAtom);
+  const navigate = useNavigate();
 
   const request = async () => {
     try {
       const { data } = await customAxios.get("/user/post");
-      console.log(data.data);
-
       setMyPost(data.data);
-    } catch (error) {}
+    } catch (error) {
+      console.log(error);
+    }
+  };
+
+  const userRequest = async () => {
+    try {
+      const { data } = await customAxios.get("/user/my");
+      setUserInfo(data.data);
+      console.log(userInfo);
+    } catch (error) {
+      navigate("/");
+    }
   };
 
   useEffect(() => {
+    userRequest();
     request();
   }, []);
 
   return (
     <>
       <div className="myProfile">
-        {userData[0]?.imgUrl ? (
+        {userInfo.profileUrl ? (
           <img
-            src={userData[0]?.imgUrl}
+            src={userInfo.profileUrl}
             className="myImg"
             alt={"listItem profile"}
           />
         ) : (
-          <img
-            src="http://dodam.b1nd.com/static/media/profile.9a3a77b0.svg"
-            alt="img"
-            className="myImg"
-          />
+          <img src={aprofile} alt="img" className="myImg" />
         )}
         <div className="myGrade">
-          <h1 className="grade">{`${mypost[0]?.stdInfo.grade}학년 ${mypost[0]?.stdInfo.room}반 ${mypost[0]?.stdInfo.number}번`}</h1>
-          <h1 className="myName">{mypost[0]?.userName}</h1>
+          <h1 className="grade">{`${userInfo?.stdInfo?.grade}학년 ${userInfo?.stdInfo?.room}반 ${userInfo?.stdInfo?.number}번`}</h1>
+          <h1 className="myName">{userInfo.name}</h1>
         </div>
+        <img
+          src={post}
+          alt=""
+          onClick={() => setModal(!modal)}
+          className="postImg"
+        />
       </div>
-      <img
-        src={post}
-        alt=""
-        onClick={() => setModal(!modal)}
-        className="postImg"
-      />
+
       <div className="listSection">
         {mypost.map((item, idx) =>
           modal === true ? (
