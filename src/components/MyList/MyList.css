@@ -1,0 +1,29 @@
+.postImg {
+  width: 5%;
+  height: 5%;
+}
+
+.myGrade {
+  margin-left: 10px;
+}
+
+.grade {
+  display: flex;
+  font-size: 1.5rem;
+}
+
+.myImg {
+  width: 8rem;
+  height: 8rem;
+  border-radius: 50%;
+  object-fit: cover;
+  box-shadow: rgb(0 0 0 / 6%) 0px 0px 4px 0px;
+}
+
+.myProfile {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  margin-top: 50px;
+}
