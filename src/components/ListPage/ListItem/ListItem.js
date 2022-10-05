@@ -11,6 +11,13 @@ import { useNavigate } from "react-router-dom";
 const FeedMenuModal = ({ data }) => {
   const navigate = useNavigate();
   const [userInfo, setUserInfo] = useRecoilState(userStateAtom);
+  const userData = useRecoilValue(userStateAtom);
+
+  const date = new Date(data.createDateTime);
+  const week = ["일", "월", "화", "수", "목", "금", "토"];
+  const theHours = date.getHours();
+  const theMinutes = date.getMinutes();
+  const { sentDeleteFeedData } = useFeedMenu();
 
   const request = async () => {
     try {
@@ -24,13 +31,6 @@ const FeedMenuModal = ({ data }) => {
   useEffect(() => {
     request();
   }, []);
-  const userData = useRecoilValue(userStateAtom);
-
-  const date = new Date(data.createDateTime);
-  const week = ["일", "월", "화", "수", "목", "금", "토"];
-  const theHours = date.getHours();
-  const theMinutes = date.getMinutes();
-  const { sentDeleteFeedData } = useFeedMenu();
 
   const changeTagColor = () => {
     switch (data.tag) {

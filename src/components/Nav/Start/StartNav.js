@@ -53,7 +53,7 @@ function StartNav() {
             </div>
           ) : (
             <div>
-              <h1>서비스 소개</h1>
+              <h1 onClick={() => navigate("/introduce")}>서비스 소개</h1>
             </div>
           )}
         </div>
