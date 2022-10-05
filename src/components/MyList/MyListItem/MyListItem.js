@@ -1,12 +1,29 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import useFeedMenu from "../../../Hooks/useFeedMenu";
 import { useRecoilState, useRecoilValue } from "recoil";
 import { userStateAtom } from "../../../recoil/userAtom";
 import talk from "../../../img/talk.png";
 import trash from "../../../img/trash.svg";
+import { useNavigate } from "react-router-dom";
+import { customAxios } from "../../../lib/axios/customAxios";
+
 const MyListItem = ({ data }) => {
   const [modal, setModal] = useState(false);
   const [userInfo, setUserInfo] = useRecoilState(userStateAtom);
+  const navigate = useNavigate();
+
+  const request = async () => {
+    try {
+      const { data } = await customAxios.get("/user/my");
+      setUserInfo(data.data);
+    } catch (error) {
+      navigate("/");
+    }
+  };
+
+  useEffect(() => {
+    request();
+  }, []);
 
   const date = new Date(data.createDateTime);
   const week = ["일", "월", "화", "수", "목", "금", "토"];
