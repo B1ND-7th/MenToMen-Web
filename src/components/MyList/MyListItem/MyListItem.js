@@ -36,19 +36,6 @@ const MyListItem = ({ data }) => {
     }
   };
 
-  const request = async () => {
-    try {
-      const { data } = await customAxios.get("/user/my");
-      setUserInfo(data.data);
-    } catch (error) {
-      navigate("/");
-    }
-  };
-
-  useEffect(() => {
-    request();
-  }, []);
-
   return (
     <>
       <div className="formSection">
