@@ -49,10 +49,12 @@ const Mylist = () => {
         ) : (
           <img src={aprofile} alt="img" className="myImg" />
         )}
-        <div className="myGrade">
-          <h1 className="grade">{`${userInfo?.stdInfo?.grade}학년 ${userInfo?.stdInfo?.room}반 ${userInfo?.stdInfo?.number}번`}</h1>
-          <h1 className="myName">{userInfo.name}</h1>
-        </div>
+        {userInfo.stdInfo ? (
+          <div className="myGrade">
+            <h1 className="grade">{`${userInfo?.stdInfo?.grade}학년 ${userInfo?.stdInfo?.room}반 ${userInfo?.stdInfo?.number}번`}</h1>
+            <h1 className="myName">{userInfo.name}</h1>
+          </div>
+        ) : null}
       </div>
       <div className="listSection">
         {mypost.map((item, idx) => (
