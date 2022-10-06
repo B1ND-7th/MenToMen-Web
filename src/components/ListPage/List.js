@@ -2,7 +2,6 @@ import React, { useEffect, useState } from "react";
 import { customAxios } from "../../lib/axios/customAxios.js";
 import ListItem from "./ListItem/ListItem.js";
 import "./List.css";
-import Search from "../Search/Search.js";
 import { useRecoilState } from "recoil";
 import { listState } from "../../recoil/listAtom";
 function List() {
@@ -12,7 +11,6 @@ function List() {
     try {
       const { data } = await customAxios.get("/post/read-all");
       setList(data);
-      console.log(data);
       setList(data.data);
     } catch (error) {}
   };
@@ -23,9 +21,8 @@ function List() {
 
   return (
     <>
-      <Search />
       <div className="listSection">
-        {list.map((item, idx) => (
+        {list?.map((item, idx) => (
           <ListItem data={item} key={item.name + " " + idx} />
         ))}
       </div>
