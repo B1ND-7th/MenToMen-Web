@@ -1,0 +1,12 @@
+.search {
+  position: absolute;
+  width: 270px;
+  height: 50px;
+  left: 1410px;
+  top: 169px;
+
+  box-sizing: border-box;
+  background: #ffffff;
+  border: 2px solid rgba(0, 0, 0, 0.2);
+  border-radius: 10px;
+}
