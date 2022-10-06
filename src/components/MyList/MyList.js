@@ -10,7 +10,6 @@ import { useNavigate } from "react-router-dom";
 
 const Mylist = () => {
   const [mypost, setMyPost] = useState([]);
-  const [modal, setModal] = useState(false);
   const [userInfo, setUserInfo] = useRecoilState(userStateAtom);
   const navigate = useNavigate();
 
@@ -41,9 +40,9 @@ const Mylist = () => {
   return (
     <>
       <div className="myProfile">
-        {userInfo.profileUrl ? (
+        {userInfo.profileImage ? (
           <img
-            src={userInfo.profileUrl}
+            src={userInfo.profileImage}
             className="myImg"
             alt={"listItem profile"}
           />
@@ -54,20 +53,11 @@ const Mylist = () => {
           <h1 className="grade">{`${userInfo?.stdInfo?.grade}학년 ${userInfo?.stdInfo?.room}반 ${userInfo?.stdInfo?.number}번`}</h1>
           <h1 className="myName">{userInfo.name}</h1>
         </div>
-        <img
-          src={post}
-          alt=""
-          onClick={() => setModal(!modal)}
-          className="postImg"
-        />
       </div>
-
       <div className="listSection">
-        {mypost.map((item, idx) =>
-          modal === true ? (
-            <MyListItem data={item} key={item.name + " " + idx} />
-          ) : null
-        )}
+        {mypost.map((item, idx) => (
+          <MyListItem data={item} key={item.name + " " + idx} />
+        ))}
       </div>
     </>
   );
