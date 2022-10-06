@@ -46,3 +46,32 @@
   margin-left: 130px;
   cursor: pointer;
 }
+
+.searchInput {
+  width: 270px;
+  height: 50px;
+
+  box-sizing: border-box;
+  background: #ffffff;
+  border: 2px solid rgba(0, 0, 0, 0.2);
+  border-radius: 10px;
+  padding: 6px 12px 6px 25px;
+}
+
+.searchBox {
+  position: relative;
+  top: 5px;
+}
+
+.searchBox > img {
+  /* css 선택자 공부 */
+  position: absolute;
+  top: 50%;
+  left: 15px;
+  transform: translate(-50%, -50%); /* 구글링 */
+}
+
+.searchImg {
+  width: 19px;
+  height: 19px;
+}
