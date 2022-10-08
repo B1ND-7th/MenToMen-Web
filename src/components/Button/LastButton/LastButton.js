@@ -16,16 +16,20 @@ export default function LastButton() {
   const [fileUrl, setFileUrl] = useRecoilState(uploadFileUrlAtom);
   const [content, setContent] = useRecoilState(contentAtom);
   const [tag, setTag] = useRecoilState(tagAtom);
-  
-    const upload = async ({res}) => {      
+
+  const upload = async ({ res }) => {
     try {
-      if (content?.length <= 0 || content === null){
+      if (content?.length <= 0 || content === null) {
         alert("텍스트를 입력해주세요");
         return;
       }
 
       const data = {
-        imgUrl: fileUrl,
+        imgUrls: [
+          {
+            imgUrl: fileUrl,
+          },
+        ],
         content: content,
         tag: tag.toUpperCase(),
       };
@@ -34,7 +38,8 @@ export default function LastButton() {
       navigate("/list");
       setContent("");
       setTag("Design");
-    
+      console.log(data);
+      // setFileUrl([]);
     } catch (e) {
       console.error(e);
     }

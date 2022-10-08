@@ -1,0 +1,78 @@
+.CommentListBox {
+  /* display: flex; */
+  border: 0.5px solid rgb(205, 205, 205);
+  width: 622px;
+  /* height: 85px; */
+  min-height: 85px;
+  white-space: pre-wrap;
+  /* display: flex; */
+  /* justify-content: center; */
+  /* align-items: center;
+  flex-direction: column; */
+}
+
+.CommentListProfileUrl {
+  width: 30px;
+  height: 30px;
+  border-radius: 81px;
+  margin-left: -110px;
+  margin-top: 25px;
+  white-space: pre-wrap;
+  /* display: flex;
+  justify-content: space-around; */
+}
+
+.CommentListContent {
+  margin-top: 20px;
+  /* margin-left: -500px; */
+  margin-bottom: 10px;
+  /* display: flex;
+  background-color: #f7f7f7;
+  border: 1px solid black; */
+  /* display: flex; */
+  /* justify-content: center; */
+  background-color: #f7f7f7;
+  border-radius: 5px;
+  white-space: pre-wrap;
+  width: 400px;
+  margin-left: 30px;
+  /* height: 25px; */
+}
+
+.CommentListuserName {
+  /* margin-left: 50px;
+  margin-top: -35px;
+  /* width: 200px; */
+  /* white-space: pre-wrap; */
+  margin-top: 28px;
+  margin-left: -75px;
+}
+
+.CommentListComment {
+  display: flex;
+  flex-direction: column;
+  white-space: pre-wrap;
+}
+
+.CommentListBoxWrap {
+  display: flex;
+  justify-content: center;
+  /* flex-direction: column; */
+  width: 100%;
+  /* white-space: pre-wrap; */
+  /* align-items: center; */
+  /* margin-top: 10px; */
+  white-space: pre-wrap;
+}
+
+.CommentListContentBox {
+  width: 400px;
+  display: flex;
+  /* justify-content: center; */
+  white-space: pre-wrap;
+}
+
+.test {
+  /* display: flex; */
+  /* justify-content: center; */
+}

@@ -72,13 +72,6 @@
   border-radius: 5px;
 }
 
-.contentBox {
-  display: flex;
-  flex-direction: column;
-
-  margin-top: auto;
-}
-
 .date {
   font-style: normal;
   font-weight: 400;

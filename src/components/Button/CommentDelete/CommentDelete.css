@@ -1,0 +1,18 @@
+.TrashImgBox {
+  display: flex;
+  flex-direction: column;
+
+  /* align-items: flex-start; */
+  /* justify-content: space-between; */
+}
+
+.TrashImg {
+  /* display: flex; */
+  /* justify-content: flex-start; */
+  width: 20px;
+  /* margin-left: 60px; */
+
+  /* margin-left: 10px; */
+  /* margin-left: 590px; */
+  /* margin-top: -25px; */
+}

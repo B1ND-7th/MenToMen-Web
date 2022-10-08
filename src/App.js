@@ -4,6 +4,8 @@ import AuthPage from "./page/AuthPage";
 // import StartPage from "./components/StartPage/StartPage";
 import StartPage from "./components/Startpage/Startpage";
 import Inputpage from "./page/Inputpage/Inputpage";
+// import Comment from "./components/comment/commentpage/Comment";
+import Comment from "./components/comment/commentpage/Comment";
 import "./color.css";
 import Introduce from "./components/Introduce/Introduce";
 import AuthLoadingPage from "./page/AuthLoadingPage";
@@ -14,19 +16,20 @@ import StartNav from "./components/Nav/Start/StartNav";
 
 function App() {
   return (
-  <RecoilRoot>
-    <BrowserRouter>
-      <StartNav/>
-      <Routes>
-        <Route path="/" element={<StartPage />} />
-        <Route path="/introduce" element={<Introduce />} />
-        <Route path="/auth" element={<AuthPage />} />
-        <Route path="/callback" element={<AuthLoadingPage />} />
-        <Route path="/list" element={<List />} />
-        <Route path="/form" element={<Inputpage />} />
-      </Routes>
-    </BrowserRouter>
-  </RecoilRoot>
+    <RecoilRoot>
+      <BrowserRouter>
+        <StartNav />
+        <Routes>
+          <Route path="/" element={<StartPage />} />
+          <Route path="/introduce" element={<Introduce />} />
+          <Route path="/auth" element={<AuthPage />} />
+          <Route path="/callback" element={<AuthLoadingPage />} />
+          <Route path="/list" element={<List />} />
+          <Route path="/comment" element={<Comment />} />
+          <Route path="/form" element={<Inputpage />} />
+        </Routes>
+      </BrowserRouter>
+    </RecoilRoot>
   );
 }
 export default App;

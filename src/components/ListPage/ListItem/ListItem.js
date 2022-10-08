@@ -7,10 +7,18 @@ import { userStateAtom } from "../../../recoil/userAtom";
 import { useRecoilState, useRecoilValue } from "recoil";
 import { customAxios } from "../../../lib/axios/customAxios";
 import { useNavigate } from "react-router-dom";
+import { postAtom } from "../../../store/upload/uploadAtom";
 
 const FeedMenuModal = ({ data }) => {
+  const [postId, setPostId] = useRecoilState(postAtom);
   const navigate = useNavigate();
   const [userInfo, setUserInfo] = useRecoilState(userStateAtom);
+
+  // console.log(data);
+  const onClick = () => {
+    setPostId(data.postId);
+    navigate("/comment");
+  };
 
   const request = async () => {
     try {
@@ -98,11 +106,11 @@ const FeedMenuModal = ({ data }) => {
           ) : null}
         </div>
         <p className="contentSection">{data.content}</p>
-        <img className="able" src={talk} alt={""} />
+        <img className="able" src={talk} alt={""} onClick={onClick} />
       </div>
       <div className="imgUrl">
-        {data.imgUrl && (
-          <img src={data.imgUrl} className="imgUrl" alt={"listItem img"} />
+        {data.imgUrls && (
+          <img src={data.imgUrls[0]} className="imgUrl" alt={"listItem img"} />
         )}
       </div>
     </div>
