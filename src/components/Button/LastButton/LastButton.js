@@ -25,7 +25,11 @@ export default function LastButton() {
       }
 
       const data = {
-        imgUrl: fileUrl,
+        imgUrls: [
+          {
+            imgUrl: fileUrl,
+          },
+        ],
         content: content,
         tag: tag.toUpperCase(),
       };
@@ -34,6 +38,8 @@ export default function LastButton() {
       navigate("/list");
       setContent("");
       setTag("Design");
+
+      console.log(data);
     } catch (e) {
       console.error(e);
     }

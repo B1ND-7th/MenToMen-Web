@@ -1,0 +1,8 @@
+.TrashImgBox {
+  display: flex;
+  flex-direction: column;
+}
+
+.TrashImg {
+  width: 20px;
+}

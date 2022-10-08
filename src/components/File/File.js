@@ -5,6 +5,7 @@ import axios from "axios";
 import { useRecoilState } from "recoil";
 import { uploadFileUrl, uploadFileUrlAtom } from "../../recoil/uploadAtom";
 import { customAxios } from "../../lib/axios/customAxios";
+// import imageCompression from "browser-image-compression";
 
 const Prac = ({ upload }) => {
   const [fileUrl, setFileUrl] = useRecoilState(uploadFileUrlAtom);
@@ -17,6 +18,7 @@ const Prac = ({ upload }) => {
 
     try {
       const res = await customAxios.post("/file/upload", formData);
+
       setFileUrl(res.data.data.imgUrl);
     } catch (err) {
       console.log(err);
