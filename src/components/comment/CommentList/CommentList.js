@@ -3,7 +3,7 @@ import { useEffect } from "react";
 import { useState } from "react";
 import { useRecoilState } from "recoil";
 import { customAxios } from "../../../lib/axios/customAxios";
-import { commentListAtom, postAtom } from "../../../store/upload/uploadAtom";
+import { commentListAtom, postAtom } from "../../../recoil/uploadAtom";
 
 import "./CommentList.css";
 import profileimg from "../../../img/aprofile.png";

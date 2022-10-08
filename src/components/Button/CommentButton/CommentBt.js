@@ -6,9 +6,8 @@ import {
   postAtom,
   commentAtom,
   commentListAtom,
-} from "../../../store/upload/uploadAtom";
+} from "../../../recoil/uploadAtom";
 import { customAxios } from "../../../lib/axios/customAxios";
-// import {Comment.Api} from "../"
 import commentApi from "../../../api/auth/Comment.api";
 
 export default function CommentBt() {

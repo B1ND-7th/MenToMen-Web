@@ -7,7 +7,7 @@ import {
   CommentIdAtom,
   commentListAtom,
   CommentUserId,
-} from "../../../store/upload/uploadAtom";
+} from "../../../recoil/uploadAtom";
 import { customAxios } from "../../../lib/axios/customAxios";
 import { useEffect } from "react";
 import { useState } from "react";
@@ -19,8 +19,7 @@ export default function CommentDelete({ id, comments, item }) {
   const [commentId, setCommentId] = useState();
   const userData = useRecoilValue(userStateAtom);
   const [commentList, setCommentList] = useRecoilState(commentListAtom);
-  const [commetuserId, setCommentuserId] = useRecoilState(CommentUserId);
-  // const userData = useRecoilState(userStateAtom);
+  // const [commetuserId, setCommentuserId] = useRecoilState(CommentUserId);
 
   useEffect(() => {
     console.log(comment);
@@ -36,32 +35,15 @@ export default function CommentDelete({ id, comments, item }) {
     );
   };
 
-  // useEffect(() => {
-  //   console.log(data.userId);
-  // });
-
   const Commentdelete = async () => {
     try {
       const { data } = await customAxios.delete(`/comment/delete/${commentId}`);
       Removecomment();
       return data;
-
-      // setCommentuserId(data.data);
-
-      // window.alert("삭제되었습니다");
     } catch (error) {
       console.log(error);
     }
   };
-
-  // useEffect(() => {
-  //   console.log(comment);
-  // });
-
-  useEffect(() => {
-    console.log(22222, userData.userId);
-    console.log(33333, item);
-  }, []);
 
   return (
     <div className="TrashImgBox">

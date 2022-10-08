@@ -2,7 +2,7 @@ import React from "react";
 import { useRecoilState } from "recoil";
 import "./Comment.css";
 import { customAxios } from "../../../lib/axios/customAxios";
-import { commentAtom, postAtom } from "../../../store/upload/uploadAtom";
+import { commentAtom, postAtom } from "../../../recoil/uploadAtom";
 import { useEffect } from "react";
 import { useState } from "react";
 import profileimg from "../../../img/aprofile.png";

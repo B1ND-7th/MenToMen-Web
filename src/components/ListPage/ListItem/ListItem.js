@@ -1,5 +1,5 @@
 import React, { useEffect } from "react";
-import "./ListItem.css";
+import "./Listitem.css";
 import talk from "../../../img/talk.png";
 import trash from "../../../img/trash.svg";
 import useFeedMenu from "../../../Hooks/useFeedMenu";
@@ -7,7 +7,7 @@ import { userStateAtom } from "../../../recoil/userAtom";
 import { useRecoilState, useRecoilValue } from "recoil";
 import { customAxios } from "../../../lib/axios/customAxios";
 import { useNavigate } from "react-router-dom";
-import { postAtom } from "../../../store/upload/uploadAtom";
+import { postAtom } from "../../../recoil/uploadAtom";
 
 const FeedMenuModal = ({ data }) => {
   const [postId, setPostId] = useRecoilState(postAtom);
