@@ -1,7 +1,7 @@
 import React, { useEffect } from "react";
-import "./Listitem.css";
+import "./ListItem.css";
 import talk from "../../../img/talk.png";
-import trash from "../../../img/trash.png";
+import trash from "../../../img/trash.svg";
 import useFeedMenu from "../../../Hooks/useFeedMenu";
 import { userStateAtom } from "../../../recoil/userAtom";
 import { useRecoilState, useRecoilValue } from "recoil";
@@ -13,6 +13,13 @@ const FeedMenuModal = ({ data }) => {
   const [postId, setPostId] = useRecoilState(postAtom);
   const navigate = useNavigate();
   const [userInfo, setUserInfo] = useRecoilState(userStateAtom);
+  const userData = useRecoilValue(userStateAtom);
+
+  const date = new Date(data.createDateTime);
+  const week = ["일", "월", "화", "수", "목", "금", "토"];
+  const theHours = date.getHours();
+  const theMinutes = date.getMinutes();
+  const { sentDeleteFeedData } = useFeedMenu();
 
   // console.log(data);
   const onClick = () => {
@@ -23,7 +30,6 @@ const FeedMenuModal = ({ data }) => {
   const request = async () => {
     try {
       const { data } = await customAxios.get("/user/my");
-
       setUserInfo(data.data);
     } catch (error) {
       navigate("/");
@@ -33,13 +39,6 @@ const FeedMenuModal = ({ data }) => {
   useEffect(() => {
     request();
   }, []);
-  const userData = useRecoilValue(userStateAtom);
-
-  const date = new Date(data.createDateTime);
-  const week = ["일", "월", "화", "수", "목", "금", "토"];
-  const theHours = date.getHours();
-  const theMinutes = date.getMinutes();
-  const { sentDeleteFeedData } = useFeedMenu();
 
   const changeTagColor = () => {
     switch (data.tag) {

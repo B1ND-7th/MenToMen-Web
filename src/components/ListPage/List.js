@@ -2,15 +2,15 @@ import React, { useEffect, useState } from "react";
 import { customAxios } from "../../lib/axios/customAxios.js";
 import ListItem from "./ListItem/ListItem.js";
 import "./List.css";
-import StartNav from "../Nav/Start/StartNav.js";
-
+import { useRecoilState } from "recoil";
+import { listState } from "../../recoil/listAtom";
 function List() {
-  const [list, setList] = useState([]);
+  const [list, setList] = useRecoilState(listState);
 
   const request = async () => {
     try {
       const { data } = await customAxios.get("/post/read-all");
-      console.log(data);
+      setList(data);
       setList(data.data);
     } catch (error) {}
   };
@@ -21,9 +21,8 @@ function List() {
 
   return (
     <>
-      {/* <StartNav/> */}
       <div className="listSection">
-        {list.map((item, idx) => (
+        {list?.map((item, idx) => (
           <ListItem data={item} key={item.name + " " + idx} />
         ))}
       </div>

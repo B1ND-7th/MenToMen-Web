@@ -5,9 +5,9 @@ import {
   uploadFileUrl,
   tagAtom,
   uploadFileUrlAtom,
-} from "../../../store/upload/uploadAtom";
+} from "../../../recoil/uploadAtom";
 import axios from "axios";
-import { contentAtom } from "../../../store/upload/uploadcontentAtom";
+import { contentAtom } from "../../../recoil/uploadcontentAtom";
 import { customAxios } from "../../../lib/axios/customAxios";
 import { useNavigate } from "react-router-dom";
 
@@ -38,8 +38,8 @@ export default function LastButton() {
       navigate("/list");
       setContent("");
       setTag("Design");
+
       console.log(data);
-      // setFileUrl([]);
     } catch (e) {
       console.error(e);
     }

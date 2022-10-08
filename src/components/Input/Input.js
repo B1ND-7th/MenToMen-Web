@@ -1,7 +1,7 @@
 import React from "react";
 import { useRecoilState } from "recoil";
 import "./Input.css";
-import { contentAtom } from "../../store/upload/uploadcontentAtom";
+import { contentAtom } from "../../recoil/uploadcontentAtom";
 
 function Input() {
   const [textValue, setTextValue] = useRecoilState(contentAtom);
