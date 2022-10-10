@@ -54,7 +54,7 @@ const Mylist = () => {
             </div>
           ) : null}
         </div>
-        <div className="listSection">
+        <div className="myPageListSection">
           {mypost.map((item, idx) => (
             <MyListItem data={item} key={item.name + " " + idx} />
           ))}
