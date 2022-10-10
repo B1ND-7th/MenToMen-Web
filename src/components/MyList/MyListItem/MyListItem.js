@@ -2,6 +2,7 @@ import React, { useEffect, useState } from "react";
 import useFeedMenu from "../../../Hooks/useFeedMenu";
 import { useRecoilState, useRecoilValue } from "recoil";
 import { userStateAtom } from "../../../recoil/userAtom";
+import { postAtom } from "../../../recoil/uploadAtom";
 import talk from "../../../img/talk.png";
 import trash from "../../../img/trash.svg";
 import { useNavigate } from "react-router-dom";
@@ -10,6 +11,8 @@ import { customAxios } from "../../../lib/axios/customAxios";
 const MyListItem = ({ data }) => {
   const [modal, setModal] = useState(false);
   const [userInfo, setUserInfo] = useRecoilState(userStateAtom);
+  const [postId, setPostId] = useRecoilState(postAtom);
+
   const navigate = useNavigate();
 
   const request = async () => {
@@ -23,6 +26,11 @@ const MyListItem = ({ data }) => {
   useEffect(() => {
     request();
   }, []);
+
+  const onClick = () => {
+    setPostId(data.postId);
+    navigate("/comment");
+  };
 
   const date = new Date(data.createDateTime);
   const week = ["일", "월", "화", "수", "목", "금", "토"];
@@ -97,7 +105,7 @@ const MyListItem = ({ data }) => {
             ) : null}
           </div>
           <p className="contentSection">{data.content}</p>
-          <img className="able" src={talk} alt={""} />
+          <img className="able" src={talk} alt={""} onClick={onClick} />
         </div>
         <div className="imgUrl">
           {data.imgUrl && (
