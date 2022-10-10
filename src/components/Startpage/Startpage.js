@@ -1,6 +1,6 @@
 import React from "react";
 import StartNav from "../Nav/Start/StartNav";
-import "./Startpage.css";
+import "./StartPage.css";
 import Button from "../Button/Button/Button";
 import IOStest from "../../img/IOStest.png";
 
