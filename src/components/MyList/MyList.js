@@ -39,27 +39,26 @@ const Mylist = () => {
 
   return (
     <>
-      <div className="myProfile">
-        {userInfo.profileImage ? (
-          <img
-            src={userInfo.profileImage}
-            className="myImg"
-            alt={"listItem profile"}
-          />
-        ) : (
-          <img src={aprofile} alt="img" className="myImg" />
-        )}
-        {userInfo.stdInfo ? (
-          <div className="myGrade">
-            <h1 className="grade">{`${userInfo?.stdInfo?.grade}학년 ${userInfo?.stdInfo?.room}반 ${userInfo?.stdInfo?.number}번`}</h1>
-            <h1 className="myName">{userInfo.name}</h1>
-          </div>
-        ) : null}
-      </div>
-      <div className="listSection">
-        {mypost.map((item, idx) => (
-          <MyListItem data={item} key={item.name + " " + idx} />
-        ))}
+      <div className="myPageWrap">
+        <div className="myProfile">
+          {userInfo.profileImage ? (
+            <img className="myImg" alt={"listItem profile"} />
+          ) : (
+            <img src={aprofile} alt="img" className="myImg" />
+          )}
+          {userInfo.stdInfo ? (
+            <div className="myGrade">
+              {userInfo.profileImage}
+              <h1 className="grade">{`${userInfo?.stdInfo?.grade}학년 ${userInfo?.stdInfo?.room}반 ${userInfo?.stdInfo?.number}번`}</h1>
+              <h1 className="myName">{userInfo.name}</h1>
+            </div>
+          ) : null}
+        </div>
+        <div className="myPageListSection">
+          {mypost.map((item, idx) => (
+            <MyListItem data={item} key={item.name + " " + idx} />
+          ))}
+        </div>
       </div>
     </>
   );

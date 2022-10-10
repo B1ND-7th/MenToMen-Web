@@ -28,7 +28,7 @@ function App() {
           <Route path="/list" element={<List />} />
           <Route path="/comment" element={<Comment />} />
           <Route path="/form" element={<Inputpage />} />
-          <Route path="mypage" element={<MyList />} />
+          <Route path="/mypage" element={<MyList />} />
         </Routes>
       </BrowserRouter>
     </RecoilRoot>

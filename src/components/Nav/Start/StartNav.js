@@ -48,6 +48,7 @@ function StartNav() {
                     if (e.key === "Enter") {
                       const { data } = await searchPost(inputText);
                       setList(data);
+                      setInputText("");
                     }
                   }}
                 />

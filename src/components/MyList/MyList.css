@@ -1,6 +1,23 @@
-.postImg {
-  width: 5%;
-  height: 5%;
+.myPageWrap {
+  display: flex;
+  flex-direction: column;
+
+  min-height: calc(100vh - 61px);
+}
+
+.myProfile {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-top: 50px;
+}
+
+.myImg {
+  width: 8rem;
+  height: 8rem;
+  border-radius: 50%;
+  object-fit: cover;
+  box-shadow: rgb(0 0 0 / 6%) 0px 0px 4px 0px;
 }
 
 .myGrade {
@@ -12,22 +29,11 @@
   font-size: 1.5rem;
 }
 
-.myImg {
-  width: 8rem;
-  height: 8rem;
-  border-radius: 50%;
-  object-fit: cover;
-  box-shadow: rgb(0 0 0 / 6%) 0px 0px 4px 0px;
-}
-
-.myProfile {
+.myPageListSection {
   display: flex;
-  justify-content: center;
+  flex-direction: column;
   align-items: center;
+  box-sizing: border-box;
 
-  margin-top: 50px;
-}
-
-.postImg {
-  margin-left: 20px;
+  height: 100%;
 }
