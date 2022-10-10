@@ -15,6 +15,25 @@ const MyListItem = ({ data }) => {
 
   const navigate = useNavigate();
 
+  const detailDate = (a) => {
+    const milliSeconds = new Date() - a;
+    const seconds = milliSeconds / 1000;
+    if (seconds < 60) return `방금 전`;
+    const minutes = seconds / 60;
+    if (minutes < 60) return `${Math.floor(minutes)}분 전`;
+    const hours = minutes / 60;
+    if (hours < 24) return `${Math.floor(hours)}시간 전`;
+    const days = hours / 24;
+    if (days < 7) return `${Math.floor(days)}일 전`;
+    const weeks = days / 7;
+    if (weeks < 5) return `${Math.floor(weeks)}주 전`;
+    const months = days / 30;
+    if (months < 12) return `${Math.floor(months)}개월 전`;
+    const years = days / 365;
+    return `${Math.floor(years)}년 전`;
+  };
+  const nowDate = detailDate(new Date(data.createDateTime));
+
   const request = async () => {
     try {
       const { data } = await customAxios.get("/user/my");
@@ -32,10 +51,6 @@ const MyListItem = ({ data }) => {
     navigate("/comment");
   };
 
-  const date = new Date(data.createDateTime);
-  const week = ["일", "월", "화", "수", "목", "금", "토"];
-  const theHours = date.getHours();
-  const theMinutes = date.getMinutes();
   const { sentDeleteFeedData } = useFeedMenu();
   const userData = useRecoilValue(userStateAtom);
 
@@ -87,14 +102,7 @@ const MyListItem = ({ data }) => {
                 <div className="tag">{data.tag}</div>
               </div>
             </div>
-            <div className="date">
-              {`${date.getFullYear()}년 ${
-                date.getMonth() + 1
-              }월 ${date.getDate()}일 ${week[date.getDay()]}요일 `}
-              {theHours > 12
-                ? `오후 ${theHours - 12}시 ${theMinutes}분`
-                : `오전 ${theHours}시 ${theMinutes}분`}
-            </div>
+            <div className="date">{nowDate}</div>
             {userData.userId === data.author ? (
               <img
                 src={trash}
