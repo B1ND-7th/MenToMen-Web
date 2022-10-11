@@ -32,27 +32,28 @@ function StartNav() {
             alt=""
             src={Logo}
           />
-
           {isLogin ? (
             <>
-              <div className="searchBox">
-                <img src={search} className="searchImg" alt="" />
-                <input
-                  className="searchInput"
-                  placeholder="키워드 검색"
-                  value={inputText}
-                  onChange={(e) => {
-                    setInputText(e.target.value);
-                  }}
-                  onKeyDown={async (e) => {
-                    if (e.key === "Enter") {
-                      const { data } = await searchPost(inputText);
-                      setList(data);
-                      setInputText("");
-                    }
-                  }}
-                />
-              </div>
+              {location.pathname === "/list" ? (
+                <div className="searchBox">
+                  <img src={search} className="searchImg" alt="" />
+                  <input
+                    className="searchInput"
+                    placeholder="키워드 검색"
+                    value={inputText}
+                    onChange={(e) => {
+                      setInputText(e.target.value);
+                    }}
+                    onKeyDown={async (e) => {
+                      if (e.key === "Enter") {
+                        const { data } = await searchPost(inputText);
+                        setList(data);
+                        setInputText("");
+                      }
+                    }}
+                  />
+                </div>
+              ) : null}
               <div className="Bt">
                 <h2
                   className="RequestBt"
