@@ -26,7 +26,6 @@ const Mylist = () => {
     try {
       const { data } = await customAxios.get("/user/my");
       setUserInfo(data.data);
-      console.log(userInfo);
     } catch (error) {
       navigate("/");
     }
@@ -42,13 +41,16 @@ const Mylist = () => {
       <div className="myPageWrap">
         <div className="myProfile">
           {userInfo.profileImage ? (
-            <img className="myImg" alt={"listItem profile"} />
+            <img
+              className="myImg"
+              alt={"listItem profile"}
+              src={userInfo.profileImage}
+            />
           ) : (
             <img src={aprofile} alt="img" className="myImg" />
           )}
           {userInfo.stdInfo ? (
             <div className="myGrade">
-              {userInfo.profileImage}
               <h1 className="grade">{`${userInfo?.stdInfo?.grade}학년 ${userInfo?.stdInfo?.room}반 ${userInfo?.stdInfo?.number}번`}</h1>
               <h1 className="myName">{userInfo.name}</h1>
             </div>
