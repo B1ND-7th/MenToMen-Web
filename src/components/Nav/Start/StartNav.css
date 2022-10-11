@@ -49,11 +49,13 @@
 }
 
 .searchInput {
-  width: 366px;
+  width: 300px;
   height: 30px;
-
+  background: #f2f2f2;
   border: 0px;
   outline: none;
+
+  font-size: 15px;
 }
 
 .searchBox {
@@ -66,8 +68,8 @@
   box-sizing: border-box;
   border-radius: 10px;
   padding: 6px 12px 6px 25px;
-  background: #ffffff;
-  border: 2px solid rgba(0, 0, 0, 0.2);
+  background: #f2f2f2;
+  border-radius: 10px;
 }
 
 .searchBox > img {
@@ -75,4 +77,18 @@
 
   width: 19px;
   height: 19px;
+}
+
+::placeholder {
+  font-family: "Pretendard";
+
+  font-style: normal;
+  font-weight: 500;
+  font-size: 18px;
+  line-height: 21px;
+
+  position: absolute;
+  top: 5px;
+
+  color: rgba(0, 0, 0, 0.5);
 }
