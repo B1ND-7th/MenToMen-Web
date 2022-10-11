@@ -4,7 +4,7 @@ import { useRecoilState, useRecoilValue } from "recoil";
 import { userStateAtom } from "../../../recoil/userAtom";
 import { postAtom } from "../../../recoil/uploadAtom";
 import talk from "../../../img/talk.png";
-import trash from "../../../img/trash.svg";
+import trash from "../../../img/trash.png";
 import { useNavigate } from "react-router-dom";
 import { customAxios } from "../../../lib/axios/customAxios";
 
@@ -12,7 +12,6 @@ const MyListItem = ({ data }) => {
   const [modal, setModal] = useState(false);
   const [userInfo, setUserInfo] = useRecoilState(userStateAtom);
   const [postId, setPostId] = useRecoilState(postAtom);
-
   const navigate = useNavigate();
 
   const detailDate = (a) => {
@@ -32,6 +31,7 @@ const MyListItem = ({ data }) => {
     const years = days / 365;
     return `${Math.floor(years)}년 전`;
   };
+
   const nowDate = detailDate(new Date(data.createDateTime));
 
   const request = async () => {

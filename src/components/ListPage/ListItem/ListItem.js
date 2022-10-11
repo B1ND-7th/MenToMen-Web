@@ -1,7 +1,7 @@
 import React, { useEffect } from "react";
 import "./Listitem.css";
 import talk from "../../../img/talk.png";
-import trash from "../../../img/trash.svg";
+import trash from "../../../img/trash.png";
 import useFeedMenu from "../../../Hooks/useFeedMenu";
 import { userStateAtom } from "../../../recoil/userAtom";
 import { useRecoilState, useRecoilValue } from "recoil";
@@ -14,7 +14,6 @@ const FeedMenuModal = ({ data }) => {
   const navigate = useNavigate();
   const [userInfo, setUserInfo] = useRecoilState(userStateAtom);
   const userData = useRecoilValue(userStateAtom);
-  console.log(data);
   const { sentDeleteFeedData } = useFeedMenu();
 
   const detailDate = (a) => {
