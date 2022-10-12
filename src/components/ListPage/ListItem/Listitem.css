@@ -83,6 +83,7 @@
   display: flex;
   align-items: flex-end;
   padding-bottom: 6px;
+  width: 80px;
 }
 
 .date::before {
@@ -94,6 +95,7 @@
   width: 44px;
   height: 48px;
   cursor: pointer;
+  margin-left: 835px;
 }
 
 .profileUrl {

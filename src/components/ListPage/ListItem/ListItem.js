@@ -1,20 +1,24 @@
-import React, { useEffect } from "react";
+import React, { useEffect, useState } from "react";
 import "./Listitem.css";
 import talk from "../../../img/talk.png";
-import trash from "../../../img/trash.png";
-import useFeedMenu from "../../../Hooks/useFeedMenu";
+import bar from "../../../img/bar.svg";
 import { userStateAtom } from "../../../recoil/userAtom";
 import { useRecoilState, useRecoilValue } from "recoil";
 import { customAxios } from "../../../lib/axios/customAxios";
 import { useNavigate } from "react-router-dom";
 import { postAtom } from "../../../recoil/uploadAtom";
+import Modal from "../../Modal/Modal";
+import usePostModal from "../../../Hooks/usePostModal";
+import { EditPost } from "../../../api/Edit.api";
 
 const FeedMenuModal = ({ data }) => {
   const [postId, setPostId] = useRecoilState(postAtom);
+  const [modal, setModal] = useState(false);
   const navigate = useNavigate();
-  const [userInfo, setUserInfo] = useRecoilState(userStateAtom);
   const userData = useRecoilValue(userStateAtom);
-  const { sentDeleteFeedData } = useFeedMenu();
+  const [postData, setPostData] = useState(data);
+  const { isModify, onChangeModify } = usePostModal();
+  const [input, setInput] = useState("");
 
   const detailDate = (a) => {
     const milliSeconds = new Date() - a;
@@ -40,19 +44,6 @@ const FeedMenuModal = ({ data }) => {
     setPostId(data.postId);
     navigate("/comment");
   };
-
-  const request = async () => {
-    try {
-      const { data } = await customAxios.get("/user/my");
-      setUserInfo(data.data);
-    } catch (error) {
-      navigate("/");
-    }
-  };
-
-  useEffect(() => {
-    request();
-  }, []);
 
   const changeTagColor = () => {
     switch (data.tag) {
@@ -104,19 +95,48 @@ const FeedMenuModal = ({ data }) => {
           <div className="date">{nowDate}</div>
           {userData.userId === data.author ? (
             <img
-              src={trash}
+              src={bar}
               className="trashImg"
               alt=""
-              onClick={() => sentDeleteFeedData(data.postId)}
+              onClick={() => setModal(!modal)}
+            />
+          ) : null}
+          {modal === true ? (
+            <Modal
+              data={data}
+              className="modal"
+              isModify={isModify}
+              onChangeModify={onChangeModify}
             />
           ) : null}
         </div>
-        <p className="contentSection">{data.content}</p>
+        {isModify ? (
+          <textarea
+            value={postData.content}
+            onChange={(e) => {
+              setPostData((prev) => ({ ...prev, content: e.target.value }));
+            }}
+            onKeyDown={async (e) => {
+              if (e.key === "Enter") {
+                await EditPost(postData);
+                postData.content = "";
+                window.location.reload();
+              }
+            }}
+          />
+        ) : (
+          <p className="contentSection">{data.content}</p>
+        )}
         <img className="able" src={talk} alt={""} onClick={onClick} />
       </div>
       <div className="imgUrl">
         {data.imgUrls && (
-          <img src={data.imgUrls[0]} className="imgUrl" alt={"listItem img"} />
+          <img
+            src={data.imgUrls[0]}
+            className="imgUrl"
+            alt={"listItem img"}
+            onClick={onClick}
+          />
         )}
       </div>
     </div>
