@@ -4,35 +4,23 @@ import { useRecoilState, useRecoilValue } from "recoil";
 import { userStateAtom } from "../../../recoil/userAtom";
 import { postAtom } from "../../../recoil/uploadAtom";
 import talk from "../../../img/talk.png";
-import trash from "../../../img/trash.png";
+import bar from "../../../img/bar.svg";
 import { useNavigate } from "react-router-dom";
 import { customAxios } from "../../../lib/axios/customAxios";
+import usePostModal from "../../../Hooks/usePostModal";
+import Modal from "../../Modal/Modal";
+import { EditPost } from "../../../api/Edit.api";
+import { detailDate } from "../../common/Date";
 
 const MyListItem = ({ data }) => {
   const [modal, setModal] = useState(false);
   const [userInfo, setUserInfo] = useRecoilState(userStateAtom);
+  const { isModify, onChangeModify } = usePostModal();
+  const [postData, setPostData] = useState(data);
   const [postId, setPostId] = useRecoilState(postAtom);
   const navigate = useNavigate();
-
-  const detailDate = (a) => {
-    const milliSeconds = new Date() - a;
-    const seconds = milliSeconds / 1000;
-    if (seconds < 60) return `방금 전`;
-    const minutes = seconds / 60;
-    if (minutes < 60) return `${Math.floor(minutes)}분 전`;
-    const hours = minutes / 60;
-    if (hours < 24) return `${Math.floor(hours)}시간 전`;
-    const days = hours / 24;
-    if (days < 7) return `${Math.floor(days)}일 전`;
-    const weeks = days / 7;
-    if (weeks < 5) return `${Math.floor(weeks)}주 전`;
-    const months = days / 30;
-    if (months < 12) return `${Math.floor(months)}개월 전`;
-    const years = days / 365;
-    return `${Math.floor(years)}년 전`;
-  };
-
   const nowDate = detailDate(new Date(data.createDateTime));
+  const userData = useRecoilValue(userStateAtom);
 
   const request = async () => {
     try {
@@ -42,6 +30,7 @@ const MyListItem = ({ data }) => {
       navigate("/");
     }
   };
+
   useEffect(() => {
     request();
   }, []);
@@ -50,9 +39,6 @@ const MyListItem = ({ data }) => {
     setPostId(data.postId);
     navigate("/comment");
   };
-
-  const { sentDeleteFeedData } = useFeedMenu();
-  const userData = useRecoilValue(userStateAtom);
 
   const changeTagColor = () => {
     switch (data.tag) {
@@ -105,14 +91,38 @@ const MyListItem = ({ data }) => {
             <div className="date">{nowDate}</div>
             {userData.userId === data.author ? (
               <img
-                src={trash}
+                src={bar}
                 className="trashImg"
                 alt=""
-                onClick={() => sentDeleteFeedData(data.postId)}
+                onClick={() => setModal(!modal)}
+              />
+            ) : null}
+            {modal === true ? (
+              <Modal
+                data={data}
+                className="modal"
+                isModify={isModify}
+                onChangeModify={onChangeModify}
               />
             ) : null}
           </div>
-          <p className="contentSection">{data.content}</p>
+          {isModify ? (
+            <textarea
+              value={postData.content}
+              onChange={(e) => {
+                setPostData((prev) => ({ ...prev, content: e.target.value }));
+              }}
+              onKeyDown={async (e) => {
+                if (e.key === "Enter") {
+                  await EditPost(postData);
+                  postData.content = "";
+                  window.location.reload();
+                }
+              }}
+            />
+          ) : (
+            <p className="contentSection">{data.content}</p>
+          )}
           <img className="able" src={talk} alt={""} onClick={onClick} />
         </div>
         <div className="imgUrl">
