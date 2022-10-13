@@ -27,7 +27,9 @@
 
 .navList .Bt {
   margin-top: 16px;
+  /* margin-left: -200px; */
   display: flex;
+  /* justify-content: space-between; */
   color: #29275c;
   font-size: 12px;
 }
@@ -36,6 +38,10 @@
   margin-left: -10px;
   cursor: pointer;
 }
+
+/* .Bt {
+  margin-left: -150px;
+} */
 
 .MyPage {
   margin-left: 150px;
@@ -48,8 +54,9 @@
 }
 
 .searchInput {
-  width: 270px;
+  width: 350px;
   height: 50px;
+  /* margin-left: 20px; */
 
   box-sizing: border-box;
   background: #ffffff;
@@ -61,6 +68,7 @@
 .searchBox {
   position: relative;
   top: 5px;
+  margin-left: -25px;
 }
 
 .searchBox > img {

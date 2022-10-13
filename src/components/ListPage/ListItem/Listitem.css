@@ -1,13 +1,11 @@
 .formSection {
-  width: 1127px;
-  height: 446px;
+  width: 900px;
+  height: 400px;
   padding: 20px;
-
   display: flex;
-
   margin-top: 90px;
+  margin-left: 100px;
   border: 1px solid rgba(0, 0, 0, 0.175);
-  box-sizing: border-box;
   background: #ffffff;
   border-radius: 10px;
 }
@@ -53,25 +51,26 @@
 }
 
 .contentSection {
+  width: 580px;
   margin: auto 0px;
   margin-top: 70px;
   overflow-wrap: break-word;
 }
 
 .able {
-  width: 44px;
+  width: 130px;
   height: 48px;
   cursor: pointer;
 }
 
 .imgUrl {
-  display: block;
-  max-height: 325px;
+  /* display: block; */
+  /* max-height: 325px;
   aspect-ratio: auto;
 
   margin-top: 20px;
   margin-left: auto;
-  border-radius: 5px;
+  border-radius: 5px; */
 }
 
 .date {
@@ -101,4 +100,34 @@
   height: 51px;
 
   border-radius: 81px;
+}
+
+.listImage {
+  width: 200px;
+  height: 200px;
+  /* margin-left: 50px; */
+}
+
+.slick-slider {
+  width: 200px;
+}
+
+/* .ListItemImg {
+  margin-left: 50px;
+} */
+
+.ListItemImgBox {
+  margin-left: 100px;
+  margin-top: 100px;
+}
+
+/* .ListItemImg {
+  width: 200px;
+  height: 100px;
+} */
+
+.SideBar {
+  /* display: flex; */
+  /* flex-direction: column; */
+  /* background-color: white; */
 }

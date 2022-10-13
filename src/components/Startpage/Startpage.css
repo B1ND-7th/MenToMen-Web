@@ -16,20 +16,24 @@
 }
 
 .sectionText h1 {
-  font-size: 60px;
+  font-size: 50px;
+  margin-left: -14px;
   margin-bottom: 90px;
 }
 
 .sectionText h3 {
-  font-size: 32px;
+  font-size: 28px;
+  margin-left: -10px;
 }
 
 .iosimg {
-  width: 482px;
+  width: 430px;
+  /* height: ; */
   display: flex;
   margin: -390px 0 0 1100px;
 }
 
 .btn {
   margin: -150px 0 0 260px;
+  margin-top: -70px;
 }

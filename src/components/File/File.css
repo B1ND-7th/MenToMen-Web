@@ -1,5 +1,43 @@
+.test222 {
+  /* display: flex;
+  background-color: black; */
+  /* width: 430px; */
+  margin-left: 445px;
+  margin-top: 10px;
+}
+
 .fileimg {
   width: 200px;
   height: 200px;
-  margin-left: 444px;
+}
+
+/* .test {
+  width: 1000px;
+} */
+
+.FileInput {
+  margin-left: 200px;
+}
+
+/* .input-file-button {
+  padding: 6px 25px;
+  background-color: #ff6600;
+  border-radius: 4px;
+  color: white;
+  cursor: pointer;
+} */
+
+.File-Img {
+  display: flex;
+  justify-content: center;
+  width: 30px;
+  height: 30px;
+  /* margin-left: 50px; */
+}
+
+.input-file-button {
+  display: flex;
+  justify-content: space-evenly;
+  margin-left: -350px;
+  margin-top: -30px;
 }

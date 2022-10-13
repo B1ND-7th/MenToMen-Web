@@ -2,7 +2,7 @@ import { atom } from "recoil";
 
 export const uploadFileUrlAtom = atom({
   key: "uploadFileUrlAtom",
-  default: "",
+  default: [],
 });
 
 export const tagAtom = atom({
@@ -37,5 +37,10 @@ export const CommentIdAtom = atom({
 
 export const CommentUserId = atom({
   key: "CommentUserId",
+  default: null,
+});
+
+export const ProfileUrlAtom = atom({
+  key: "ProfileUrlAtom",
   default: null,
 });

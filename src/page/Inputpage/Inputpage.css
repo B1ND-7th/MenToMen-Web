@@ -5,6 +5,7 @@
 
 .text h3 {
   margin-left: 444px;
+  margin-top: -15px;
 }
 
 .File {
@@ -19,6 +20,7 @@
   display: flex;
   justify-content: center;
   margin-left: -18px;
+  margin-top: 10px;
 }
 
 .LastButton {

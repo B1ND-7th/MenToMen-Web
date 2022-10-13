@@ -1,6 +1,6 @@
 .input {
-    display: flex;
-    justify-content: center;
+  display: flex;
+  justify-content: center;
 }
 
 .input::-webkit-scrollbar {
@@ -8,17 +8,17 @@
 }
 
 textarea {
-    resize: none;
+  resize: none;
 }
 
 .inputtext {
-    margin-left: 2px;
-    margin-top: -10px;
+  margin-left: 2px;
+  margin-top: 25px;
 }
 
 .inputtextElement {
-    margin-top: 10px;
-    margin-bottom: 12px;
+  margin-top: 10px;
+  margin-bottom: 12px;
 }
 
 .inputbox {

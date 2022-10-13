@@ -2,12 +2,17 @@ import React, { useEffect } from "react";
 import "./Listitem.css";
 import talk from "../../../img/talk.png";
 import trash from "../../../img/trash.svg";
+import Trash from "../../../img/Trash.png";
 import useFeedMenu from "../../../Hooks/useFeedMenu";
 import { userStateAtom } from "../../../recoil/userAtom";
 import { useRecoilState, useRecoilValue } from "recoil";
 import { customAxios } from "../../../lib/axios/customAxios";
 import { useNavigate } from "react-router-dom";
 import { postAtom } from "../../../recoil/uploadAtom";
+import "slick-carousel/slick/slick.css";
+import "slick-carousel/slick/slick-theme.css";
+import Slider from "react-slick";
+import Sidebar from "../../Sidebar/Sidebar";
 
 const FeedMenuModal = ({ data }) => {
   const [postId, setPostId] = useRecoilState(postAtom);
@@ -38,23 +43,32 @@ const FeedMenuModal = ({ data }) => {
 
   useEffect(() => {
     request();
+    console.log(data);
   }, []);
 
   const changeTagColor = () => {
     switch (data.tag) {
       case "WEB":
-        return "#D38D42";
+        return "#F19F62";
       case "DESIGN":
-        return "#D83F67";
+        return "#EC6B77";
       case "SERVER":
-        return "#3E89DB";
+        return "#628FD3";
       case "ANDROID":
-        return "#35C174";
+        return "#5AAC73";
       case "IOS":
         return "#4C4C4C";
       default:
         break;
     }
+  };
+
+  const settings = {
+    dots: true,
+    infinite: true,
+    speed: 500,
+    slidesToShow: 1,
+    slidesToScroll: 1,
   };
 
   return (
@@ -105,11 +119,32 @@ const FeedMenuModal = ({ data }) => {
           ) : null}
         </div>
         <p className="contentSection">{data.content}</p>
-        <img className="able" src={talk} alt={""} onClick={onClick} />
+        <img className="able" src={Trash} alt={""} onClick={onClick} />
       </div>
-      <div className="imgUrl">
+      {/* <div className="imgUrl"> */}
+      {/* <div className="slideContainer">
         {data.imgUrls && (
-          <img src={data.imgUrls[0]} className="imgUrl" alt={"listItem img"} />
+          <Slider {...settings}>
+            {data.imgUrls.map((item) => {
+              return (
+                // <img src={item} className="listImage" alt={"listItem img"} />
+                <div>{item}</div>
+              );
+            })}
+          </Slider>
+        )}
+      </div> */}
+      <div className="ListItemImgBox">
+        {data.imgUrls && (
+          <Slider {...settings}>
+            {data.imgUrls.map((item) => {
+              return (
+                <div className="ListItemImg">
+                  <img src={item} className="listImage" alt={"listItem img"} />
+                </div>
+              );
+            })}
+          </Slider>
         )}
       </div>
     </div>
