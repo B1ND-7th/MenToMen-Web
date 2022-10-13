@@ -30,9 +30,8 @@ export default function Comment() {
     try {
       const { data } = await customAxios.get(`/post/read-one/${postId}`);
       setPost(data.data);
-      // console.log(data);
     } catch (error) {
-      alert(error);
+      console.log(error);
     }
   };
 

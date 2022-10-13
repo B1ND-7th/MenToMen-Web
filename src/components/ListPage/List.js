@@ -4,6 +4,7 @@ import ListItem from "./ListItem/ListItem.js";
 import "./List.css";
 import { useRecoilState } from "recoil";
 import { listState } from "../../recoil/listAtom";
+
 function List() {
   const [list, setList] = useRecoilState(listState);
 
