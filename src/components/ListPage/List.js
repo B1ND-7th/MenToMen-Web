@@ -5,6 +5,7 @@ import "./List.css";
 import { useRecoilState } from "recoil";
 import { listState } from "../../recoil/listAtom";
 import Sidebar from "../Sidebar/Sidebar.js";
+import Slider from "react-slick";
 
 function List() {
   const [list, setList] = useRecoilState(listState);

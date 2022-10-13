@@ -1,7 +1,7 @@
-import React, { useEffect } from "react";
+import React, { useEffect, useState } from "react";
 import "./Listitem.css";
 import talk from "../../../img/talk.png";
-import Trash from "../../../img/trash.png";
+import Trash from "../../../img/Trash.png";
 import useFeedMenu from "../../../Hooks/useFeedMenu";
 import { userStateAtom } from "../../../recoil/userAtom";
 import { useRecoilState, useRecoilValue } from "recoil";
@@ -12,12 +12,40 @@ import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
 import Slider from "react-slick";
 import Sidebar from "../../Sidebar/Sidebar";
+import usePostModal from "../../../Hooks/usePostModal";
+import Modal from "../../Modal/Modal";
+import bar from "../../../img/bar.svg";
+import { EditPost } from "../../../api/Edit.api";
 
 const FeedMenuModal = ({ data }) => {
   const [postId, setPostId] = useRecoilState(postAtom);
   const navigate = useNavigate();
   const [userInfo, setUserInfo] = useRecoilState(userStateAtom);
   const userData = useRecoilValue(userStateAtom);
+  const [modal, setModal] = useState(false);
+  const [postData, setPostData] = useState(data);
+  const { isModify, onChangeModify } = usePostModal();
+  const [input, setInput] = useState("");
+
+  const detailDate = (a) => {
+    const milliSeconds = new Date() - a;
+    const seconds = milliSeconds / 1000;
+    if (seconds < 60) return `방금 전`;
+    const minutes = seconds / 60;
+    if (minutes < 60) return `${Math.floor(minutes)}분 전`;
+    const hours = minutes / 60;
+    if (hours < 24) return `${Math.floor(hours)}시간 전`;
+    const days = hours / 24;
+    if (days < 7) return `${Math.floor(days)}일 전`;
+    const weeks = days / 7;
+    if (weeks < 5) return `${Math.floor(weeks)}주 전`;
+    const months = days / 30;
+    if (months < 12) return `${Math.floor(months)}개월 전`;
+    const years = days / 365;
+    return `${Math.floor(years)}년 전`;
+  };
+
+  const nowDate = detailDate(new Date(data.createDateTime));
 
   const date = new Date(data.createDateTime);
   const week = ["일", "월", "화", "수", "목", "금", "토"];
@@ -110,14 +138,38 @@ const FeedMenuModal = ({ data }) => {
           </div>
           {userData.userId === data.author ? (
             <img
-              src={Trash}
+              src={bar}
               className="trashImg"
               alt=""
-              onClick={() => sentDeleteFeedData(data.postId)}
+              onClick={() => setModal(!modal)}
+            />
+          ) : null}
+          {modal === true ? (
+            <Modal
+              data={data}
+              className="modal"
+              isModify={isModify}
+              onChangeModify={onChangeModify}
             />
           ) : null}
         </div>
-        <p className="contentSection">{data.content}</p>
+        {isModify ? (
+          <textarea
+            value={postData.content}
+            onChange={(e) => {
+              setPostData((prev) => ({ ...prev, content: e.target.value }));
+            }}
+            onKeyDown={async (e) => {
+              if (e.key === "Enter") {
+                await EditPost(postData);
+                postData.content = "";
+                window.location.reload();
+              }
+            }}
+          />
+        ) : (
+          <p className="contentSection">{data.content}</p>
+        )}
         <img className="able" src={Trash} alt={""} onClick={onClick} />
       </div>
       {/* <div className="imgUrl"> */}
