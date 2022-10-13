@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from "react";
 import "./Listitem.css";
 import talk from "../../../img/talk.png";
-import Trash from "../../../img/Trash.png";
+// import Trash from "../../../img/Trash.png";
 import useFeedMenu from "../../../Hooks/useFeedMenu";
 import { userStateAtom } from "../../../recoil/userAtom";
 import { useRecoilState, useRecoilValue } from "recoil";
@@ -17,6 +17,7 @@ import Modal from "../../Modal/Modal";
 import bar from "../../../img/bar.svg";
 import { EditPost } from "../../../api/Edit.api";
 import { detailDate } from "../../common/Date";
+import CommentBt from "../../../img/CommentBt.png";
 
 const FeedMenuModal = ({ data }) => {
   const [postId, setPostId] = useRecoilState(postAtom);
@@ -146,7 +147,7 @@ const FeedMenuModal = ({ data }) => {
         ) : (
           <p className="contentSection">{data.content}</p>
         )}
-        <img className="able" src={Trash} alt={""} onClick={onClick} />
+        <img className="able" src={CommentBt} alt={""} onClick={onClick} />
       </div>
       {/* <div className="imgUrl"> */}
       {/* <div className="slideContainer">
