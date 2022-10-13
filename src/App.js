@@ -1,7 +1,6 @@
 import "./App.css";
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 import AuthPage from "./page/AuthPage";
-import StartPage from "./components/Startpage/Startpage";
 import Inputpage from "./page/Inputpage/Inputpage";
 import Comment from "./components/comment/commentpage/Comment";
 import "./color.css";
@@ -12,6 +11,7 @@ import "./App.css";
 import List from "./components/ListPage/List";
 import StartNav from "./components/Nav/Start/StartNav";
 import MyList from "./components/MyList/MyList";
+import StartPage from "./components/Startpage/Startpage";
 
 function App() {
   return (
