@@ -1,10 +1,8 @@
 import "./App.css";
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 import AuthPage from "./page/AuthPage";
-// import StartPage from "./components/StartPage/StartPage";
 import StartPage from "./components/Startpage/Startpage";
 import Inputpage from "./page/Inputpage/Inputpage";
-// import Comment from "./components/comment/commentpage/Comment";
 import Comment from "./components/comment/commentpage/Comment";
 import "./color.css";
 import Introduce from "./components/Introduce/Introduce";
@@ -28,7 +26,7 @@ function App() {
           <Route path="/list" element={<List />} />
           <Route path="/comment" element={<Comment />} />
           <Route path="/form" element={<Inputpage />} />
-          <Route path="mypage" element={<MyList />} />
+          <Route path="/mypage" element={<MyList />} />
         </Routes>
       </BrowserRouter>
     </RecoilRoot>

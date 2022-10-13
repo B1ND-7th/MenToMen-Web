@@ -58,19 +58,19 @@
 }
 
 .able {
-  width: 130px;
+  width: 100px;
   height: 48px;
   cursor: pointer;
 }
 
 .imgUrl {
-  /* display: block; */
-  /* max-height: 325px;
-  aspect-ratio: auto;
-
+  display: block;
+  max-height: 325px;
+  width: 200px;
+  height: 200px;
   margin-top: 20px;
   margin-left: auto;
-  border-radius: 5px; */
+  border-radius: 5px;
 }
 
 .date {
@@ -82,6 +82,7 @@
   display: flex;
   align-items: flex-end;
   padding-bottom: 6px;
+  width: 80px;
 }
 
 .date::before {
@@ -93,6 +94,7 @@
   width: 44px;
   height: 48px;
   cursor: pointer;
+  /* margin-left: 835px; */
 }
 
 .profileUrl {
@@ -117,8 +119,8 @@
 } */
 
 .ListItemImgBox {
-  margin-left: 100px;
-  margin-top: 100px;
+  /* margin-left: 100px; */
+  /* margin-top: 100px; */
 }
 
 /* .ListItemImg {

@@ -1,8 +1,7 @@
 import React, { useEffect } from "react";
 import "./Listitem.css";
 import talk from "../../../img/talk.png";
-import trash from "../../../img/trash.svg";
-import Trash from "../../../img/Trash.png";
+import Trash from "../../../img/trash.png";
 import useFeedMenu from "../../../Hooks/useFeedMenu";
 import { userStateAtom } from "../../../recoil/userAtom";
 import { useRecoilState, useRecoilValue } from "recoil";
@@ -111,7 +110,7 @@ const FeedMenuModal = ({ data }) => {
           </div>
           {userData.userId === data.author ? (
             <img
-              src={trash}
+              src={Trash}
               className="trashImg"
               alt=""
               onClick={() => sentDeleteFeedData(data.postId)}

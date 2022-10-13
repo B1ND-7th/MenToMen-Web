@@ -2,15 +2,25 @@ import React, { useEffect, useState } from "react";
 import useFeedMenu from "../../../Hooks/useFeedMenu";
 import { useRecoilState, useRecoilValue } from "recoil";
 import { userStateAtom } from "../../../recoil/userAtom";
+import { postAtom } from "../../../recoil/uploadAtom";
 import talk from "../../../img/talk.png";
-import trash from "../../../img/trash.svg";
+import bar from "../../../img/bar.svg";
 import { useNavigate } from "react-router-dom";
 import { customAxios } from "../../../lib/axios/customAxios";
+import usePostModal from "../../../Hooks/usePostModal";
+import Modal from "../../Modal/Modal";
+import { EditPost } from "../../../api/Edit.api";
+import { detailDate } from "../../common/Date";
 
 const MyListItem = ({ data }) => {
   const [modal, setModal] = useState(false);
   const [userInfo, setUserInfo] = useRecoilState(userStateAtom);
+  const { isModify, onChangeModify } = usePostModal();
+  const [postData, setPostData] = useState(data);
+  const [postId, setPostId] = useRecoilState(postAtom);
   const navigate = useNavigate();
+  const nowDate = detailDate(new Date(data.createDateTime));
+  const userData = useRecoilValue(userStateAtom);
 
   const request = async () => {
     try {
@@ -20,16 +30,15 @@ const MyListItem = ({ data }) => {
       navigate("/");
     }
   };
+
   useEffect(() => {
     request();
   }, []);
 
-  const date = new Date(data.createDateTime);
-  const week = ["일", "월", "화", "수", "목", "금", "토"];
-  const theHours = date.getHours();
-  const theMinutes = date.getMinutes();
-  const { sentDeleteFeedData } = useFeedMenu();
-  const userData = useRecoilValue(userStateAtom);
+  const onClick = () => {
+    setPostId(data.postId);
+    navigate("/comment");
+  };
 
   const changeTagColor = () => {
     switch (data.tag) {
@@ -79,25 +88,42 @@ const MyListItem = ({ data }) => {
                 <div className="tag">{data.tag}</div>
               </div>
             </div>
-            <div className="date">
-              {`${date.getFullYear()}년 ${
-                date.getMonth() + 1
-              }월 ${date.getDate()}일 ${week[date.getDay()]}요일 `}
-              {theHours > 12
-                ? `오후 ${theHours - 12}시 ${theMinutes}분`
-                : `오전 ${theHours}시 ${theMinutes}분`}
-            </div>
+            <div className="date">{nowDate}</div>
             {userData.userId === data.author ? (
               <img
-                src={trash}
+                src={bar}
                 className="trashImg"
                 alt=""
-                onClick={() => sentDeleteFeedData(data.postId)}
+                onClick={() => setModal(!modal)}
+              />
+            ) : null}
+            {modal === true ? (
+              <Modal
+                data={data}
+                className="modal"
+                isModify={isModify}
+                onChangeModify={onChangeModify}
               />
             ) : null}
           </div>
-          <p className="contentSection">{data.content}</p>
-          <img className="able" src={talk} alt={""} />
+          {isModify ? (
+            <textarea
+              value={postData.content}
+              onChange={(e) => {
+                setPostData((prev) => ({ ...prev, content: e.target.value }));
+              }}
+              onKeyDown={async (e) => {
+                if (e.key === "Enter") {
+                  await EditPost(postData);
+                  postData.content = "";
+                  window.location.reload();
+                }
+              }}
+            />
+          ) : (
+            <p className="contentSection">{data.content}</p>
+          )}
+          <img className="able" src={talk} alt={""} onClick={onClick} />
         </div>
         <div className="imgUrl">
           {data.imgUrl && (

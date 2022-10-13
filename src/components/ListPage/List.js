@@ -5,6 +5,7 @@ import "./List.css";
 import { useRecoilState } from "recoil";
 import { listState } from "../../recoil/listAtom";
 import Sidebar from "../Sidebar/Sidebar.js";
+
 function List() {
   const [list, setList] = useRecoilState(listState);
 
@@ -23,7 +24,7 @@ function List() {
   return (
     <>
       <div className="listSection">
-        <Sidebar />
+        {/* <Sidebar /> */}
         {list?.map((item, idx) => (
           <>
             <ListItem data={item} key={item.name + " " + idx} />

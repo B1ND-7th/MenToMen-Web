@@ -18,7 +18,6 @@ export default function CommentBt() {
   const loadCommentFromServer = async () => {
     try {
       const { data } = await commentApi(postId);
-      console.log(data);
       setCommentList(data);
     } catch (e) {
       console.error(e);

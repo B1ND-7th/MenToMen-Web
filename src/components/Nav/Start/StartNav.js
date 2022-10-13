@@ -6,7 +6,9 @@ import { ACCESS_KEY, REFRESH_KEY } from "../../../constants/auth/auth.constant";
 import search from "../../../img/search.png";
 import { searchPost } from "../../../api/search/Search.api";
 import { listState } from "../../../recoil/listAtom";
-import { useSetRecoilState } from "recoil";
+import { useRecoilState, useSetRecoilState } from "recoil";
+import { customAxios } from "../../../lib/axios/customAxios";
+import { userStateAtom } from "../../../recoil/userAtom";
 
 function StartNav() {
   const navigate = useNavigate();
@@ -14,9 +16,23 @@ function StartNav() {
   const [isLogin, setIsLogin] = useState(false);
   const [inputText, setInputText] = useState("");
   const setList = useSetRecoilState(listState);
+  const [userInfo, setUserInfo] = useRecoilState(userStateAtom);
 
   useEffect(() => {
     localStorage.getItem(ACCESS_KEY) ? setIsLogin(true) : setIsLogin(false);
+  }, []);
+
+  const request = async () => {
+    try {
+      const { data } = await customAxios.get("/user/my");
+      setUserInfo(data.data);
+    } catch (error) {
+      navigate("/");
+    }
+  };
+
+  useEffect(() => {
+    request();
   }, []);
 
   return (
@@ -32,26 +48,28 @@ function StartNav() {
             alt=""
             src={Logo}
           />
-
           {isLogin ? (
             <>
-              <div className="searchBox">
-                <img src={search} className="searchImg" alt="" />
-                <input
-                  className="searchInput"
-                  placeholder="키워드 검색"
-                  value={inputText}
-                  onChange={(e) => {
-                    setInputText(e.target.value);
-                  }}
-                  onKeyDown={async (e) => {
-                    if (e.key === "Enter") {
-                      const { data } = await searchPost(inputText);
-                      setList(data);
-                    }
-                  }}
-                />
-              </div>
+              {location.pathname === "/list" ? (
+                <div className="searchBox">
+                  <img src={search} className="searchImg" alt="" />
+                  <input
+                    className="searchInput"
+                    placeholder="키워드 검색"
+                    value={inputText}
+                    onChange={(e) => {
+                      setInputText(e.target.value);
+                    }}
+                    onKeyDown={async (e) => {
+                      if (e.key === "Enter") {
+                        const { data } = await searchPost(inputText);
+                        setList(data);
+                        setInputText("");
+                      }
+                    }}
+                  />
+                </div>
+              ) : null}
               <div className="Bt">
                 <h2
                   className="RequestBt"
