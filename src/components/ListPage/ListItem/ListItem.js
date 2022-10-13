@@ -1,48 +1,73 @@
-import React, { useEffect, useState } from "react";
+import React, { useEffect } from "react";
 import "./Listitem.css";
 import talk from "../../../img/talk.png";
-import bar from "../../../img/bar.svg";
+import Trash from "../../../img/trash.png";
+import useFeedMenu from "../../../Hooks/useFeedMenu";
 import { userStateAtom } from "../../../recoil/userAtom";
 import { useRecoilState, useRecoilValue } from "recoil";
 import { customAxios } from "../../../lib/axios/customAxios";
 import { useNavigate } from "react-router-dom";
 import { postAtom } from "../../../recoil/uploadAtom";
-import Modal from "../../Modal/Modal";
-import usePostModal from "../../../Hooks/usePostModal";
-import { EditPost } from "../../../api/Edit.api";
-import { detailDate } from "../../common/Date";
+import "slick-carousel/slick/slick.css";
+import "slick-carousel/slick/slick-theme.css";
+import Slider from "react-slick";
+import Sidebar from "../../Sidebar/Sidebar";
 
 const FeedMenuModal = ({ data }) => {
   const [postId, setPostId] = useRecoilState(postAtom);
-  const [modal, setModal] = useState(false);
   const navigate = useNavigate();
+  const [userInfo, setUserInfo] = useRecoilState(userStateAtom);
   const userData = useRecoilValue(userStateAtom);
-  const [postData, setPostData] = useState(data);
-  const { isModify, onChangeModify } = usePostModal();
-  const [input, setInput] = useState("");
 
-  const nowDate = detailDate(new Date(data.createDateTime));
+  const date = new Date(data.createDateTime);
+  const week = ["일", "월", "화", "수", "목", "금", "토"];
+  const theHours = date.getHours();
+  const theMinutes = date.getMinutes();
+  const { sentDeleteFeedData } = useFeedMenu();
 
+  // console.log(data);
   const onClick = () => {
     setPostId(data.postId);
     navigate("/comment");
   };
 
+  const request = async () => {
+    try {
+      const { data } = await customAxios.get("/user/my");
+      setUserInfo(data.data);
+    } catch (error) {
+      navigate("/");
+    }
+  };
+
+  useEffect(() => {
+    request();
+    console.log(data);
+  }, []);
+
   const changeTagColor = () => {
     switch (data.tag) {
       case "WEB":
-        return "#D38D42";
+        return "#F19F62";
       case "DESIGN":
-        return "#D83F67";
+        return "#EC6B77";
       case "SERVER":
-        return "#3E89DB";
+        return "#628FD3";
       case "ANDROID":
-        return "#35C174";
+        return "#5AAC73";
       case "IOS":
         return "#4C4C4C";
       default:
         break;
     }
+  };
+
+  const settings = {
+    dots: true,
+    infinite: true,
+    speed: 500,
+    slidesToShow: 1,
+    slidesToScroll: 1,
   };
 
   return (
@@ -75,51 +100,50 @@ const FeedMenuModal = ({ data }) => {
               <div className="tag">{data.tag}</div>
             </div>
           </div>
-          <div className="date">{nowDate}</div>
+          <div className="date">
+            {`${date.getFullYear()}년 ${
+              date.getMonth() + 1
+            }월 ${date.getDate()}일 ${week[date.getDay()]}요일 `}
+            {theHours > 12
+              ? `오후 ${theHours - 12}시 ${theMinutes}분`
+              : `오전 ${theHours}시 ${theMinutes}분`}
+          </div>
           {userData.userId === data.author ? (
             <img
-              src={bar}
+              src={Trash}
               className="trashImg"
               alt=""
-              onClick={() => setModal(!modal)}
-            />
-          ) : null}
-          {modal === true ? (
-            <Modal
-              data={data}
-              className="modal"
-              isModify={isModify}
-              onChangeModify={onChangeModify}
+              onClick={() => sentDeleteFeedData(data.postId)}
             />
           ) : null}
         </div>
-        {isModify ? (
-          <textarea
-            value={postData.content}
-            onChange={(e) => {
-              setPostData((prev) => ({ ...prev, content: e.target.value }));
-            }}
-            onKeyDown={async (e) => {
-              if (e.key === "Enter") {
-                await EditPost(postData);
-                postData.content = "";
-                window.location.reload();
-              }
-            }}
-          />
-        ) : (
-          <p className="contentSection">{data.content}</p>
-        )}
-        <img className="able" src={talk} alt={""} onClick={onClick} />
+        <p className="contentSection">{data.content}</p>
+        <img className="able" src={Trash} alt={""} onClick={onClick} />
       </div>
-      <div className="imgUrl">
+      {/* <div className="imgUrl"> */}
+      {/* <div className="slideContainer">
         {data.imgUrls && (
-          <img
-            src={data.imgUrls[0]}
-            className="imgUrl"
-            alt={"listItem img"}
-            onClick={onClick}
-          />
+          <Slider {...settings}>
+            {data.imgUrls.map((item) => {
+              return (
+                // <img src={item} className="listImage" alt={"listItem img"} />
+                <div>{item}</div>
+              );
+            })}
+          </Slider>
+        )}
+      </div> */}
+      <div className="ListItemImgBox">
+        {data.imgUrls && (
+          <Slider {...settings}>
+            {data.imgUrls.map((item) => {
+              return (
+                <div className="ListItemImg">
+                  <img src={item} className="listImage" alt={"listItem img"} />
+                </div>
+              );
+            })}
+          </Slider>
         )}
       </div>
     </div>

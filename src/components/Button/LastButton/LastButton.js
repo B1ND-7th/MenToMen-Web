@@ -25,11 +25,7 @@ export default function LastButton() {
       }
 
       const data = {
-        imgUrls: [
-          {
-            imgUrl: fileUrl,
-          },
-        ],
+        imgUrls: fileUrl.length >= 1 ? fileUrl : [{ imgUrl: "" }],
         content: content,
         tag: tag.toUpperCase(),
       };
@@ -40,6 +36,7 @@ export default function LastButton() {
       setTag("Design");
 
       console.log(data);
+      // window.alert("게시 성공");
     } catch (e) {
       console.error(e);
     }
