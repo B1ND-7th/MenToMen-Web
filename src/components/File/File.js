@@ -12,6 +12,7 @@ import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
 import { useEffect } from "react";
 import IMGPP from "../../img/imgpp.png";
+import no from "../../img/no.png";
 
 const Prac = ({ upload }) => {
   const [fileUrl, setFileUrl] = useRecoilState(uploadFileUrlAtom);
@@ -52,13 +53,17 @@ const Prac = ({ upload }) => {
   return (
     <>
       <div className="test222">
-        <Slider {...settings} className="test">
-          {fileUrl &&
-            fileUrl.map((file) => {
+        {fileUrl.length === 0 ? (
+          <img src={no} className="NoneImg" />
+        ) : (
+          <Slider {...settings} className="test">
+            {fileUrl.map((file) => {
               return <img src={file.imgUrl} className="fileimg" />;
             })}
-        </Slider>
+          </Slider>
+        )}
       </div>
+
       <label className="input-file-button" for="input-file">
         <img src={IMGPP} alt="" className="File-Img" />
         <input
