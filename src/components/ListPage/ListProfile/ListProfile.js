@@ -17,6 +17,7 @@ import { tagPost } from "../../../api/auth/tagSearch.api";
 
 const ListProfile = () => {
   const navigate = useNavigate();
+
   const [userInfo, setUserInfo] = useRecoilState(userStateAtom);
   const setList = useSetRecoilState(listState);
 
