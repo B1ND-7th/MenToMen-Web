@@ -12,9 +12,9 @@ import { EditPost } from "../../../api/Edit.api";
 import { detailDate } from "../../common/Date";
 import CommentBt from "../../../img/CommentBt.png";
 import Slider from "react-slick";
-import Design from "../../../img/Design.png";
+import Design from "../../../img/Design.svg";
 import Web from "../../../img/Web1.svg";
-import Android from "../../../img/Android.png";
+import Android from "../../../img/Android.svg";
 import Ios from "../../../img/Ios.svg";
 import Server from "../../../img/Server.svg";
 
