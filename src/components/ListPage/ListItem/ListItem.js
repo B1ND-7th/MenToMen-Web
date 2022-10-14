@@ -18,9 +18,9 @@ import bar from "../../../img/bar.svg";
 import { EditPost } from "../../../api/Edit.api";
 import { detailDate } from "../../common/Date";
 import CommentBt from "../../../img/CommentBt.png";
-import Design from "../../../img/Design.png";
+import Design from "../../../img/Design.svg";
 import Web from "../../../img/Web1.svg";
-import Android from "../../../img/Android.png";
+import Android from "../../../img/Android.svg";
 import Ios from "../../../img/Ios.svg";
 import Server from "../../../img/Server.svg";
 
@@ -140,14 +140,6 @@ const FeedMenuModal = ({ data }) => {
       </div>
       <div className="modalBarWrap">
         <img className="tagImg" alt="" src={changeTagColor()} />
-        {userData.userId === data.author ? (
-          <img
-            src={bar}
-            className="trashImg"
-            alt=""
-            onClick={() => setModal(!modal)}
-          />
-        ) : null}
         {modal === true ? (
           <Modal
             data={data}

@@ -1,10 +1,10 @@
 import React, { useEffect, useState } from "react";
-import { useRecoilState, useRecoilValue } from "recoil";
+import { useRecoilState, useRecoilValue, useSetRecoilState } from "recoil";
 import { userStateAtom } from "../../../recoil/userAtom";
 import "../ListProfile/ListProfile.css";
-import Design from "../../../img/Design.png";
+import Design from "../../../img/Design.svg";
 import Web from "../../../img/Web1.svg";
-import Android from "../../../img/Android.png";
+import Android from "../../../img/Android.svg";
 import Ios from "../../../img/Ios.svg";
 import Server from "../../../img/Server.svg";
 import copy from "../../../img/copy.png";
@@ -12,10 +12,19 @@ import { ACCESS_KEY, REFRESH_KEY } from "../../../constants/auth/auth.constant";
 import { useNavigate } from "react-router-dom";
 import { customAxios } from "../../../lib/axios/customAxios";
 import profileimg from "../../../img/aprofile.png";
+import { listState } from "../../../recoil/listAtom";
+import { tagPost } from "../../../api/auth/tagSearch.api";
+
 const ListProfile = () => {
   const navigate = useNavigate();
 
   const [userInfo, setUserInfo] = useRecoilState(userStateAtom);
+  const setList = useSetRecoilState(listState);
+
+  const test123 = async (tag) => {
+    const { data } = await tagPost(tag);
+    setList(data);
+  };
 
   useEffect(() => {
     (async () => {
@@ -50,23 +59,54 @@ const ListProfile = () => {
       <div className="mainTag">
         <div className="dd">
           <img src={Design} alt="" />
-          <p>Design</p>
+          <p
+            onClick={() => {
+              test123("DESIGN");
+            }}
+          >
+            Design
+          </p>
         </div>
         <div className="dd">
           <img src={Web} alt="" />
-          <p>Web</p>
+          <p
+            onClick={() => {
+              test123("WEB");
+            }}
+          >
+            Web
+          </p>
         </div>
         <div className="dd">
           <img src={Android} alt="" />
-          <p>Android</p>
+          <p
+            onClick={() => {
+              test123("ANDROID");
+            }}
+          >
+            Android
+          </p>
         </div>
         <div className="dd">
           <img src={Server} alt="" />
-          <p>Server</p>
+          <p
+            onChange={(e) => {}}
+            onClick={() => {
+              test123("SERVER");
+            }}
+          >
+            Server
+          </p>
         </div>
         <div className="dd">
           <img src={Ios} alt="" />
-          <p>iOS</p>
+          <p
+            onClick={() => {
+              test123("IOS");
+            }}
+          >
+            iOS
+          </p>
         </div>
       </div>
       <div className="checkList">

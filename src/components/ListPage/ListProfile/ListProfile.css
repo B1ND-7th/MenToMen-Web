@@ -7,6 +7,11 @@
   background-color: white;
   padding-bottom: 15px;
   box-sizing: border-box;
+
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
 }
 
 .mainProfile {
@@ -37,6 +42,7 @@
   margin-top: 40px;
   column-gap: 20px;
   padding: 0px 40px;
+  cursor: pointer;
 }
 
 .checkList {
