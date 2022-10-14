@@ -24,11 +24,14 @@ const errorInterceptor = async (config) => {
     const originalRequest = config.config;
 
     try {
-      const { data } = await axios.get(`${CONFIG.server}/auth/refreshToken`, {
-        headers: {
-          [REQUEST_KEY]: `Bearer ${refresh_token}`,
-        },
-      });
+      const { data } = await axios.get(
+        `${CONFIG.server}/api/auth/refreshToken`,
+        {
+          headers: {
+            [REQUEST_KEY]: `Bearer ${refresh_token}`,
+          },
+        }
+      );
       localStorage.setItem(ACCESS_KEY, data.data.accessToken);
 
       customAxios.defaults.headers[
