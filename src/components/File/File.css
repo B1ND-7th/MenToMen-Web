@@ -1,6 +1,6 @@
 .test222 {
   /* width: 430px; */
-  margin-left: 540px;
+  margin-left: 450px;
   margin-top: 10px;
 }
 
@@ -30,7 +30,7 @@
   justify-content: center;
   width: 30px;
   height: 30px;
-  /* margin-left: 50px; */
+  /* margin-left: -50px; */
 }
 
 .input-file-button {

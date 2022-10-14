@@ -21,6 +21,9 @@ export default function CommentDelete({ id, comments, item }) {
   const [commentList, setCommentList] = useRecoilState(commentListAtom);
   // const [commetuserId, setCommentuserId] = useRecoilState(CommentUserId);
 
+  console.log(userData.userId === item.userId);
+  console.log(item);
+
   useEffect(() => {
     console.log(comment);
   }, [comment]);
@@ -55,7 +58,7 @@ export default function CommentDelete({ id, comments, item }) {
           alt="trashimg"
           className="TrashImg"
           onClick={Commentdelete}
-        ></img>
+        />
       )}
     </div>
   );
