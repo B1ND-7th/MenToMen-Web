@@ -12,6 +12,8 @@ import { ACCESS_KEY, REFRESH_KEY } from "../../../constants/auth/auth.constant";
 import { useNavigate } from "react-router-dom";
 import { customAxios } from "../../../lib/axios/customAxios";
 import profileimg from "../../../img/aprofile.png";
+import { listState } from "../../../recoil/listAtom";
+import { tagPost } from "../../../api/auth/tagSearch.api";
 
 const ListProfile = () => {
   const navigate = useNavigate();
