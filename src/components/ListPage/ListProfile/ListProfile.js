@@ -11,7 +11,7 @@ import copy from "../../../img/copy.png";
 import { ACCESS_KEY, REFRESH_KEY } from "../../../constants/auth/auth.constant";
 import { useNavigate } from "react-router-dom";
 import { customAxios } from "../../../lib/axios/customAxios";
-import Profileimg from "../../../img/aprofile.png";
+import profileimg from "../../../img/aprofile.png";
 
 const ListProfile = () => {
   const navigate = useNavigate();
