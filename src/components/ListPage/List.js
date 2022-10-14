@@ -4,16 +4,14 @@ import ListItem from "./ListItem/ListItem.js";
 import "./List.css";
 import { useRecoilState } from "recoil";
 import { listState } from "../../recoil/listAtom";
-import Sidebar from "../Sidebar/Sidebar.js";
-import Slider from "react-slick";
+import ListProfile from "./ListProfile/ListProfile.js";
 
 function List() {
   const [list, setList] = useRecoilState(listState);
 
   const request = async () => {
     try {
-      const { data } = await customAxios.get("/post/read-all");
-      setList(data);
+      const { data } = await customAxios.get("/api/post/read-all");
       setList(data.data);
     } catch (error) {}
   };
@@ -24,14 +22,17 @@ function List() {
 
   return (
     <>
-      <div className="listSection">
-        {/* <Sidebar /> */}
-        {list?.map((item, idx) => (
-          <>
-            <ListItem data={item} key={item.name + " " + idx} />
-            {/* <Sidebar data={item} key={item.name + " " + idx} /> */}
-          </>
-        ))}
+      <div className="listContainer">
+        <ListProfile />
+        <div className="listSectionContainer">
+          <div className="listSectionWrap">
+            {list?.map((item, idx) => (
+              <>
+                <ListItem data={item} key={item.name + " " + idx} />
+              </>
+            ))}
+          </div>
+        </div>
       </div>
     </>
   );

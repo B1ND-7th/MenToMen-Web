@@ -24,7 +24,7 @@ function StartNav() {
 
   const request = async () => {
     try {
-      const { data } = await customAxios.get("/user/my");
+      const { data } = await customAxios.get("/api/user/my");
       setUserInfo(data.data);
     } catch (error) {
       navigate("/");
@@ -78,20 +78,6 @@ function StartNav() {
                   }}
                 >
                   멘토요청하기
-                </h2>
-                <h2 className="MyPage" onClick={() => navigate("/mypage")}>
-                  마이페이지
-                </h2>
-                <h2
-                  className="LogOut"
-                  onClick={() => {
-                    localStorage.removeItem(ACCESS_KEY);
-                    localStorage.removeItem(REFRESH_KEY);
-                    navigate("/");
-                    window.location.reload();
-                  }}
-                >
-                  로그아웃
                 </h2>
               </div>
             </>

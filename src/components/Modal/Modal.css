@@ -1,8 +1,9 @@
 .modalWrap {
   position: absolute;
-  left: 1270px;
   display: flex;
   flex-direction: column;
+  right: -140px;
+  top: 0px;
 }
 
 .modalAble {

@@ -15,7 +15,7 @@ const Mylist = () => {
 
   const request = async () => {
     try {
-      const { data } = await customAxios.get("/user/post");
+      const { data } = await customAxios.get("/api/user/post");
       setMyPost(data.data);
     } catch (error) {
       console.log(error);
@@ -24,7 +24,7 @@ const Mylist = () => {
 
   const userRequest = async () => {
     try {
-      const { data } = await customAxios.get("/user/my");
+      const { data } = await customAxios.get("/api/user/my");
       setUserInfo(data.data);
     } catch (error) {
       navigate("/");
@@ -51,8 +51,8 @@ const Mylist = () => {
           )}
           {userInfo.stdInfo ? (
             <div className="myGrade">
-              <h1 className="grade">{`${userInfo?.stdInfo?.grade}학년 ${userInfo?.stdInfo?.room}반 ${userInfo?.stdInfo?.number}번`}</h1>
               <h1 className="myName">{userInfo.name}</h1>
+              <h1 className="grade">{`${userInfo?.stdInfo?.grade}학년 ${userInfo?.stdInfo?.room}반 ${userInfo?.stdInfo?.number}번`}</h1>
             </div>
           ) : null}
         </div>

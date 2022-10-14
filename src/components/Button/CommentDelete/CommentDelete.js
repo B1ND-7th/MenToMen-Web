@@ -37,7 +37,9 @@ export default function CommentDelete({ id, comments, item }) {
 
   const Commentdelete = async () => {
     try {
-      const { data } = await customAxios.delete(`/comment/delete/${commentId}`);
+      const { data } = await customAxios.delete(
+        `/api/comment/delete/${commentId}`
+      );
       Removecomment();
       return data;
     } catch (error) {
