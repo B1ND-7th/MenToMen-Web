@@ -14,7 +14,7 @@ import { customAxios } from "../../../lib/axios/customAxios";
 import profileimg from "../../../img/aprofile.png";
 const ListProfile = () => {
   const navigate = useNavigate();
-  const [userData, setUserData] = useState();
+
   const [userInfo, setUserInfo] = useRecoilState(userStateAtom);
 
   useEffect(() => {
@@ -44,7 +44,7 @@ const ListProfile = () => {
         )}
         <div className="mainUserInfo">
           <p className="mainUserName">{userInfo?.name}</p>
-          <p className="mainUserGrade">{`${userInfo?.stdInfo.grade}학년 ${userInfo?.stdInfo.room}반 ${userInfo?.stdInfo.number}번`}</p>
+          <p className="mainUserGrade">{`${userInfo?.stdInfo?.grade}학년 ${userInfo?.stdInfo?.room}반 ${userInfo?.stdInfo?.number}번`}</p>
         </div>
       </div>
       <div className="mainTag">
