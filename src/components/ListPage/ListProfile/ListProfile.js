@@ -42,7 +42,7 @@ const ListProfile = () => {
         )}
         <div className="mainUserInfo">
           <p className="mainUserName">{userInfo?.name}</p>
-          <p className="mainUserGrade">{`${userInfo?.stdInfo.grade}학년 ${userInfo?.stdInfo.room}반 ${userInfo?.stdInfo.number}번`}</p>
+          <p className="mainUserGrade">{`${userInfo?.stdInfo?.grade}학년 ${userInfo?.stdInfo?.room}반 ${userInfo?.stdInfo?.number}번`}</p>
         </div>
       </div>
       <div className="mainTag">
