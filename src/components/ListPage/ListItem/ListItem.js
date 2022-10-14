@@ -18,6 +18,11 @@ import bar from "../../../img/bar.svg";
 import { EditPost } from "../../../api/Edit.api";
 import { detailDate } from "../../common/Date";
 import CommentBt from "../../../img/CommentBt.png";
+import Design from "../../../img/Design.png";
+import Web from "../../../img/Web1.svg";
+import Android from "../../../img/Android.png";
+import Ios from "../../../img/Ios.svg";
+import Server from "../../../img/Server.svg";
 
 const FeedMenuModal = ({ data }) => {
   const [postId, setPostId] = useRecoilState(postAtom);
@@ -31,13 +36,6 @@ const FeedMenuModal = ({ data }) => {
 
   const nowDate = detailDate(new Date(data.createDateTime));
 
-  const date = new Date(data.createDateTime);
-  const week = ["일", "월", "화", "수", "목", "금", "토"];
-  const theHours = date.getHours();
-  const theMinutes = date.getMinutes();
-  const { sentDeleteFeedData } = useFeedMenu();
-
-  // console.log(data);
   const onClick = () => {
     setPostId(data.postId);
     navigate("/comment");
@@ -45,7 +43,7 @@ const FeedMenuModal = ({ data }) => {
 
   const request = async () => {
     try {
-      const { data } = await customAxios.get("/user/my");
+      const { data } = await customAxios.get("/api/user/my");
       setUserInfo(data.data);
     } catch (error) {
       navigate("/");
@@ -54,21 +52,20 @@ const FeedMenuModal = ({ data }) => {
 
   useEffect(() => {
     request();
-    console.log(data);
   }, []);
 
   const changeTagColor = () => {
     switch (data.tag) {
       case "WEB":
-        return "#F19F62";
+        return Web;
       case "DESIGN":
-        return "#EC6B77";
+        return Design;
       case "SERVER":
-        return "#628FD3";
+        return Server;
       case "ANDROID":
-        return "#5AAC73";
+        return Android;
       case "IOS":
-        return "#4C4C4C";
+        return Ios;
       default:
         break;
     }
@@ -102,33 +99,11 @@ const FeedMenuModal = ({ data }) => {
           </div>
           <div className="nameTag">
             <div className="userName">{data.userName}</div>
-            <div
-              className="tagbox"
-              style={{
-                border: `1px solid ${changeTagColor()}`,
-                color: `${changeTagColor()}`,
-              }}
-            >
-              <div className="tag">{data.tag}</div>
-            </div>
+            <p className="tag">
+              {`${data?.stdInfo.grade}학년 ${data?.stdInfo.room}반 ${data?.stdInfo.number}번 `}
+            </p>
           </div>
           <div className="date">{nowDate}</div>
-          {userData.userId === data.author ? (
-            <img
-              src={bar}
-              className="trashImg"
-              alt=""
-              onClick={() => setModal(!modal)}
-            />
-          ) : null}
-          {modal === true ? (
-            <Modal
-              data={data}
-              className="modal"
-              isModify={isModify}
-              onChangeModify={onChangeModify}
-            />
-          ) : null}
         </div>
         {isModify ? (
           <textarea
@@ -147,21 +122,9 @@ const FeedMenuModal = ({ data }) => {
         ) : (
           <p className="contentSection">{data.content}</p>
         )}
+
         <img className="able" src={CommentBt} alt={""} onClick={onClick} />
       </div>
-      {/* <div className="imgUrl"> */}
-      {/* <div className="slideContainer">
-        {data.imgUrls && (
-          <Slider {...settings}>
-            {data.imgUrls.map((item) => {
-              return (
-                // <img src={item} className="listImage" alt={"listItem img"} />
-                <div>{item}</div>
-              );
-            })}
-          </Slider>
-        )}
-      </div> */}
       <div className="ListItemImgBox">
         {data.imgUrls && (
           <Slider {...settings}>
@@ -174,6 +137,25 @@ const FeedMenuModal = ({ data }) => {
             })}
           </Slider>
         )}
+      </div>
+      <div className="modalBarWrap">
+        <img className="tagImg" alt="" src={changeTagColor()} />
+        {userData.userId === data.author ? (
+          <img
+            src={bar}
+            className="trashImg"
+            alt=""
+            onClick={() => setModal(!modal)}
+          />
+        ) : null}
+        {modal === true ? (
+          <Modal
+            data={data}
+            className="modal"
+            isModify={isModify}
+            onChangeModify={onChangeModify}
+          />
+        ) : null}
       </div>
     </div>
   );

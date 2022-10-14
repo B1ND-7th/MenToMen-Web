@@ -1,0 +1,77 @@
+.listProfileContainer {
+  min-width: 300px;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+
+  background-color: white;
+  padding-bottom: 15px;
+  box-sizing: border-box;
+}
+
+.mainProfile {
+  width: 150px;
+  height: 150px;
+
+  margin-top: 38px;
+}
+
+.mainUserInfo {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+
+  margin-top: 10px;
+}
+
+.mainTag {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+}
+
+.dd {
+  display: flex;
+  margin-top: 40px;
+  column-gap: 20px;
+  padding: 0px 40px;
+}
+
+.checkList {
+  display: flex;
+  width: 200px;
+  margin-top: 70px;
+  margin-left: 38px;
+  column-gap: 20px;
+
+  cursor: pointer;
+}
+
+.copy {
+  width: 18px;
+  height: 18px;
+}
+
+.mainLogOut {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-top: 195px;
+
+  cursor: pointer;
+}
+
+.mainUserName {
+  font-size: 18px;
+
+  margin-top: 10px;
+  color: #000000;
+}
+
+.mainUserGrade {
+  font-size: 16px;
+
+  margin-top: 2px;
+  color: #858585;
+}

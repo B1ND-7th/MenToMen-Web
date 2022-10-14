@@ -28,7 +28,7 @@ export default function Comment() {
 
   const request = async () => {
     try {
-      const { data } = await customAxios.get(`/post/read-one/${postId}`);
+      const { data } = await customAxios.get(`/api/post/read-one/${postId}`);
       setPost(data.data);
     } catch (error) {
       console.log(error);

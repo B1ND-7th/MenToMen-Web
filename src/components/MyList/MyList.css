@@ -24,11 +24,15 @@
 
 .myGrade {
   margin-left: 10px;
+  text-decoration: none;
 }
 
 .grade {
   display: flex;
-  font-size: 1.5rem;
+  font-size: 1.125rem;
+  color: #495057;
+
+  margin-top: 10px;
 }
 
 .myPageListSection {

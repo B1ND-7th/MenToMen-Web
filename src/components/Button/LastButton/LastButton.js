@@ -30,7 +30,7 @@ export default function LastButton() {
         tag: tag.toUpperCase(),
       };
 
-      const res = await customAxios.post("/post/submit", data);
+      const res = await customAxios.post("/api/post/submit", data);
       navigate("/list");
       setContent("");
       setTag("Design");

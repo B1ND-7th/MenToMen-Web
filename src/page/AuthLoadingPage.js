@@ -12,7 +12,7 @@ const AuthLoadingPage = () => {
 
   const request = async (code) => {
     try {
-      const { data } = await axios.post(`${CONFIG.server}/auth/code`, {
+      const { data } = await axios.post(`${CONFIG.server}/api/auth/code`, {
         code,
       });
       localStorage.setItem(ACCESS_KEY, data.data.accessToken);

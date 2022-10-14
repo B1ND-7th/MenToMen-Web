@@ -1,13 +1,15 @@
 .formSection {
-  width: 900px;
-  height: 400px;
+  width: 912px;
+  min-height: 413px;
   padding: 20px;
   display: flex;
   margin-top: 90px;
   margin-left: 100px;
   border: 1px solid rgba(0, 0, 0, 0.175);
   background: #ffffff;
-  border-radius: 10px;
+
+  box-shadow: 0px 4px 8px rgba(190, 190, 190, 0.2);
+  border-radius: 5px;
 }
 
 .leftSection {
@@ -21,13 +23,13 @@
 }
 
 .nameTag {
-  display: grid;
+  display: flex;
   flex-direction: column;
-  align-items: center;
+  margin-top: 10px;
 }
 
 .userName {
-  text-align: center;
+  font-size: 18px;
 }
 
 .tagbox {
@@ -48,6 +50,8 @@
   font-size: 12px;
   line-height: 14px;
   height: 12.6px;
+
+  color: #858585;
 }
 
 .contentSection {
@@ -55,6 +59,11 @@
   margin: auto 0px;
   margin-top: 70px;
   overflow-wrap: break-word;
+}
+
+.tagImg {
+  width: 30.07px;
+  height: 43.04px;
 }
 
 .able {
@@ -90,11 +99,15 @@
   margin-right: 10px;
 }
 
+.modalBarWrap {
+  position: relative;
+  margin-left: auto;
+}
+
 .trashImg {
   width: 44px;
   height: 48px;
   cursor: pointer;
-  /* margin-left: 835px; */
 }
 
 .profileUrl {
@@ -107,29 +120,8 @@
 .listImage {
   width: 200px;
   height: 200px;
-  /* margin-left: 50px; */
 }
 
 .slick-slider {
   width: 200px;
-}
-
-/* .ListItemImg {
-  margin-left: 50px;
-} */
-
-.ListItemImgBox {
-  /* margin-left: 100px; */
-  /* margin-top: 100px; */
-}
-
-/* .ListItemImg {
-  width: 200px;
-  height: 100px;
-} */
-
-.SideBar {
-  /* display: flex; */
-  /* flex-direction: column; */
-  /* background-color: white; */
 }

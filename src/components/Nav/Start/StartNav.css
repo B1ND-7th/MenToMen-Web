@@ -5,29 +5,31 @@
 }
 
 .navList {
+  width: 100%;
+  height: 100%;
   display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0px 60px;
+  box-sizing: border-box;
   list-style: none;
-  justify-content: space-around;
-  margin-left: 120px;
-  /* margin-top: 10px; */
 }
 
 .logo {
   width: 121px;
   height: 40px;
-  margin-top: 8px;
-  margin-left: 20px;
 }
 
 .navList h1 {
-  margin: 18px 0 0 550px;
+  margin-top: 1px;
+  margin-left: 1300px;
+
   color: #29275c;
   font-size: 16px;
   cursor: pointer;
 }
 
 .navList .Bt {
-  margin-top: 16px;
   /* margin-left: -200px; */
   display: flex;
   /* justify-content: space-between; */
@@ -36,13 +38,8 @@
 }
 
 .RequestBt {
-  margin-left: -10px;
   cursor: pointer;
 }
-
-/* .Bt {
-  margin-left: -150px;
-} */
 
 .MyPage {
   margin-left: 150px;
@@ -67,9 +64,6 @@
 }
 
 .searchBox {
-  position: relative;
-  top: 5px;
-  margin-left: -25px;
   display: flex;
   align-items: center;
   column-gap: 10px;
