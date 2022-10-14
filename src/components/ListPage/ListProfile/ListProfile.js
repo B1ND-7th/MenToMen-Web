@@ -11,8 +11,10 @@ import copy from "../../../img/copy.png";
 import { ACCESS_KEY, REFRESH_KEY } from "../../../constants/auth/auth.constant";
 import { useNavigate } from "react-router-dom";
 import { customAxios } from "../../../lib/axios/customAxios";
+import Profileimg from "../../../img/aprofile.png";
 import { tagPost } from "../../../api/auth/tagSearch.api";
 import { listState } from "../../../recoil/listAtom";
+
 const ListProfile = () => {
   const navigate = useNavigate();
   const [userInfo, setUserInfo] = useRecoilState(userStateAtom);
