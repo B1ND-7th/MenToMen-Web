@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from "react";
-import { useRecoilValue } from "recoil";
+import { useRecoilState, useRecoilValue } from "recoil";
 import { userStateAtom } from "../../../recoil/userAtom";
 import "../ListProfile/ListProfile.css";
 import Design from "../../../img/Design.png";
@@ -13,13 +13,13 @@ import { useNavigate } from "react-router-dom";
 import { customAxios } from "../../../lib/axios/customAxios";
 const ListProfile = () => {
   const navigate = useNavigate();
-  const [userData, setUserData] = useState();
+  const [userInfo, setUserInfo] = useRecoilState(userStateAtom);
 
   useEffect(() => {
     (async () => {
       try {
         const { data } = await customAxios.get("/api/user/my");
-        setUserData(data.data);
+        setUserInfo(data.data);
       } catch (error) {}
     })();
   }, []);
@@ -27,9 +27,9 @@ const ListProfile = () => {
   return (
     <div className="listProfileContainer">
       <div className="mainUserInfo">
-        {userData?.profileUrl ? (
+        {userInfo?.profileImage ? (
           <img
-            src={userData?.profileUrl}
+            src={userInfo?.profileImage}
             className="mainProfile"
             alt={"listItem profile"}
           />
@@ -41,8 +41,8 @@ const ListProfile = () => {
           />
         )}
         <div className="mainUserInfo">
-          <p className="mainUserName">{userData?.name}</p>
-          <p className="mainUserGrade">{`${userData?.stdInfo.grade}학년 ${userData?.stdInfo.room}반 ${userData?.stdInfo.number}번`}</p>
+          <p className="mainUserName">{userInfo?.name}</p>
+          <p className="mainUserGrade">{`${userInfo?.stdInfo.grade}학년 ${userInfo?.stdInfo.room}반 ${userInfo?.stdInfo.number}번`}</p>
         </div>
       </div>
       <div className="mainTag">
