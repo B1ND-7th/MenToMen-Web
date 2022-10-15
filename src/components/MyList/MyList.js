@@ -15,7 +15,7 @@ const Mylist = () => {
 
   const request = async () => {
     try {
-      const { data } = await customAxios.get("/api/user/post");
+      const { data } = await customAxios.get("/user/post");
       setMyPost(data.data);
     } catch (error) {
       console.log(error);
@@ -24,7 +24,7 @@ const Mylist = () => {
 
   const userRequest = async () => {
     try {
-      const { data } = await customAxios.get("/api/user/my");
+      const { data } = await customAxios.get("/user/my");
       setUserInfo(data.data);
     } catch (error) {
       navigate("/");

@@ -34,9 +34,6 @@ const Prac = ({ upload }) => {
       formData.append("file", files[i]);
     }
 
-    // console.log(files);
-    // formData.append("file", files);
-
     try {
       const { data } = await customAxios.post("/file/upload", formData);
       const arr = [];

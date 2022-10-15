@@ -19,14 +19,6 @@ export default function CommentDelete({ id, comments, item }) {
   const [commentId, setCommentId] = useState();
   const userData = useRecoilValue(userStateAtom);
   const [commentList, setCommentList] = useRecoilState(commentListAtom);
-  // const [commetuserId, setCommentuserId] = useRecoilState(CommentUserId);
-
-  console.log(userData.userId === item.userId);
-  console.log(item);
-
-  useEffect(() => {
-    console.log(comment);
-  }, [comment]);
 
   useEffect(() => {
     setCommentId(id);
@@ -40,9 +32,7 @@ export default function CommentDelete({ id, comments, item }) {
 
   const Commentdelete = async () => {
     try {
-      const { data } = await customAxios.delete(
-        `/api/comment/delete/${commentId}`
-      );
+      const { data } = await customAxios.delete(`/comment/delete/${commentId}`);
       Removecomment();
       return data;
     } catch (error) {

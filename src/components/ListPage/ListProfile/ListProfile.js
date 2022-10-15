@@ -29,7 +29,7 @@ const ListProfile = () => {
   useEffect(() => {
     (async () => {
       try {
-        const { data } = await customAxios.get("/api/user/my");
+        const { data } = await customAxios.get("/user/my");
         setUserInfo(data.data);
       } catch (error) {}
     })();

@@ -30,13 +30,10 @@ export default function LastButton() {
         tag: tag.toUpperCase(),
       };
 
-      const res = await customAxios.post("/api/post/submit", data);
+      const res = await customAxios.post("/post/submit", data);
       navigate("/list");
       setContent("");
       setTag("Design");
-
-      console.log(data);
-      // window.alert("게시 성공");
     } catch (e) {
       console.error(e);
     }

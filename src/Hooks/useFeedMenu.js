@@ -10,7 +10,7 @@ const useFeedMenu = () => {
 
   const sentDeleteFeedData = async (id) => {
     try {
-      const { data } = await customAxios.delete(`/api/post/delete/${id}`);
+      const { data } = await customAxios.delete(`/post/delete/${id}`);
       if (data.status === 200) {
         window.alert("삭제되었습니다");
         toggleFeedMenuClick();
