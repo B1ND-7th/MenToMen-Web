@@ -33,7 +33,15 @@
   margin: -390px 0 0 1100px;
 }
 
-.btn {
+.menList {
+  font-size: 28px;
   margin: -150px 0 0 260px;
   margin-top: -70px;
+
+  display: flex;
+  flex-direction: column;
+}
+
+.listCount {
+  color: #2745f2;
 }
