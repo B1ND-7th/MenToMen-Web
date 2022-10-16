@@ -1,0 +1,23 @@
+.askWrap {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-left: 100px;
+  margin-top: 30px;
+
+  width: 912px;
+  height: 308px;
+
+  border: 1px solid black;
+  background-color: white;
+}
+
+.askMidWrap {
+  display: flex;
+  flex-direction: column;
+}
+
+.inputFile {
+  width: 41px;
+  height: 31px;
+}
