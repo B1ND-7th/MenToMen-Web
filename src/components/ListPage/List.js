@@ -11,7 +11,7 @@ function List() {
 
   const request = async () => {
     try {
-      const { data } = await customAxios.get("/post/read-all");
+      const { data } = await customAxios.get("api/post/read-all");
       setList(data.data);
     } catch (error) {}
   };
