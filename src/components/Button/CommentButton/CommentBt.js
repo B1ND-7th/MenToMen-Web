@@ -9,6 +9,7 @@ import {
 } from "../../../recoil/uploadAtom";
 import { customAxios } from "../../../lib/axios/customAxios";
 import commentApi from "../../../api/auth/Comment.api";
+import send from "../../../img/send.png";
 
 export default function CommentBt() {
   const [comment, setComment] = useRecoilState(commentAtom);
@@ -31,7 +32,7 @@ export default function CommentBt() {
         postId: postId,
       };
 
-      const bt = await customAxios.post("/comment/submit", comments);
+      const bt = await customAxios.post("api/comment/submit", comments);
       console.log(bt);
 
       await loadCommentFromServer();
@@ -43,9 +44,7 @@ export default function CommentBt() {
 
   return (
     <div className="CommentBt">
-      <button className="CommentBtLastBtn" onClick={commentupload}>
-        등록
-      </button>
+      <img src={send} alt="" onClick={commentupload} className="sendBt" />
     </div>
   );
 }

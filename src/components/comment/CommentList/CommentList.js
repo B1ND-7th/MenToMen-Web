@@ -18,7 +18,8 @@ export default function CommentList() {
 
   const request = async () => {
     try {
-      const { data } = await customAxios.get(`/comment/read/${postId}`);
+      const { data } = await customAxios.get(`api/comment/read/${postId}`);
+      console.log(data);
       setCommentList(data.data);
     } catch (e) {
       console.error(e);
@@ -28,6 +29,10 @@ export default function CommentList() {
   useEffect(() => {
     request();
   }, []);
+
+  useEffect(() => {
+    console.log(commentList);
+  }, [commentList]);
 
   return (
     <>
