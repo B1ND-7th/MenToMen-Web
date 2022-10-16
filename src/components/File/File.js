@@ -35,7 +35,7 @@ const Prac = ({ upload }) => {
     }
 
     try {
-      const { data } = await customAxios.post("/file/upload", formData);
+      const { data } = await customAxios.post("/api/file/upload", formData);
       const arr = [];
 
       data.data.forEach((value) => {

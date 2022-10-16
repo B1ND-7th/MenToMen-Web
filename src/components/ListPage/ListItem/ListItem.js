@@ -11,7 +11,7 @@ import { postAtom } from "../../../recoil/uploadAtom";
 import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
 import Slider from "react-slick";
-import Sidebar from "../../Sidebar/Sidebar";
+// import Sidebar from "../../Sidebar/Sidebar";
 import usePostModal from "../../../Hooks/usePostModal";
 import Modal from "../../Modal/Modal";
 import bar from "../../../img/bar.svg";
