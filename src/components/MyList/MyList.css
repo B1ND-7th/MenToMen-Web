@@ -40,6 +40,6 @@
   flex-direction: column;
   align-items: center;
   box-sizing: border-box;
-
+  margin-bottom: 30px;
   height: 100%;
 }
