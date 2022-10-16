@@ -45,6 +45,7 @@
   border: 1px solid black;
   width: 620px;
   height: 300px;
+  white-space: pre-wrap;
 }
 
 .postCommentProfileWrap {
@@ -118,6 +119,13 @@
 }
 
 .contentBox {
-  min-width: 300px;
+  /* width: 400px; */
+  width: 100%;
   margin-top: 20px;
+  word-break: break-all;
+  overflow: scroll;
+}
+
+.contentBox::-webkit-scrollbar {
+  display: none;
 }

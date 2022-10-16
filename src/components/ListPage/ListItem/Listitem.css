@@ -12,6 +12,9 @@
   border-radius: 5px;
 }
 
+.ListItemImgBox {
+  margin-left: 20px;
+}
 .leftSection {
   display: flex;
   flex-direction: column;
@@ -55,7 +58,7 @@
 }
 
 .contentSection {
-  width: 580px;
+  width: 600px;
   margin: auto 0px;
   margin-top: 70px;
   overflow-wrap: break-word;
