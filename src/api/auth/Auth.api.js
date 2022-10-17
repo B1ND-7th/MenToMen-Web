@@ -5,7 +5,7 @@ import { customAxios } from "../../lib/axios/customAxios";
 class Auth {
   async login(code) {
     try {
-      const { data } = await customAxios.post("api/auth/code", {
+      const { data } = await customAxios.post("/auth/code", {
         code,
       });
       localStorage.setItem(ACCESS_KEY, data.data.accessToken);

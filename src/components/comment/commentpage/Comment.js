@@ -14,6 +14,10 @@ export default function Comment() {
   const [postId, setPostid] = useRecoilState(postAtom);
   const [post, setPost] = useState();
 
+  useEffect(() => {
+    console.log(post);
+  }, [post]);
+
   const handeSetComment = (e) => {
     setComment(e.target.value);
   };
@@ -24,7 +28,7 @@ export default function Comment() {
 
   const request = async () => {
     try {
-      const { data } = await customAxios.get(`api/post/read-one/${postId}`);
+      const { data } = await customAxios.get(`/post/read-one/${postId}`);
       setPost(data.data);
     } catch (error) {
       console.log(error);

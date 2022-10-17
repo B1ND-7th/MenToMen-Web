@@ -3,13 +3,13 @@
   min-height: 413px;
   padding: 20px;
   display: flex;
-  margin-top: 90px;
+  margin-top: 50px;
   margin-left: 100px;
   border: 1px solid rgba(0, 0, 0, 0.175);
   background: #ffffff;
 
   box-shadow: 0px 4px 8px rgba(190, 190, 190, 0.2);
-  border-radius: 5px;
+  border-radius: 10px;
 }
 
 .ListItemImgBox {
