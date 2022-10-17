@@ -19,6 +19,14 @@ export default function CommentDelete({ id, comments, item }) {
   const [commentId, setCommentId] = useState();
   const userData = useRecoilValue(userStateAtom);
   const [commentList, setCommentList] = useRecoilState(commentListAtom);
+  // const [commetuserId, setCommentuserId] = useRecoilState(CommentUserId);
+
+  console.log(userData.userId === item.userId);
+  console.log(item);
+
+  useEffect(() => {
+    console.log(comment);
+  }, [comment]);
 
   useEffect(() => {
     setCommentId(id);
