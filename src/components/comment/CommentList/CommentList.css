@@ -4,7 +4,7 @@
   min-height: 85px;
   white-space: pre-wrap;
   /* background-color: white; */
-  border-bottom: 1px solid rgb(206, 206, 206);
+  border-bottom: 1px solid black;
 }
 
 .CommentListProfileUrl {
@@ -19,10 +19,10 @@
 .CommentListContent {
   margin-top: 30px;
   margin-bottom: 10px;
-  background-color: #ffffff;
+  background-color: #f7f7f7;
   border-radius: 5px;
   white-space: pre-wrap;
-  width: 500px;
+  width: 400px;
   margin-left: 30px;
   min-height: 25px;
 }
