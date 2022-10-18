@@ -51,11 +51,11 @@ const Prac = ({ upload }) => {
     <>
       <div className="test222">
         {fileUrl.length === 0 ? (
-          <img src={no} className="NoneImg" />
+          <img src={no} className="NoneImg" alt="" />
         ) : (
           <Slider {...settings} className="test">
             {fileUrl.map((file) => {
-              return <img src={file.imgUrl} className="fileimg" />;
+              return <img src={file.imgUrl} className="fileimg" alt="" />;
             })}
           </Slider>
         )}
