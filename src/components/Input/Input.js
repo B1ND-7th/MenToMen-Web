@@ -22,7 +22,7 @@ function Input() {
             value={textValue}
             onChange={(e) => handleSetValue(e)}
             className="inputbox"
-            maxlength="750"
+            maxlength="700"
           ></textarea>
         </div>
       </div>

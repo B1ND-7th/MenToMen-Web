@@ -21,14 +21,17 @@ const Ask = () => {
   const [select, setSelect] = useRecoilState(tagAtom);
   const imgRef = useRef();
   const [imgs, setImageSrc] = useState([]);
+  const [imgfiles, setImgFiles] = useState([]);
+
   const date = new Date();
 
-  const uploadImg = async (e) => {
-    const files = e.target.files;
+  const uploadImg = async () => {
     const formData = new FormData();
 
-    for (let i = 0; i < files.length; i++) {
-      formData.append("file", files[i]);
+    console.log(imgfiles);
+
+    for (let i = 0; i < imgfiles.length; i++) {
+      formData.append("file", imgfiles[i]);
     }
 
     try {
@@ -38,7 +41,8 @@ const Ask = () => {
       data.data.forEach((value) => {
         arr.push(value);
       });
-      setFileUrl(arr);
+
+      postAsk(textValue, arr);
     } catch (err) {
       console.log(err);
     }
@@ -47,11 +51,6 @@ const Ask = () => {
   const handleSetValue = (e) => {
     setTextValue(e.target.value);
   };
-
-  useEffect(() => {
-    console.log(list);
-    console.log(userInfo);
-  }, [list]);
 
   const encodeFileToBase64 = (fileBlob) => {
     const reader = new FileReader();
@@ -64,11 +63,18 @@ const Ask = () => {
     });
   };
 
-  const postAsk = async (content, e) => {
-    const data = { content, imgUrls: [{ imgUrl: "" }], tag: "WEB" };
+  const postAsk = async (content, imgUrls) => {
+    const data = {
+      content,
+      tag: tag.toUpperCase(),
+      imgUrls: imgUrls.length === 0 ? [] : imgUrls,
+    };
     try {
+      console.log(data);
       const { grade, room, number } = userInfo.stdInfo;
-      const formData = new FormData();
+
+      const res = await customAxios.post("/post/submit", data);
+
       setList((prev) => {
         return [
           {
@@ -80,7 +86,7 @@ const Ask = () => {
               number,
             },
             userName: userInfo.name,
-            content: content,
+            content,
             tag: tag.toUpperCase(),
           },
           ...prev,
@@ -90,6 +96,10 @@ const Ask = () => {
       console.log(error);
     }
   };
+
+  useEffect(() => {
+    console.log(tag);
+  }, [tag]);
 
   const settings = {
     dots: true,
@@ -116,11 +126,18 @@ const Ask = () => {
                 onChange={(e) => handleSetValue(e)}
                 maxlength="700"
                 value={textValue}
-                onKeyDown={(e) => {
+                onKeyDown={async (e) => {
                   if (e.key === "Enter") {
                     e.preventDefault();
-                    postAsk(textValue, e);
                     e.target.value = "";
+
+                    if (imgs.length === 0) {
+                      await postAsk(textValue, imgfiles);
+                    } else {
+                      await uploadImg();
+                    }
+
+                    console.log(fileUrl);
                   }
                 }}
               />
@@ -128,13 +145,15 @@ const Ask = () => {
             <label for="input-file">
               <img src={Imgpp} alt="" className="askFile" for="input-file" />
               <input
+                accept="image/*"
                 ref={imgRef}
-                multiple="multiple"
+                multiple
                 type="file"
                 id="input-file"
                 style={{ display: "none" }}
-                onChange={(e) => {
-                  encodeFileToBase64(e.target.files[0]);
+                onChange={async (e) => {
+                  await encodeFileToBase64(e.target.files[0]);
+                  setImgFiles((prev) => [...prev, e.target.files[0]]);
                 }}
               ></input>
             </label>

@@ -1,5 +1,5 @@
-import React, { useEffect, useState } from "react";
-import { useRecoilState, useRecoilValue, useSetRecoilState } from "recoil";
+import React, { useEffect } from "react";
+import { useRecoilState, useSetRecoilState } from "recoil";
 import { userStateAtom } from "../../../recoil/userAtom";
 import "../ListProfile/ListProfile.css";
 import Design from "../../../img/Design.svg";
@@ -11,7 +11,6 @@ import copy from "../../../img/copy.png";
 import { ACCESS_KEY, REFRESH_KEY } from "../../../constants/auth/auth.constant";
 import { useNavigate } from "react-router-dom";
 import { customAxios } from "../../../lib/axios/customAxios";
-import profileimg from "../../../img/aprofile.png";
 import { listState } from "../../../recoil/listAtom";
 import { tagPost } from "../../../api/auth/tagSearch.api";
 

@@ -32,7 +32,6 @@ const FeedMenuModal = ({ data }) => {
   const [modal, setModal] = useState(false);
   const [postData, setPostData] = useState(data);
   const { isModify, onChangeModify } = usePostModal();
-  const [input, setInput] = useState("");
 
   const nowDate = detailDate(new Date(data.createDateTime));
 
@@ -40,19 +39,6 @@ const FeedMenuModal = ({ data }) => {
     setPostId(data.postId);
     navigate("/comment");
   };
-
-  const request = async () => {
-    try {
-      const { data } = await customAxios.get("/user/my");
-      setUserInfo(data.data);
-    } catch (error) {
-      navigate("/");
-    }
-  };
-
-  useEffect(() => {
-    request();
-  }, []);
 
   const changeTagColor = () => {
     switch (data.tag) {
@@ -100,7 +86,7 @@ const FeedMenuModal = ({ data }) => {
           <div className="nameTag">
             <div className="userName">{data.userName}</div>
             <p className="tag">
-              {`${data?.stdInfo.grade}학년 ${data?.stdInfo.room}반 ${data?.stdInfo.number}번 `}
+              {`${data?.stdInfo?.grade}학년 ${data?.stdInfo?.room}반 ${data?.stdInfo?.number}번 `}
             </p>
           </div>
           <div className="date">{nowDate}</div>
