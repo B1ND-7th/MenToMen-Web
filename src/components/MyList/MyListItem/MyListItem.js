@@ -28,19 +28,6 @@ const MyListItem = ({ data }) => {
   const nowDate = detailDate(new Date(data.createDateTime));
   const userData = useRecoilValue(userStateAtom);
 
-  const request = async () => {
-    try {
-      const { data } = await customAxios.get("/user/my");
-      setUserInfo(data.data);
-    } catch (error) {
-      navigate("/");
-    }
-  };
-
-  useEffect(() => {
-    request();
-  }, []);
-
   const onClick = () => {
     setPostId(data.postId);
     navigate("/comment");

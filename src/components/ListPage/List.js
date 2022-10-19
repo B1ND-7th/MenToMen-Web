@@ -5,6 +5,7 @@ import "./List.css";
 import { useRecoilState } from "recoil";
 import { listState } from "../../recoil/listAtom";
 import ListProfile from "./ListProfile/ListProfile.js";
+import Ask from "../Ask/Ask.js";
 import Notice from "../Notice/Notice.js";
 
 function List() {
@@ -28,6 +29,7 @@ function List() {
 
         <div className="listSectionContainer">
           <div className="listSectionWrap">
+            <Ask />
             {list?.map((item, idx) => (
               <>
                 <ListItem data={item} key={item.name + " " + idx} />

@@ -32,7 +32,6 @@ export default function CommentBt() {
       };
 
       const bt = await customAxios.post("/comment/submit", comments);
-      console.log(bt);
 
       await loadCommentFromServer();
       setComment("");
