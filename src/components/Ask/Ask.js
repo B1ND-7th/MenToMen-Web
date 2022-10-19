@@ -70,11 +70,7 @@ const Ask = () => {
 
     try {
       const { grade, room, number } = userInfo.stdInfo;
-
       const res = await customAxios.post("/post/submit", data);
-
-      console.log(imgUrls);
-
       setList((prev) => {
         return [
           {
