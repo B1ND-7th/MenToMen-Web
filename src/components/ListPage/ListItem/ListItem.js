@@ -1,8 +1,5 @@
 import React, { useEffect, useState } from "react";
 import "./Listitem.css";
-import talk from "../../../img/talk.png";
-// import Trash from "../../../img/Trash.png";
-import useFeedMenu from "../../../Hooks/useFeedMenu";
 import { userStateAtom } from "../../../recoil/userAtom";
 import { useRecoilState, useRecoilValue } from "recoil";
 import { customAxios } from "../../../lib/axios/customAxios";
@@ -11,10 +8,8 @@ import { postAtom } from "../../../recoil/uploadAtom";
 import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
 import Slider from "react-slick";
-// import Sidebar from "../../Sidebar/Sidebar";
 import usePostModal from "../../../Hooks/usePostModal";
 import Modal from "../../Modal/Modal";
-import bar from "../../../img/bar.svg";
 import { EditPost } from "../../../api/Edit.api";
 import { detailDate } from "../../common/Date";
 import CommentBt from "../../../img/CommentBt.png";
@@ -38,7 +33,7 @@ const FeedMenuModal = ({ data }) => {
 
   const onClick = () => {
     setPostId(data.postId);
-    navigate("/comment");
+    navigate(`/comment/${postId}`);
   };
 
   const request = async () => {

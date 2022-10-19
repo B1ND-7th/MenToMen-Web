@@ -22,7 +22,7 @@ function App() {
           <Route path="/introduce" element={<Introduce />} />
           <Route path="/callback" element={<AuthLoadingPage />} />
           <Route path="/list" element={<List />} />
-          <Route path="/comment" element={<Comment />} />
+          <Route path="/comment/:postId" element={<Comment />} />
           <Route path="/form" element={<Inputpage />} />
           <Route path="/mypage" element={<MyList />} />
         </Routes>

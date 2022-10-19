@@ -6,7 +6,6 @@ import {
   commentAtom,
   CommentIdAtom,
   commentListAtom,
-  CommentUserId,
 } from "../../../recoil/uploadAtom";
 import { customAxios } from "../../../lib/axios/customAxios";
 import { useEffect } from "react";
@@ -19,7 +18,6 @@ export default function CommentDelete({ id, comments, item }) {
   const [commentId, setCommentId] = useState();
   const userData = useRecoilValue(userStateAtom);
   const [commentList, setCommentList] = useRecoilState(commentListAtom);
-  // const [commetuserId, setCommentuserId] = useRecoilState(CommentUserId);
 
   console.log(userData.userId === item.userId);
   console.log(item);

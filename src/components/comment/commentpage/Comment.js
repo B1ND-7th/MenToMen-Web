@@ -8,11 +8,15 @@ import { useState } from "react";
 import profileimg from "../../../img/aprofile.png";
 import CommentBt from "../../Button/CommentButton/CommentBt";
 import CommentList from "../CommentList/CommentList";
+import { useParams } from "react-router-dom";
 
 export default function Comment() {
   const [comment, setComment] = useRecoilState(commentAtom);
-  const [postId, setPostid] = useRecoilState(postAtom);
+
   const [post, setPost] = useState();
+  const { postId } = useParams();
+
+  console.log(postId);
 
   useEffect(() => {
     console.log(post);

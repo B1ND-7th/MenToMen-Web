@@ -2,7 +2,6 @@ import React from "react";
 import { useRecoilState } from "recoil";
 import "./CommentBt.css";
 import {
-  commentbtAtom,
   postAtom,
   commentAtom,
   commentListAtom,
