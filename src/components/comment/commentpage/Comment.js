@@ -12,7 +12,7 @@ import { useParams } from "react-router-dom";
 
 export default function Comment() {
   const [comment, setComment] = useRecoilState(commentAtom);
-  // const [postId, setPostid] = useRecoilState(postAtom);
+
   const [post, setPost] = useState();
   const { postId } = useParams();
 

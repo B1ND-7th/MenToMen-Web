@@ -33,7 +33,6 @@ const Sidebar = ({ width = 300, children }) => {
       const response = await customAxios.get("/notice/check");
       const res = await customAxios.get("/notice/list");
       console.log(res);
-      // setNoticeList(response.data);
       setNoticeList(res.data);
     } catch (e) {
       console.log(e);
@@ -73,7 +72,7 @@ const Sidebar = ({ width = 300, children }) => {
           onClick={() => toggleMenu()}
           className="noticesimg"
         />
-        {/* // <button onClick={() => toggleMenu()} className="button"></button> */}
+
         <div className="content">
           <h2 className="contentNotice">알림</h2>
         </div>
@@ -99,11 +98,9 @@ const Sidebar = ({ width = 300, children }) => {
                   님이 댓글을 입력하셨습니다
                 </div>
 
-                {/* <div className="margin"> */}
                 <div className="noticeContent" onClick={() => onClicks(item)}>
                   {item.commentContent}
                 </div>
-                {/* </div> */}
               </div>
             </>
           ))}

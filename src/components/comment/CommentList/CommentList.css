@@ -1,9 +1,7 @@
 .CommentListBox {
-  /* border: 0.5px solid rgb(205, 205, 205); */
   width: 622px;
   min-height: 85px;
   white-space: pre-wrap;
-  /* background-color: white; */
   border-bottom: 1px solid rgba(130, 130, 130, 0.188);
 }
 
@@ -11,9 +9,8 @@
   width: 30px;
   height: 30px;
   border-radius: 81px;
-  /* margin-left: 0px; */
+
   margin-top: 25px;
-  /* white-space: pre-wrap; */
 }
 
 .CommentListContent {
@@ -35,18 +32,15 @@
 .CommentListComment {
   display: flex;
   flex-direction: column;
-  /* white-space: pre-wrap; */
 }
 
 .CommentListBoxWrap {
   display: flex;
   justify-content: center;
   width: 100%;
-  /* white-space: pre-wrap; */
 }
 
 .CommentListContentBox {
   width: 400px;
   display: flex;
-  /* white-space: pre-wrap; */
 }

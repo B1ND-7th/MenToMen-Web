@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from "react";
+import React, { useEffect } from "react";
 import { customAxios } from "../../lib/axios/customAxios.js";
 import ListItem from "./ListItem/ListItem.js";
 import "./List.css";
