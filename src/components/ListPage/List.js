@@ -5,6 +5,7 @@ import "./List.css";
 import { useRecoilState } from "recoil";
 import { listState } from "../../recoil/listAtom";
 import ListProfile from "./ListProfile/ListProfile.js";
+import Notice from "../Notice/Notice.js";
 
 function List() {
   const [list, setList] = useRecoilState(listState);
@@ -24,6 +25,7 @@ function List() {
     <>
       <div className="listContainer">
         <ListProfile />
+
         <div className="listSectionContainer">
           <div className="listSectionWrap">
             {list?.map((item, idx) => (
@@ -33,6 +35,8 @@ function List() {
             ))}
           </div>
         </div>
+
+        <Notice />
       </div>
     </>
   );

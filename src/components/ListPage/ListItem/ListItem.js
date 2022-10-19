@@ -38,7 +38,7 @@ const FeedMenuModal = ({ data }) => {
 
   const onClick = () => {
     setPostId(data.postId);
-    navigate("/comment");
+    navigate(`/comment/${postId}`);
   };
 
   const request = async () => {

@@ -44,3 +44,8 @@ export const ProfileUrlAtom = atom({
   key: "ProfileUrlAtom",
   default: null,
 });
+
+export const NoticeListAtom = atom({
+  key: "NoticeListAtom",
+  default: null,
+});
