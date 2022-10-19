@@ -6,14 +6,17 @@ import { useRecoilState } from "recoil";
 import { NoticeListAtom, postAtom } from "../../recoil/uploadAtom";
 import profileImg from "../../img/aprofile.png";
 import { useNavigate } from "react-router-dom";
+import { detailDate } from "../../components/../components/common/Date";
 
-const Sidebar = ({ width = 300, children }) => {
+const Sidebar = ({ width = 300 }) => {
   const [isOpen, setOpen] = useState(false);
   const [xPosition, setX] = useState(-width);
   const side = useRef();
   const [noticeList, setNoticeList] = useRecoilState(NoticeListAtom);
   const [postId, setPostId] = useRecoilState(postAtom);
   const navigate = useNavigate();
+  // const nowDate = detailDate(new Date(data.createDateTime));
+  // const [postData, setPostData] = useState(data);
 
   const onClicks = (data) => {
     setPostId(data.postId);
