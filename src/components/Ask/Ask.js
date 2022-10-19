@@ -28,8 +28,6 @@ const Ask = () => {
   const uploadImg = async () => {
     const formData = new FormData();
 
-    console.log(imgfiles);
-
     for (let i = 0; i < imgfiles.length; i++) {
       formData.append("file", imgfiles[i]);
     }
@@ -69,11 +67,13 @@ const Ask = () => {
       tag: tag.toUpperCase(),
       imgUrls: imgUrls.length === 0 ? [] : imgUrls,
     };
+
     try {
-      console.log(data);
       const { grade, room, number } = userInfo.stdInfo;
 
       const res = await customAxios.post("/post/submit", data);
+
+      console.log(imgUrls);
 
       setList((prev) => {
         return [
@@ -88,6 +88,7 @@ const Ask = () => {
             userName: userInfo.name,
             content,
             tag: tag.toUpperCase(),
+            imgUrls: [...imgUrls.map((item) => item.imgUrl)],
           },
           ...prev,
         ];
@@ -96,10 +97,6 @@ const Ask = () => {
       console.log(error);
     }
   };
-
-  useEffect(() => {
-    console.log(tag);
-  }, [tag]);
 
   const settings = {
     dots: true,
@@ -129,15 +126,13 @@ const Ask = () => {
                 onKeyDown={async (e) => {
                   if (e.key === "Enter") {
                     e.preventDefault();
-                    e.target.value = "";
 
                     if (imgs.length === 0) {
                       await postAsk(textValue, imgfiles);
                     } else {
                       await uploadImg();
                     }
-
-                    console.log(fileUrl);
+                    setTextValue("");
                   }
                 }}
               />
