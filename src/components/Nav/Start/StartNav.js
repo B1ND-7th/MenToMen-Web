@@ -70,7 +70,7 @@ function StartNav() {
                   />
                 </div>
               ) : null}
-              <div className="Bt">
+              {/* <div className="Bt">
                 <h2
                   className="RequestBt"
                   onClick={() => {
@@ -79,7 +79,7 @@ function StartNav() {
                 >
                   멘토요청하기
                 </h2>
-              </div>
+              </div> */}
             </>
           ) : (
             <div>
