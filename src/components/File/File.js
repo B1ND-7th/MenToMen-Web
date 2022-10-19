@@ -1,16 +1,14 @@
 import React from "react";
 import "./File.css";
-import { useState, useRef } from "react";
-import axios from "axios";
+import { useRef } from "react";
+
 import { useRecoilState } from "recoil";
-import { uploadFileUrl, uploadFileUrlAtom } from "../../recoil/uploadAtom";
+import { uploadFileUrlAtom } from "../../recoil/uploadAtom";
 import { customAxios } from "../../lib/axios/customAxios";
-// import imageCompression from "browser-image-compression";
-// import React, { Component } from "react";
 import Slider from "react-slick";
 import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
-import { useEffect } from "react";
+
 import IMGPP from "../../img/imgpp.png";
 import no from "../../img/no.png";
 

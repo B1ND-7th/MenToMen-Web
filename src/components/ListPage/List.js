@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from "react";
+import React, { useEffect } from "react";
 import { customAxios } from "../../lib/axios/customAxios.js";
 import ListItem from "./ListItem/ListItem.js";
 import "./List.css";
@@ -6,6 +6,7 @@ import { useRecoilState } from "recoil";
 import { listState } from "../../recoil/listAtom";
 import ListProfile from "./ListProfile/ListProfile.js";
 import Ask from "../Ask/Ask.js";
+import Notice from "../Notice/Notice.js";
 
 function List() {
   const [list, setList] = useRecoilState(listState);
@@ -25,6 +26,7 @@ function List() {
     <>
       <div className="listContainer">
         <ListProfile />
+
         <div className="listSectionContainer">
           <div className="listSectionWrap">
             <Ask />
@@ -35,6 +37,8 @@ function List() {
             ))}
           </div>
         </div>
+
+        <Notice />
       </div>
     </>
   );

@@ -43,8 +43,8 @@ function StartPage() {
       <div className="menList">
         <div className="realMenWrap">
           <span className="listCount">{list.length}</span>
-          <strong className="hardWord">명</strong>
-          <span className="nomalWord">의 멘티가 도움을 기다립니다.</span>
+          {/* <strong className="hardWord">명</strong> */}
+          <span className="nomalWord">명의 멘티가 도움을 기다립니다.</span>
         </div>
         <Button className="realMainBtn" />
       </div>

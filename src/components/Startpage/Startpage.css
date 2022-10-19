@@ -28,7 +28,7 @@
 
 .iosimg {
   width: 430px;
-  /* height: ; */
+
   display: flex;
   margin: -390px 0 0 1100px;
 }
@@ -44,4 +44,10 @@
 
 .listCount {
   color: #2745f2;
+  margin-top: 20px;
+}
+
+.realMenWrap {
+  margin-top: -40px;
+  margin-bottom: 30px;
 }

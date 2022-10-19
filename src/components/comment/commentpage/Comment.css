@@ -1,18 +1,27 @@
+body {
+  background-color: #f2f2f2;
+}
+
 .commentbox {
-  /* display: flex; */
   width: 600px;
-  height: 85px;
+  height: 20px;
   font-size: 18px;
   padding: 10px;
-  /* align-items: center; */
+
+  border-radius: 100px;
+  border: 0;
+  outline: 0;
+  box-shadow: 0px 4px 8px rgba(190, 190, 190, 0.2);
+}
+
+.commentbox::-webkit-scrollbar {
+  display: none;
 }
 
 .comment {
-  /* width: 100vw;
-    height: calc(100vh - 62px); */
   display: flex;
   justify-content: center;
-  /* align-items: center; */
+
   margin-top: 100px;
 }
 
@@ -41,10 +50,14 @@
 
 .postcommentbox {
   display: flex;
-  /* justify-content: center; */
-  border: 1px solid black;
+  background-color: white;
+
+  border: 1px solid rgba(0, 0, 0, 0.175);
   width: 620px;
   height: 300px;
+  white-space: pre-wrap;
+  box-shadow: 0px 4px 8px rgba(190, 190, 190, 0.2);
+  border-radius: 5px;
 }
 
 .postCommentProfileWrap {
@@ -69,7 +82,6 @@
 }
 
 .tagBox {
-  /* width: min-content; */
   height: 15px;
   padding: 0px 10px;
   border-radius: 10px;
@@ -79,8 +91,6 @@
   font-style: normal;
   font-weight: 400;
   font-size: 12px;
-  /* line-height: 14px; */
-  /* height: 12.6px; */
 }
 
 .postCommentContentWrap {
@@ -118,6 +128,12 @@
 }
 
 .contentBox {
-  min-width: 300px;
+  width: 100%;
   margin-top: 20px;
+  word-break: break-all;
+  overflow: scroll;
+}
+
+.contentBox::-webkit-scrollbar {
+  display: none;
 }
