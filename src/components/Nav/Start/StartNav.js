@@ -70,16 +70,7 @@ function StartNav() {
                   />
                 </div>
               ) : null}
-              <div className="Bt">
-                <h2
-                  className="RequestBt"
-                  onClick={() => {
-                    navigate("/form");
-                  }}
-                >
-                  멘토요청하기
-                </h2>
-              </div>
+              <div className="Bt"></div>
             </>
           ) : (
             <div>

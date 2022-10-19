@@ -5,7 +5,7 @@
 }
 
 .navList {
-  width: 100%;
+  width: 100px;
   height: 100%;
   display: flex;
   align-items: center;
@@ -30,9 +30,7 @@
 }
 
 .navList .Bt {
-  /* margin-left: -200px; */
   display: flex;
-  /* justify-content: space-between; */
   color: #29275c;
   font-size: 12px;
 }
@@ -40,16 +38,6 @@
 .RequestBt {
   cursor: pointer;
   /* margin-left: -20px; */
-}
-
-.MyPage {
-  margin-left: 150px;
-  cursor: pointer;
-}
-
-.LogOut {
-  margin-left: 130px;
-  cursor: pointer;
 }
 
 .searchInput {
@@ -69,6 +57,7 @@
   align-items: center;
   column-gap: 10px;
 
+  margin-left: 450px;
   box-sizing: border-box;
   border-radius: 10px;
   padding: 6px 12px 6px 25px;
