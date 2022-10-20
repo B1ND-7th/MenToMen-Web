@@ -15,9 +15,6 @@ const Sidebar = ({ width = 300, data }) => {
   const [noticeList, setNoticeList] = useRecoilState(NoticeListAtom);
   const [postId, setPostId] = useRecoilState(postAtom);
   const navigate = useNavigate();
-  // const nowDate = detailDate(new Date(data.createDateTime));
-
-  // const [postData, setPostData] = useState(data);
 
   const onClicks = (data) => {
     setPostId(data.postId);
@@ -35,11 +32,10 @@ const Sidebar = ({ width = 300, data }) => {
       }
 
       const response = await customAxios.get("/notice/check");
-      const res = await customAxios.get("/notice/list");
+      const { data } = await customAxios.get("/notice/list");
 
-      // console.log(nowDate);
-      console.log(res);
-      setNoticeList(res.data);
+      console.log(data);
+      setNoticeList(data);
     } catch (e) {
       console.log(e);
     }
@@ -50,7 +46,7 @@ const Sidebar = ({ width = 300, data }) => {
     let sideCildren = side.current.contains(e.target);
     if (isOpen && (!sideArea || !sideCildren)) {
       setX(-width);
-      // setOpen(false);
+      setOpen(false);
     }
   };
 
@@ -78,7 +74,6 @@ const Sidebar = ({ width = 300, data }) => {
           onClick={() => toggleMenu()}
           className="noticesimg"
         />
-        {/* <button onClick={() => toggleMenu()} className="noticesimg" /> */}
 
         <div className="content">
           <h2 className="contentNotice">알림</h2>
@@ -92,7 +87,7 @@ const Sidebar = ({ width = 300, data }) => {
                   <div className="NotiveDate">
                     {detailDate(new Date(item.createDateTime))}
                   </div>
-                  <div className="noticeProfileBox">
+                  {/* <div className="noticeProfileBox">
                     {item.senderProfileImage ? (
                       <img
                         src={item.senderProfileImage}
@@ -102,7 +97,15 @@ const Sidebar = ({ width = 300, data }) => {
                     ) : (
                       <img src={profileImg} className="noticeProfile" />
                     )}
-                  </div>
+                  </div> */}
+                  <img
+                    src={
+                      item.senderProfileImage
+                        ? item.senderProfileImage
+                        : profileImg
+                    }
+                    className="noticeProfile"
+                  />
 
                   <div className="noticeName">
                     <b>{item.senderName}</b>
