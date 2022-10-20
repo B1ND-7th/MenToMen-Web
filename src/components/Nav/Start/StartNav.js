@@ -70,7 +70,6 @@ function StartNav() {
                   />
                 </div>
               ) : null}
-
               <div className="Bt"></div>
             </>
           ) : (

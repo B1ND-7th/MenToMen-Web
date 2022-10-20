@@ -62,6 +62,10 @@ const Ask = () => {
   };
 
   const postAsk = async (content, imgUrls) => {
+    if (content?.length <= 0 || content === null) {
+      alert("텍스트를 입력해주세요");
+      return;
+    }
     const data = {
       content,
       tag: tag.toUpperCase(),
@@ -83,6 +87,7 @@ const Ask = () => {
             },
             userName: userInfo.name,
             content,
+
             tag: tag.toUpperCase(),
             imgUrls: [...imgUrls.map((item) => item.imgUrl)],
           },
