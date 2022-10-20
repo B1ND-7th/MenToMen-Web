@@ -3,8 +3,12 @@ body {
 }
 
 .commentbox {
+  display: flex;
+  /* justify-content: center; */
+  /* align-items: center; */
+  /* margin-top: 2px; */
   width: 600px;
-  height: 20px;
+  height: 35px;
   font-size: 18px;
   padding: 10px;
 
@@ -12,6 +16,12 @@ body {
   border: 0;
   outline: 0;
   box-shadow: 0px 4px 8px rgba(190, 190, 190, 0.2);
+}
+
+::-webkit-input-placeholder {
+  /* text-align: center; */
+  display: flex;
+  margin-top: 2px;
 }
 
 .commentbox::-webkit-scrollbar {

@@ -8,7 +8,7 @@ import profileImg from "../../img/aprofile.png";
 import { useNavigate } from "react-router-dom";
 import { detailDate } from "../../components/../components/common/Date";
 
-const Sidebar = ({ width = 300 }) => {
+const Sidebar = ({ width = 300, data }) => {
   const [isOpen, setOpen] = useState(false);
   const [xPosition, setX] = useState(-width);
   const side = useRef();
@@ -16,6 +16,7 @@ const Sidebar = ({ width = 300 }) => {
   const [postId, setPostId] = useRecoilState(postAtom);
   const navigate = useNavigate();
   // const nowDate = detailDate(new Date(data.createDateTime));
+
   // const [postData, setPostData] = useState(data);
 
   const onClicks = (data) => {
@@ -35,6 +36,8 @@ const Sidebar = ({ width = 300 }) => {
 
       const response = await customAxios.get("/notice/check");
       const res = await customAxios.get("/notice/list");
+
+      // console.log(nowDate);
       console.log(res);
       setNoticeList(res.data);
     } catch (e) {
@@ -47,7 +50,7 @@ const Sidebar = ({ width = 300 }) => {
     let sideCildren = side.current.contains(e.target);
     if (isOpen && (!sideArea || !sideCildren)) {
       setX(-width);
-      setOpen(false);
+      // setOpen(false);
     }
   };
 
@@ -75,38 +78,44 @@ const Sidebar = ({ width = 300 }) => {
           onClick={() => toggleMenu()}
           className="noticesimg"
         />
+        {/* <button onClick={() => toggleMenu()} className="noticesimg" /> */}
 
         <div className="content">
           <h2 className="contentNotice">알림</h2>
         </div>
 
-        {noticeList &&
-          noticeList.data.map((item) => (
-            <>
-              <div className="noticeBox">
-                <div className="noticeProfileBox">
-                  {item.senderProfileImage ? (
-                    <img
-                      src={item.senderProfileImage}
-                      className="noticeProfile"
-                      alt=""
-                    />
-                  ) : (
-                    <img src={profileImg} className="noticeProfile" />
-                  )}
-                </div>
+        <div className="test">
+          {noticeList &&
+            noticeList.data.map((item) => (
+              <>
+                <div className="noticeBox">
+                  <div className="NotiveDate">
+                    {detailDate(new Date(item.createDateTime))}
+                  </div>
+                  <div className="noticeProfileBox">
+                    {item.senderProfileImage ? (
+                      <img
+                        src={item.senderProfileImage}
+                        className="noticeProfile"
+                        alt=""
+                      />
+                    ) : (
+                      <img src={profileImg} className="noticeProfile" />
+                    )}
+                  </div>
 
-                <div className="noticeName">
-                  <b>{item.senderName}</b>
-                  님이 댓글을 입력하셨습니다
-                </div>
+                  <div className="noticeName">
+                    <b>{item.senderName}</b>
+                    님이 댓글을 입력하셨습니다
+                  </div>
 
-                <div className="noticeContent" onClick={() => onClicks(item)}>
-                  {item.commentContent}
+                  <div className="noticeContent" onClick={() => onClicks(item)}>
+                    {item.commentContent}
+                  </div>
                 </div>
-              </div>
-            </>
-          ))}
+              </>
+            ))}
+        </div>
       </div>
     </div>
   );
