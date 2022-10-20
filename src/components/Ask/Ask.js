@@ -11,7 +11,6 @@ import { tagAtom, uploadFileUrlAtom } from "../../recoil/uploadAtom";
 import { PLATFORM } from "../../constants/Platform/PLANTFORM";
 import Slider from "react-slick";
 import no from "../../img/no.png";
-import { useBeforeunload } from "react-beforeunload";
 
 const Ask = () => {
   const [userInfo, setUserInfo] = useRecoilState(userStateAtom);
@@ -23,8 +22,6 @@ const Ask = () => {
   const imgRef = useRef();
   const [imgs, setImageSrc] = useState([]);
   const [imgfiles, setImgFiles] = useState([]);
-
-  useBeforeunload((e) => e.preventDefault());
 
   const date = new Date();
 
@@ -65,6 +62,10 @@ const Ask = () => {
   };
 
   const postAsk = async (content, imgUrls) => {
+    if (content?.length <= 0 || content === null) {
+      alert("텍스트를 입력해주세요");
+      return;
+    }
     const data = {
       content,
       tag: tag.toUpperCase(),
@@ -86,6 +87,7 @@ const Ask = () => {
             },
             userName: userInfo.name,
             content,
+
             tag: tag.toUpperCase(),
             imgUrls: [...imgUrls.map((item) => item.imgUrl)],
           },
