@@ -37,7 +37,6 @@
 
 .RequestBt {
   cursor: pointer;
-  /* margin-left: -20px; */
 }
 
 .searchInput {
@@ -57,10 +56,11 @@
   justify-content: center;
   align-items: center;
   column-gap: 10px;
+  margin-right: -10px;
 
   box-sizing: border-box;
   border-radius: 10px;
-  padding: 6px 12px 6px 25px;
+  padding: 6px 12px 6px 5px;
   background: #f2f2f2;
   border-radius: 10px;
   margin-left: 500px;
