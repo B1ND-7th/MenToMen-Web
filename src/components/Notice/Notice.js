@@ -7,32 +7,45 @@ import { NoticeListAtom, postAtom } from "../../recoil/uploadAtom";
 import profileImg from "../../img/aprofile.png";
 import { useNavigate } from "react-router-dom";
 import { detailDate } from "../../components/../components/common/Date";
+import noticeImg from "../../img/noticeImg.png";
 
-const Sidebar = ({ width = 300, data }) => {
+const Sidebar = ({ width = 300 }) => {
   const [isOpen, setOpen] = useState(false);
   const [xPosition, setX] = useState(-width);
   const side = useRef();
   const [noticeList, setNoticeList] = useRecoilState(NoticeListAtom);
   const [postId, setPostId] = useRecoilState(postAtom);
   const navigate = useNavigate();
+  const [noticeCheck, setNoticeCheck] = useState();
 
   const onClicks = (data) => {
     setPostId(data.postId);
     navigate(`/comment/${data.postId}`);
   };
 
-  const toggleMenu = async () => {
-    try {
-      if (xPosition < 0) {
-        setX(0);
-        setOpen(true);
-      } else {
-        setX(-width);
-        setOpen(false);
-      }
+  useEffect(() => {
+    // setNoticeCheck(response.noticeStatus);
+    // data();
+    // toggleMenu();
+    NoticeRequest();
+  }, []);
 
+  const toggleMenu = async () => {
+    setNoticeCheck("None");
+    if (xPosition < 0) {
+      setX(0);
+      setOpen(true);
+    } else {
+      setX(-width);
+      setOpen(false);
+    }
+  };
+
+  const NoticeRequest = async () => {
+    try {
       const response = await customAxios.get("/notice/check");
       const { data } = await customAxios.get("/notice/list");
+      setNoticeCheck(response.data.data.noticeStatus);
 
       console.log(data);
       setNoticeList(data);
@@ -68,12 +81,28 @@ const Sidebar = ({ width = 300, data }) => {
           transform: `translatex(${-xPosition}px)`,
         }}
       >
-        <img
+        {/* <img
           src={notices}
           alt=""
           onClick={() => toggleMenu()}
           className="noticesimg"
-        />
+        /> */}
+
+        {/* <img src={notices} className="noticesimg" /> */}
+
+        {noticeCheck === "EXIST" ? (
+          <img
+            src={noticeImg}
+            className="noticesimgs"
+            onClick={() => toggleMenu()}
+          />
+        ) : (
+          <img
+            src={notices}
+            className="noticesimg"
+            onClick={() => toggleMenu()}
+          />
+        )}
 
         <div className="content">
           <h2 className="contentNotice">알림</h2>
