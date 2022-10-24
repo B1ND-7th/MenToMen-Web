@@ -104,6 +104,7 @@
 .modalBarWrap {
   position: relative;
   margin-left: auto;
+  display: flex;
 }
 
 .trashImg {
