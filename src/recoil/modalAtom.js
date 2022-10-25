@@ -9,10 +9,5 @@ export const deleteState = atom({
 
 export const buttonState = atom({
   key: "buttonStates",
-  default: {
-    isMenuClick: false,
-    isPostClick: false,
-    isUserClick: false,
-    isServiceCenterClick: false,
-  },
+  default: {},
 });
