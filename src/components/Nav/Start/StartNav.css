@@ -22,7 +22,7 @@
 
 .navList h1 {
   margin-top: 1px;
-
+  margin-left: 1400px;
   width: 100px;
   color: #29275c;
   font-size: 16px;
@@ -101,5 +101,9 @@
 
 .dark-mode .searchInput {
   background-color: #292929;
+  color: white;
+}
+
+.dark-mode h1 {
   color: white;
 }
