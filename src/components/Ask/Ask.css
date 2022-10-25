@@ -76,3 +76,20 @@
   margin-top: 30px;
   margin-left: 50px;
 }
+
+.dark-mode .askSection {
+  background-color: #292929;
+}
+
+.dark-mode .askTitle {
+  color: white;
+}
+
+.dark-mode .askInput {
+  background-color: #292929;
+  color: white;
+}
+
+.dark-mode ::placeholder {
+  color: white;
+}

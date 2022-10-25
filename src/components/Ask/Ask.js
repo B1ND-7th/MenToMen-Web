@@ -11,8 +11,13 @@ import { tagAtom, uploadFileUrlAtom } from "../../recoil/uploadAtom";
 import { PLATFORM } from "../../constants/Platform/PLANTFORM";
 import Slider from "react-slick";
 import no from "../../img/no.png";
+import darkno from "../../img/dark-no.png";
+import { useBeforeunload } from "react-beforeunload";
+import useDarkMode from "use-dark-mode";
 
 const Ask = () => {
+  const currentMode = useDarkMode(localStorage.getItem("darkMode"));
+
   const [userInfo, setUserInfo] = useRecoilState(userStateAtom);
   const [textValue, setTextValue] = useRecoilState(contentAtom);
   const [list, setList] = useRecoilState(listState);
@@ -127,7 +132,6 @@ const Ask = () => {
                 onKeyDown={async (e) => {
                   if (e.key === "Enter") {
                     e.preventDefault();
-
                     if (imgs.length === 0) {
                       await postAsk(textValue, imgfiles);
                     } else {
@@ -172,7 +176,11 @@ const Ask = () => {
         </div>
         <div className="showImg">
           {imgs.length === 0 ? (
-            <img src={no} className="NoneImg" alt="" />
+            <img
+              src={currentMode.value === true ? darkno : no}
+              className="NoneImg"
+              alt=""
+            />
           ) : (
             <Slider {...settings} className="test">
               {imgs.map((img) => {

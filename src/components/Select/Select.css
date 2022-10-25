@@ -19,3 +19,7 @@
   margin-left: 20px;
   background-color: white;
 }
+
+.dark-mode .DesignBt {
+  background-color: #292929;
+}

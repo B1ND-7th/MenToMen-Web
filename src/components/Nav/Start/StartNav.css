@@ -86,3 +86,20 @@
 
   color: rgba(0, 0, 0, 0.5);
 }
+
+.dark-mode .nav {
+  background-color: black;
+}
+
+.dark-mode ::placeholder {
+  color: white;
+}
+
+.dark-mode .searchBox {
+  background-color: #292929;
+}
+
+.dark-mode .searchInput {
+  background-color: #292929;
+  color: white;
+}

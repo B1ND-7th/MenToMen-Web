@@ -82,3 +82,11 @@
   margin-top: 2px;
   color: #858585;
 }
+
+.dark-mode .listProfileContainer {
+  background-color: black;
+}
+
+.dark-mode .mainUserName {
+  color: white;
+}

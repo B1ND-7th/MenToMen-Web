@@ -25,3 +25,7 @@
   max-height: calc(100vh - 62px);
   display: flex;
 }
+
+.dark-mode .listSectionWrap {
+  background-color: black;
+}

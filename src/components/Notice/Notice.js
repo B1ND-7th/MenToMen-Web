@@ -1,6 +1,7 @@
 import React, { useEffect, useRef, useState } from "react";
 import "./Notice.css";
 import notices from "../../img/notice.png";
+import darknotices from "../../img/dark-notice.png";
 import { customAxios } from "../../lib/axios/customAxios";
 import { useRecoilState } from "recoil";
 import { NoticeListAtom, postAtom } from "../../recoil/uploadAtom";
@@ -8,8 +9,11 @@ import profileImg from "../../img/aprofile.png";
 import { useNavigate } from "react-router-dom";
 import { detailDate } from "../../components/../components/common/Date";
 import noticeImg from "../../img/noticeImg.png";
+import darknoticeImg from "../../img/dark-noticeimg.png";
+import useDarkMode from "use-dark-mode";
 
 const Sidebar = ({ width = 300 }) => {
+  const currentMode = useDarkMode(localStorage.getItem("darkMode"));
   const [isOpen, setOpen] = useState(false);
   const [xPosition, setX] = useState(-width);
   const side = useRef();
@@ -92,15 +96,17 @@ const Sidebar = ({ width = 300 }) => {
 
         {noticeCheck === "EXIST" ? (
           <img
-            src={noticeImg}
+            src={currentMode.value === true ? darknoticeImg : noticeImg}
             className="noticesimgs"
             onClick={() => toggleMenu()}
+            alt=""
           />
         ) : (
           <img
-            src={notices}
+            src={currentMode.value === true ? darknotices : notices}
             className="noticesimg"
             onClick={() => toggleMenu()}
+            alt=""
           />
         )}
 
