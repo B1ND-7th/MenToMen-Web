@@ -7,6 +7,7 @@ import { listState } from "../../recoil/listAtom";
 import ListProfile from "./ListProfile/ListProfile.js";
 import Ask from "../Ask/Ask.js";
 import Notice from "../Notice/Notice.js";
+import DarkMode from "../DarkMode/DarkMode.js";
 
 function List() {
   const [list, setList] = useRecoilState(listState);
@@ -37,7 +38,7 @@ function List() {
             ))}
           </div>
         </div>
-
+        <DarkMode />
         <Notice />
       </div>
     </>

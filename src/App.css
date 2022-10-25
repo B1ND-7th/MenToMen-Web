@@ -4,3 +4,27 @@
 
   scroll-behavior: smooth;
 }
+
+:root {
+  --main_color: white;
+  --main-border-color: #dbdbdb;
+  --main-exit-background-color: #f1f1f1;
+  --main-exit-hover-background-color: #e7e7e7;
+  --main-background-color: #fafafa;
+  --dark-color: #222222;
+  --sub-dark-color: #353535;
+  --dark-post-color: #c4c4c4;
+  --dark-border-color: #464646;
+  --dark-opacity-color: rgba(23, 23, 23, 0.9);
+  --dark-white-color: #e6e6e6;
+}
+
+.light-mode {
+  color: #333;
+  transition: background-color 0.3s ease;
+}
+.dark-mode {
+  background-color: var(--dark-color);
+  color: white;
+  transition: background-color 0.3s ease;
+}
