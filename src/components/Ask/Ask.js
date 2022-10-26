@@ -2,6 +2,7 @@ import React, { useEffect, useRef, useState } from "react";
 import { useRecoilState } from "recoil";
 import { userStateAtom } from "../../recoil/userAtom";
 import Imgpp from "../../img/imgpp.png";
+import DarkImgpp from "../../img/darkimgpp.png";
 import "../Ask/Ask.css";
 import Aprofile from "../../img/aprofile.png";
 import { contentAtom } from "../../recoil/uploadcontentAtom";
@@ -11,8 +12,13 @@ import { tagAtom, uploadFileUrlAtom } from "../../recoil/uploadAtom";
 import { PLATFORM } from "../../constants/Platform/PLANTFORM";
 import Slider from "react-slick";
 import no from "../../img/no.png";
+import darkno from "../../img/darkno.png";
+import { useBeforeunload } from "react-beforeunload";
+import useDarkMode from "use-dark-mode";
 
 const Ask = () => {
+  const currentMode = useDarkMode(localStorage.getItem("darkMode"));
+
   const [userInfo, setUserInfo] = useRecoilState(userStateAtom);
   const [textValue, setTextValue] = useRecoilState(contentAtom);
   const [list, setList] = useRecoilState(listState);
@@ -127,7 +133,6 @@ const Ask = () => {
                 onKeyDown={async (e) => {
                   if (e.key === "Enter") {
                     e.preventDefault();
-
                     if (imgs.length === 0) {
                       await postAsk(textValue, imgfiles);
                     } else {
@@ -139,7 +144,12 @@ const Ask = () => {
               />
             </form>
             <label for="input-file">
-              <img src={Imgpp} alt="" className="askFile" for="input-file" />
+              <img
+                src={currentMode.value === true ? DarkImgpp : Imgpp}
+                alt=""
+                className="askFile"
+                for="input-file"
+              />
               <input
                 accept="image/*"
                 ref={imgRef}
@@ -172,7 +182,11 @@ const Ask = () => {
         </div>
         <div className="showImg">
           {imgs.length === 0 ? (
-            <img src={no} className="NoneImg" alt="" />
+            <img
+              src={currentMode.value === true ? darkno : no}
+              className="NoneImg"
+              alt=""
+            />
           ) : (
             <Slider {...settings} className="test">
               {imgs.map((img) => {

@@ -2,8 +2,8 @@ import React, { useEffect, useState } from "react";
 import { useRecoilState, useRecoilValue } from "recoil";
 import { userStateAtom } from "../../../recoil/userAtom";
 import { postAtom } from "../../../recoil/uploadAtom";
-import talk from "../../../img/talk.png";
 import bar from "../../../img/bar.svg";
+import darkbar from "../../../img/darkbar.svg";
 import { useNavigate } from "react-router-dom";
 import { customAxios } from "../../../lib/axios/customAxios";
 import usePostModal from "../../../Hooks/usePostModal";
@@ -11,16 +11,18 @@ import Modal from "../../Modal/Modal";
 import { EditPost } from "../../../api/Edit.api";
 import { detailDate } from "../../common/Date";
 import CommentBt from "../../../img/CommentBt.png";
+import DarkCommentBt from "../../../img/darkcoment.png";
 import Slider from "react-slick";
 import Design from "../../../img/Design.svg";
 import Web from "../../../img/Web1.svg";
 import Android from "../../../img/Android.svg";
 import Ios from "../../../img/Ios.svg";
 import Server from "../../../img/Server.svg";
+import useDarkMode from "use-dark-mode";
 
 const MyListItem = ({ data }) => {
+  const currentMode = useDarkMode(localStorage.getItem("darkMode"));
   const [modal, setModal] = useState(false);
-  const [userInfo, setUserInfo] = useRecoilState(userStateAtom);
   const { isModify, onChangeModify } = usePostModal();
   const [postData, setPostData] = useState(data);
   const [postId, setPostId] = useRecoilState(postAtom);
@@ -101,8 +103,12 @@ const MyListItem = ({ data }) => {
         ) : (
           <p className="contentSection">{data.content}</p>
         )}
-
-        <img className="able" src={CommentBt} alt={""} onClick={onClick} />
+        <img
+          className="able"
+          src={currentMode.value === true ? DarkCommentBt : CommentBt}
+          alt={""}
+          onClick={onClick}
+        />
       </div>
       <div className="ListItemImgBox">
         {data.imgUrls && (
@@ -121,7 +127,7 @@ const MyListItem = ({ data }) => {
         <img className="tagImg" alt="" src={changeTagColor()} />
         {userData.userId === data.author ? (
           <img
-            src={bar}
+            src={currentMode.value === true ? darkbar : bar}
             className="trashImg"
             alt=""
             onClick={() => setModal(!modal)}

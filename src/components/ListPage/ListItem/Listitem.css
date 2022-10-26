@@ -132,3 +132,8 @@
 .ListItemImg {
   margin-top: 100px;
 }
+
+.dark-mode .formSection {
+  background-color: #292929;
+  box-shadow: none;
+}

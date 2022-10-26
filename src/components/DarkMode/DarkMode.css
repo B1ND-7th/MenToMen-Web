@@ -1,0 +1,40 @@
+#darkMode-btn {
+  max-width: 120px;
+  height: 40px;
+  position: fixed;
+  right: 100px;
+  bottom: 70px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 100px;
+  border: 3px solid var(--sub-dark-color);
+  z-index: 2;
+  background-color: white;
+}
+
+#darkMode-btn:hover {
+  transition: 0.5s;
+  color: white;
+  background-color: var(--sub-dark-color);
+}
+
+#darkMode-img {
+  width: 20%;
+  margin-right: 5px;
+}
+
+#darkMode-text {
+  font-weight: bold;
+}
+
+/* darkmode */
+.dark-mode #darkMode-btn {
+  color: white;
+  background-color: var(--sub-dark-color);
+}
+
+.dark-mode #darkMode-btn:hover {
+  color: black;
+  background-color: white;
+}

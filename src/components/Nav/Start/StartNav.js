@@ -1,16 +1,20 @@
 import React, { useEffect, useState } from "react";
 import "../Start/StartNav.css";
 import Logo from "../../../img/Logo.png";
+import DarkLogo from "../../../img/DarkLogo.png";
 import { useLocation, useNavigate } from "react-router-dom";
 import { ACCESS_KEY, REFRESH_KEY } from "../../../constants/auth/auth.constant";
 import search from "../../../img/search.png";
+import darksearch from "../../../img/darksearch.png";
 import { searchPost } from "../../../api/search/Search.api";
 import { listState } from "../../../recoil/listAtom";
 import { useRecoilState, useSetRecoilState } from "recoil";
 import { customAxios } from "../../../lib/axios/customAxios";
 import { userStateAtom } from "../../../recoil/userAtom";
+import useDarkMode from "use-dark-mode";
 
 function StartNav() {
+  const currentMode = useDarkMode(localStorage.getItem("darkMode"));
   const navigate = useNavigate();
   const location = useLocation();
   const [isLogin, setIsLogin] = useState(false);
@@ -46,13 +50,17 @@ function StartNav() {
             }}
             className="logo"
             alt=""
-            src={Logo}
+            src={currentMode.value === true ? DarkLogo : Logo}
           />
           {isLogin ? (
             <>
               {location.pathname === "/list" ? (
                 <div className="searchBox">
-                  <img src={search} className="searchImg" alt="" />
+                  <img
+                    src={currentMode.value === true ? darksearch : search}
+                    className="searchImg"
+                    alt=""
+                  />
                   <input
                     className="searchInput"
                     placeholder="키워드 검색"

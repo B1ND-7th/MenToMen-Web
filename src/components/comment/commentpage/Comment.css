@@ -147,3 +147,14 @@ body {
 .contentBox::-webkit-scrollbar {
   display: none;
 }
+
+.dark-mode .postcommentbox {
+  background-color: #292929;
+  box-shadow: none;
+}
+
+.dark-mode .commentbox {
+  background-color: #292929;
+  color: white;
+  box-shadow: none;
+}

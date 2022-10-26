@@ -12,3 +12,7 @@
   font-size: 62px;
   margin-top: 300px;
 }
+
+.dark-mode .firstSection {
+  background-image: url(../../../img/DarkBackImg.png);
+}

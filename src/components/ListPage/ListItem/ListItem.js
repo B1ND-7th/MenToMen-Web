@@ -13,13 +13,16 @@ import Modal from "../../Modal/Modal";
 import { EditPost } from "../../../api/Edit.api";
 import { detailDate } from "../../common/Date";
 import CommentBt from "../../../img/CommentBt.png";
+import DarkCommentBt from "../../../img/darkcoment.png";
 import Design from "../../../img/Design.svg";
 import Web from "../../../img/Web1.svg";
 import Android from "../../../img/Android.svg";
 import Ios from "../../../img/Ios.svg";
 import Server from "../../../img/Server.svg";
+import useDarkMode from "use-dark-mode";
 
 const FeedMenuModal = ({ data }) => {
+  const currentMode = useDarkMode(localStorage.getItem("darkMode"));
   const [postId, setPostId] = useRecoilState(postAtom);
   const navigate = useNavigate();
   const [userInfo, setUserInfo] = useRecoilState(userStateAtom);
@@ -104,7 +107,12 @@ const FeedMenuModal = ({ data }) => {
           <p className="contentSection">{data.content}</p>
         )}
 
-        <img className="able" src={CommentBt} alt={""} onClick={onClick} />
+        <img
+          className="able"
+          src={currentMode.value === true ? DarkCommentBt : CommentBt}
+          alt={""}
+          onClick={onClick}
+        />
       </div>
       <div className="ListItemImgBox">
         {data.imgUrls && (

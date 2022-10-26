@@ -6,3 +6,8 @@ export const deleteState = atom({
     isMenu: false,
   },
 });
+
+export const buttonState = atom({
+  key: "buttonStates",
+  default: {},
+});

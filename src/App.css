@@ -4,3 +4,18 @@
 
   scroll-behavior: smooth;
 }
+
+:root {
+  --dark-color: #222222;
+}
+
+.light-mode {
+  color: #333;
+  transition: background-color 0.3s ease;
+}
+
+.dark-mode {
+  background-color: var(--dark-color);
+  color: white;
+  transition: background-color 0.3s ease;
+}
