@@ -13,8 +13,11 @@ import { useNavigate } from "react-router-dom";
 import { customAxios } from "../../../lib/axios/customAxios";
 import { listState } from "../../../recoil/listAtom";
 import { tagPost } from "../../../api/auth/tagSearch.api";
+import darkcopy from "../../../img/darkcopy.png";
+import useDarkMode from "use-dark-mode";
 
 const ListProfile = () => {
+  const currentMode = useDarkMode(localStorage.getItem("darkMode"));
   const navigate = useNavigate();
 
   const [userInfo, setUserInfo] = useRecoilState(userStateAtom);
@@ -109,10 +112,14 @@ const ListProfile = () => {
         </div>
       </div>
       <div className="checkList">
-        <img src={copy} alt="" className="copy" />
+        <img
+          src={currentMode.value === true ? darkcopy : copy}
+          alt=""
+          className="copy"
+        />
         <p onClick={() => navigate("/mypage")}>내가 쓴 멘토 요청글</p>
       </div>
-      <p
+      <div
         className="mainLogOut"
         onClick={() => {
           localStorage.removeItem(ACCESS_KEY);
@@ -122,7 +129,7 @@ const ListProfile = () => {
         }}
       >
         로그아웃
-      </p>
+      </div>
     </div>
   );
 };

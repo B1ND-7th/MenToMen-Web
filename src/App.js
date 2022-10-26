@@ -11,12 +11,14 @@ import List from "./components/ListPage/List";
 import StartNav from "./components/Nav/Start/StartNav";
 import MyList from "./components/MyList/MyList";
 import StartPage from "./components/Startpage/Startpage";
+import DarkMode from "./components/DarkMode/DarkMode";
 
 function App() {
   return (
     <RecoilRoot>
       <BrowserRouter>
         <StartNav />
+        <DarkMode />
         <Routes>
           <Route path="/" element={<StartPage />} />
           <Route path="/introduce" element={<Introduce />} />

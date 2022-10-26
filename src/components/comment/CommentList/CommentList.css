@@ -44,3 +44,12 @@
   width: 400px;
   display: flex;
 }
+
+.dark-mode .CommentListContent {
+  color: black;
+}
+
+.dark-mode .CommentListContent {
+  background-color: #292929;
+  color: white;
+}

@@ -135,4 +135,5 @@
 
 .dark-mode .formSection {
   background-color: #292929;
+  box-shadow: none;
 }

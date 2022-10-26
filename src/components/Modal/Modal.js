@@ -15,7 +15,6 @@ const Modal = ({ data, isModify, onChangeModify }) => {
   const [userInfo, setUserInfo] = useRecoilState(userStateAtom);
   const userData = useRecoilValue(userStateAtom);
   const navigate = useNavigate();
-  // const [isModify, setIsModify] = useState(false);
 
   const request = async () => {
     try {

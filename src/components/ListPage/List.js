@@ -38,7 +38,6 @@ function List() {
             ))}
           </div>
         </div>
-        <DarkMode />
         <Notice />
       </div>
     </>

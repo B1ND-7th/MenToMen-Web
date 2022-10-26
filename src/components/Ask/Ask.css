@@ -93,3 +93,7 @@
 .dark-mode ::placeholder {
   color: white;
 }
+
+.dark-mode .askSection {
+  box-shadow: none;
+}

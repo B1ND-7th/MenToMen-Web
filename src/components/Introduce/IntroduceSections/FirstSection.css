@@ -13,6 +13,6 @@
   margin-top: 300px;
 }
 
-.dark-mode .firstSectionTitle {
-  color: black;
+.dark-mode .firstSection {
+  background-image: url(../../../img/DarkBackImg.png);
 }

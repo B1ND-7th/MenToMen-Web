@@ -88,7 +88,7 @@
 }
 
 .dark-mode .nav {
-  background-color: black;
+  background-color: #292929;
 }
 
 .dark-mode ::placeholder {
@@ -96,11 +96,11 @@
 }
 
 .dark-mode .searchBox {
-  background-color: #292929;
+  background-color: black;
 }
 
 .dark-mode .searchInput {
-  background-color: #292929;
+  background-color: black;
   color: white;
 }
 

@@ -11,8 +11,14 @@
   width: 100px;
   cursor: pointer;
   display: flex;
+  border-radius: 100px;
   justify-content: center;
   align-items: center;
 
   margin-top: 3px;
+}
+
+.dark-mode .modalAble {
+  color: white;
+  border: 1px solid white;
 }

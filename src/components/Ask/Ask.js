@@ -2,6 +2,7 @@ import React, { useEffect, useRef, useState } from "react";
 import { useRecoilState } from "recoil";
 import { userStateAtom } from "../../recoil/userAtom";
 import Imgpp from "../../img/imgpp.png";
+import DarkImgpp from "../../img/darkimgpp.png";
 import "../Ask/Ask.css";
 import Aprofile from "../../img/aprofile.png";
 import { contentAtom } from "../../recoil/uploadcontentAtom";
@@ -11,7 +12,7 @@ import { tagAtom, uploadFileUrlAtom } from "../../recoil/uploadAtom";
 import { PLATFORM } from "../../constants/Platform/PLANTFORM";
 import Slider from "react-slick";
 import no from "../../img/no.png";
-import darkno from "../../img/dark-no.png";
+import darkno from "../../img/darkno.png";
 import { useBeforeunload } from "react-beforeunload";
 import useDarkMode from "use-dark-mode";
 
@@ -143,7 +144,12 @@ const Ask = () => {
               />
             </form>
             <label for="input-file">
-              <img src={Imgpp} alt="" className="askFile" for="input-file" />
+              <img
+                src={currentMode.value === true ? DarkImgpp : Imgpp}
+                alt=""
+                className="askFile"
+                for="input-file"
+              />
               <input
                 accept="image/*"
                 ref={imgRef}

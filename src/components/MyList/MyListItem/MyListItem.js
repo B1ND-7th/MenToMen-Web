@@ -2,8 +2,8 @@ import React, { useEffect, useState } from "react";
 import { useRecoilState, useRecoilValue } from "recoil";
 import { userStateAtom } from "../../../recoil/userAtom";
 import { postAtom } from "../../../recoil/uploadAtom";
-import talk from "../../../img/talk.png";
 import bar from "../../../img/bar.svg";
+import darkbar from "../../../img/darkbar.svg";
 import { useNavigate } from "react-router-dom";
 import { customAxios } from "../../../lib/axios/customAxios";
 import usePostModal from "../../../Hooks/usePostModal";
@@ -127,7 +127,7 @@ const MyListItem = ({ data }) => {
         <img className="tagImg" alt="" src={changeTagColor()} />
         {userData.userId === data.author ? (
           <img
-            src={bar}
+            src={currentMode.value === true ? darkbar : bar}
             className="trashImg"
             alt=""
             onClick={() => setModal(!modal)}
