@@ -97,6 +97,7 @@ const FeedMenuModal = ({ data }) => {
             }}
             onKeyDown={async (e) => {
               if (e.key === "Enter") {
+                e.preventDefault();
                 await EditPost(postData);
                 postData.content = "";
                 window.location.reload();

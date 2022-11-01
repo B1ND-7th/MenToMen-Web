@@ -93,7 +93,6 @@ const Ask = () => {
             },
             userName: userInfo.name,
             content,
-
             tag: tag.toUpperCase(),
             imgUrls: [...imgUrls.map((item) => item.imgUrl)],
           },

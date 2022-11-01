@@ -23,16 +23,33 @@ import useDarkMode from "use-dark-mode";
 const MyListItem = ({ data }) => {
   const currentMode = useDarkMode(localStorage.getItem("darkMode"));
   const [modal, setModal] = useState(false);
-  const { isModify, onChangeModify } = usePostModal();
+  const { isModify, onChangeModify, setIsModify } = usePostModal();
   const [postData, setPostData] = useState(data);
   const [postId, setPostId] = useRecoilState(postAtom);
   const navigate = useNavigate();
   const nowDate = detailDate(new Date(data.createDateTime));
   const userData = useRecoilValue(userStateAtom);
+  const [tempText, setTempText] = useState("");
 
   const onClick = () => {
     setPostId(data.postId);
     navigate("/comment");
+  };
+
+  const editText = async () => {
+    const data = {
+      content: tempText,
+      imgUrls: postData.imgUrls ? postData.imgUrls : [],
+      postId: postData.postId,
+      tag: postData.tag,
+    };
+    try {
+      const res = await customAxios.patch("/post/update", data);
+      setIsModify(false);
+      setPostData((prev) => ({ ...prev, content: tempText }));
+    } catch (error) {
+      console.log(error);
+    }
   };
 
   const changeTagColor = () => {
@@ -88,20 +105,20 @@ const MyListItem = ({ data }) => {
         </div>
         {isModify ? (
           <textarea
-            value={postData.content}
+            value={tempText}
             onChange={(e) => {
-              setPostData((prev) => ({ ...prev, content: e.target.value }));
+              setTempText(e.target.value);
             }}
             onKeyDown={async (e) => {
               if (e.key === "Enter") {
-                await EditPost(postData);
+                console.log("enter");
+                await editText();
                 postData.content = "";
-                window.location.reload();
               }
             }}
           />
         ) : (
-          <p className="contentSection">{data.content}</p>
+          <p className="contentSection">{postData.content}</p>
         )}
         <img
           className="able"
