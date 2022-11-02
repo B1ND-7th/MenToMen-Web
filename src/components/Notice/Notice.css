@@ -86,6 +86,8 @@
   /* height: 10px; */
   margin-top: 20px;
   margin-left: 50px;
+
+  cursor: pointer;
 }
 
 /* .test {

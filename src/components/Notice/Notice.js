@@ -85,15 +85,6 @@ const Sidebar = ({ width = 300 }) => {
           transform: `translatex(${-xPosition}px)`,
         }}
       >
-        {/* <img
-          src={notices}
-          alt=""
-          onClick={() => toggleMenu()}
-          className="noticesimg"
-        /> */}
-
-        {/* <img src={notices} className="noticesimg" /> */}
-
         {noticeCheck === "EXIST" ? (
           <img
             src={currentMode.value === true ? darknoticeImg : noticeImg}
@@ -122,17 +113,6 @@ const Sidebar = ({ width = 300 }) => {
                   <div className="NotiveDate">
                     {detailDate(new Date(item.createDateTime))}
                   </div>
-                  {/* <div className="noticeProfileBox">
-                    {item.senderProfileImage ? (
-                      <img
-                        src={item.senderProfileImage}
-                        className="noticeProfile"
-                        alt=""
-                      />
-                    ) : (
-                      <img src={profileImg} className="noticeProfile" />
-                    )}
-                  </div> */}
                   <img
                     src={
                       item.senderProfileImage
@@ -141,7 +121,6 @@ const Sidebar = ({ width = 300 }) => {
                     }
                     className="noticeProfile"
                   />
-
                   <div className="noticeName">
                     <b>{item.senderName}</b>
                     님이 댓글을 입력하셨습니다
