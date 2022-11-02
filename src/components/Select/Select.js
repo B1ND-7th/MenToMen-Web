@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useEffect } from "react";
 import { useRecoilState } from "recoil";
 import { tagAtom } from "../../recoil/uploadAtom";
 import "./Select.css";
@@ -7,6 +7,9 @@ import { PLATFORM } from "../../constants/Platform/PLANTFORM";
 const Select = () => {
   const [select, setSelect] = useRecoilState(tagAtom);
 
+  // useEffect(() => {
+  //   console.log(select);
+  // }, [select]);
   return (
     <div>
       <div className="SelectBox">
