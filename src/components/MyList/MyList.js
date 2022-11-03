@@ -7,11 +7,13 @@ import "../../components/MyList/MyList.css";
 import { useRecoilState } from "recoil";
 import { userStateAtom } from "../../recoil/userAtom";
 import { useNavigate } from "react-router-dom";
+import { useParams } from "react-router-dom";
 
 const Mylist = () => {
   const [mypost, setMyPost] = useState([]);
   const [userInfo, setUserInfo] = useRecoilState(userStateAtom);
   const navigate = useNavigate();
+  const { postId } = useParams();
 
   const request = async () => {
     try {

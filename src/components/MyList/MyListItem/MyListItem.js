@@ -19,17 +19,19 @@ import Android from "../../../img/Android.svg";
 import Ios from "../../../img/Ios.svg";
 import Server from "../../../img/Server.svg";
 import useDarkMode from "use-dark-mode";
+import { useParams } from "react-router-dom";
 
 const MyListItem = ({ data }) => {
   const currentMode = useDarkMode(localStorage.getItem("darkMode"));
   const [modal, setModal] = useState(false);
   const { isModify, onChangeModify, setIsModify } = usePostModal();
   const [postData, setPostData] = useState(data);
-  const [postId, setPostId] = useRecoilState(postAtom);
+  const [setPostId] = useRecoilState(postAtom);
   const navigate = useNavigate();
   const nowDate = detailDate(new Date(data.createDateTime));
   const userData = useRecoilValue(userStateAtom);
   const [tempText, setTempText] = useState("");
+  const { postId } = useParams();
 
   const onClick = () => {
     setPostId(data.postId);

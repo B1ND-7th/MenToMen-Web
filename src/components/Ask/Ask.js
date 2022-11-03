@@ -13,7 +13,8 @@ import { PLATFORM } from "../../constants/Platform/PLANTFORM";
 import Slider from "react-slick";
 import no from "../../img/no.png";
 import darkno from "../../img/darkno.png";
-import { useBeforeunload } from "react-beforeunload";
+// import { useBeforeunload } from "react-beforeunload";
+// import useDarkMode from "use-dark-mode";
 import useDarkMode from "use-dark-mode";
 
 const Ask = () => {
