@@ -13,7 +13,7 @@ const Mylist = () => {
   const [mypost, setMyPost] = useState([]);
   const [userInfo, setUserInfo] = useRecoilState(userStateAtom);
   const navigate = useNavigate();
-  const { postId } = useParams();
+  const { postId, setpostId } = useParams();
 
   const request = async () => {
     try {
@@ -33,9 +33,14 @@ const Mylist = () => {
     }
   };
 
+  // const tlqkf = async () => {
+  //   setpostId(data.data.userInfo.postId);
+  // };
+
   useEffect(() => {
     userRequest();
     request();
+    // tlqkf();
   }, []);
 
   return (

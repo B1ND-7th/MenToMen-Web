@@ -26,16 +26,16 @@ const MyListItem = ({ data }) => {
   const [modal, setModal] = useState(false);
   const { isModify, onChangeModify, setIsModify } = usePostModal();
   const [postData, setPostData] = useState(data);
-  const [setPostId] = useRecoilState(postAtom);
+  const [postId, setPostId] = useRecoilState(postAtom);
   const navigate = useNavigate();
   const nowDate = detailDate(new Date(data.createDateTime));
   const userData = useRecoilValue(userStateAtom);
   const [tempText, setTempText] = useState("");
-  const { postId } = useParams();
+  // const { postId } = useParams();
 
   const onClick = () => {
     setPostId(data.postId);
-    navigate("/comment");
+    navigate(`/comment/${data.postId}`);
   };
 
   const editText = async () => {
