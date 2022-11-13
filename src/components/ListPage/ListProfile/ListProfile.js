@@ -15,6 +15,7 @@ import { listState } from "../../../recoil/listAtom";
 import { tagPost } from "../../../api/auth/tagSearch.api";
 import darkcopy from "../../../img/darkcopy.png";
 import useDarkMode from "use-dark-mode";
+import profile from "../../../img/profile.png";
 
 const ListProfile = () => {
   const currentMode = useDarkMode(localStorage.getItem("darkMode"));
@@ -40,7 +41,7 @@ const ListProfile = () => {
   return (
     <div className="listProfileContainer">
       <div className="mainUserInfo">
-        {userInfo?.profileImage ? (
+        {/* {userInfo?.profileImage ? (
           <img
             src={userInfo?.profileImage}
             className="mainProfile"
@@ -52,7 +53,8 @@ const ListProfile = () => {
             alt="img"
             className="mainProfile"
           />
-        )}
+        )} */}
+        <img src={profile} className="mainProfile" />
         <div className="mainUserInfo">
           <p className="mainUserName">{userInfo?.name}</p>
           <p className="mainUserGrade">{`${userInfo?.stdInfo?.grade}학년 ${userInfo?.stdInfo?.room}반 ${userInfo?.stdInfo?.number}번`}</p>

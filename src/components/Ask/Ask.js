@@ -16,6 +16,7 @@ import darkno from "../../img/darkno.png";
 import { useBeforeunload } from "react-beforeunload";
 // import useDarkMode from "use-dark-mode";
 import useDarkMode from "use-dark-mode";
+import profile from "../../img/profile.png";
 
 const Ask = () => {
   const currentMode = useDarkMode(localStorage.getItem("darkMode"));
@@ -123,11 +124,12 @@ const Ask = () => {
         <div className="askSection">
           <p className="askTitle">멘토 요청하기</p>
           <div className="askMid">
-            {userInfo?.profileImage ? (
+            {/* {userInfo?.profileImage ? (
               <img src={userInfo?.profileImage} alt=" " className="inputUser" />
             ) : (
-              <img src={Aprofile} alt=" " className="inputUser" />
-            )}
+              <img src={profile} alt=" " className="inputUser" />
+            )} */}
+            <img src={profile} alt=" " className="inputUser" />
             <form>
               <input
                 className="askInput"

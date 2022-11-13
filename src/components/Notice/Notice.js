@@ -11,6 +11,7 @@ import { detailDate } from "../../components/../components/common/Date";
 import noticeImg from "../../img/noticeImg.png";
 import darknoticeImg from "../../img/dark-noticeimg.png";
 import useDarkMode from "use-dark-mode";
+import profile from "../../img/profile.png";
 
 const Sidebar = ({ width = 300 }) => {
   const currentMode = useDarkMode(localStorage.getItem("darkMode"));
@@ -113,14 +114,15 @@ const Sidebar = ({ width = 300 }) => {
                   <div className="NotiveDate">
                     {detailDate(new Date(item.createDateTime))}
                   </div>
-                  <img
+                  {/* <img
                     src={
                       item.senderProfileImage
                         ? item.senderProfileImage
                         : profileImg
                     }
                     className="noticeProfile"
-                  />
+                  /> */}
+                  <img src={profile} className="noticeProfile" />
                   <div className="noticeName">
                     <b>{item.senderName}</b>
                     님이 댓글을 입력하셨습니다

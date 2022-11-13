@@ -20,6 +20,7 @@ import Android from "../../../img/Android.svg";
 import Ios from "../../../img/Ios.svg";
 import Server from "../../../img/Server.svg";
 import useDarkMode from "use-dark-mode";
+import profile from "../../../img/profile.png";
 
 const FeedMenuModal = ({ data }) => {
   const currentMode = useDarkMode(localStorage.getItem("darkMode"));
@@ -68,7 +69,7 @@ const FeedMenuModal = ({ data }) => {
       <div className="leftSection">
         <div className="profile">
           <div className="profileUrl">
-            {data.profileUrl ? (
+            {/* {data.profileUrl ? (
               <img
                 src={data.profileUrl}
                 className="profileUrl"
@@ -79,7 +80,8 @@ const FeedMenuModal = ({ data }) => {
                 src="http://dodam.b1nd.com/static/media/profile.9a3a77b0.svg"
                 alt="img"
               />
-            )}
+            )} */}
+            <img src={profile} alt="img" className="profileUrl" />
           </div>
           <div className="nameTag">
             <div className="userName">{data.userName}</div>

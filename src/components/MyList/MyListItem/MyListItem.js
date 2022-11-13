@@ -20,6 +20,7 @@ import Ios from "../../../img/Ios.svg";
 import Server from "../../../img/Server.svg";
 import useDarkMode from "use-dark-mode";
 import { useParams } from "react-router-dom";
+import profile from "../../../img/profile.png";
 
 const MyListItem = ({ data }) => {
   const currentMode = useDarkMode(localStorage.getItem("darkMode"));
@@ -84,7 +85,7 @@ const MyListItem = ({ data }) => {
       <div className="leftSection">
         <div className="profile">
           <div className="profileUrl">
-            {data.profileUrl ? (
+            {/* {data.profileUrl ? (
               <img
                 src={data.profileUrl}
                 className="profileUrl"
@@ -95,7 +96,8 @@ const MyListItem = ({ data }) => {
                 src="http://dodam.b1nd.com/static/media/profile.9a3a77b0.svg"
                 alt="img"
               />
-            )}
+            )} */}
+            <img src={profile} className="profileUrl" />
           </div>
           <div className="nameTag">
             <div className="userName">{data.userName}</div>

@@ -9,6 +9,7 @@ import profileimg from "../../../img/aprofile.png";
 import CommentBt from "../../Button/CommentButton/CommentBt";
 import CommentList from "../CommentList/CommentList";
 import { useParams } from "react-router-dom";
+import profile from "../../../img/profile.png";
 
 export default function Comment() {
   const [comment, setComment] = useRecoilState(commentAtom);
@@ -62,7 +63,7 @@ export default function Comment() {
           <div className="postCommentContentWrap">
             <div className="postCommentProfileWrap">
               <div className="ProfileUrl">
-                {post.profileUrl ? (
+                {/* {post.profileUrl ? (
                   <img
                     src={post.profileUrl}
                     className="profileUrl"
@@ -70,7 +71,8 @@ export default function Comment() {
                   />
                 ) : (
                   <img src={profileimg} alt="img" className="ProfileUrl" />
-                )}
+                )} */}
+                <img src={profile} alt="img" className="ProfileUrl" />
               </div>
               <div className="postCommentProfileTagWrap">
                 <div className="Username">{post.userName}</div>

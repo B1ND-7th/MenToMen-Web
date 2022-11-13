@@ -8,6 +8,7 @@ import ListProfile from "./ListProfile/ListProfile.js";
 import Ask from "../Ask/Ask.js";
 import Notice from "../Notice/Notice.js";
 import DarkMode from "../DarkMode/DarkMode.js";
+import profile from "../../img/profile.png";
 
 function List() {
   const [list, setList] = useRecoilState(listState);

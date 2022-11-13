@@ -8,6 +8,7 @@ import { useRecoilState } from "recoil";
 import { userStateAtom } from "../../recoil/userAtom";
 import { useNavigate } from "react-router-dom";
 import { useParams } from "react-router-dom";
+import profile from "../../img/profile.png";
 
 const Mylist = () => {
   const [mypost, setMyPost] = useState([]);
@@ -47,7 +48,7 @@ const Mylist = () => {
     <>
       <div className="myPageWrap">
         <div className="myProfile">
-          {userInfo.profileImage ? (
+          {/* {userInfo.profileImage ? (
             <img
               className="myImg"
               alt={"listItem profile"}
@@ -55,7 +56,8 @@ const Mylist = () => {
             />
           ) : (
             <img src={aprofile} alt="img" className="myImg" />
-          )}
+          )} */}
+          <img src={profile} className="myImg" />
           {userInfo.stdInfo ? (
             <div className="myGrade">
               <h1 className="myName">{userInfo.name}</h1>

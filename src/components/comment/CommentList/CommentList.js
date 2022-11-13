@@ -4,6 +4,7 @@ import { useState } from "react";
 import { useRecoilState } from "recoil";
 import { customAxios } from "../../../lib/axios/customAxios";
 import { commentListAtom, postAtom } from "../../../recoil/uploadAtom";
+import profile from "../../../img/profile.png";
 
 import "./CommentList.css";
 import profileimg from "../../../img/aprofile.png";
@@ -42,7 +43,7 @@ export default function CommentList() {
             <div className="CommentListBox">
               <div className="CommentListBoxWrap">
                 <div className="test">
-                  {item.profileUrl ? (
+                  {/* {item.profileUrl ? (
                     <img
                       src={item.profileUrl}
                       className="CommentListProfileUrl"
@@ -50,11 +51,16 @@ export default function CommentList() {
                     />
                   ) : (
                     <img
-                      src={profileimg}
+                      src={profile}
                       alt="img"
                       className="CommentListProfileUrl"
                     />
-                  )}
+                  )} */}
+                  <img
+                    src={profile}
+                    alt="img"
+                    className="CommentListProfileUrl"
+                  />
                 </div>
 
                 <div className="CommentListuserName">{item.userName}</div>
