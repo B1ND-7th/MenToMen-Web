@@ -35,6 +35,11 @@
   margin-top: 10px;
 }
 
+.myPostLength {
+  margin-left: 450px;
+  font-size: 1.125rem;
+}
+
 .myPageListSection {
   display: flex;
   flex-direction: column;

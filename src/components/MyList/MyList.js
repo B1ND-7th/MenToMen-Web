@@ -65,6 +65,9 @@ const Mylist = () => {
             </div>
           ) : null}
         </div>
+        <h1 className="myPostLength">
+          {`나의 멘토 요청글: ${mypost.length}`}개
+        </h1>
         <div className="myPageListSection">
           {mypost.map((item, idx) => (
             <MyListItem data={item} key={item.name + " " + idx} />
